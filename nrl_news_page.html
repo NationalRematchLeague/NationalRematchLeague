@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - National Rematch League</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a2f0a 0%, #1a1a1a 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            padding: 0 20px;
+            box-shadow: 0 2px 20px rgba(0, 255, 65, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 60px;
+        }
+
+        .logo {
+            width: 55px;
+            height: 55px;
+            margin-right: 40px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid #00ff41;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at 30% 30%, 
+                rgba(255, 255, 255, 0.3) 0%,
+                rgba(0, 255, 65, 0.1) 40%,
+                rgba(0, 0, 0, 0.8) 100%);
+        }
+
+        .logo-text {
+            position: absolute;
+            font-size: 16px;
+            font-weight: 900;
+            color: #000000;
+            text-shadow: 0 0 2px rgba(0, 255, 65, 0.5);
+            letter-spacing: -1px;
+            z-index: 10;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            flex-grow: 1;
+        }
+
+        .nav-links a {
+            color: #0a2f0a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 20px 0;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: white;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+
+        .sign-up {
+            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
+            color: #00ff41;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            border: 2px solid #00ff41;
+            transition: all 0.3s;
+        }
+
+        .sign-up:hover {
+            background: #00ff41;
+            color: #0a2f0a;
+            transform: scale(1.05);
+        }
+
+        /* Page Header */
+        .page-header {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px 20px;
+        }
+
+        .page-title {
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffffff 0%, #00ff41 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        /* Breaking News Banner */
+        .breaking-banner {
+            background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+            color: white;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .breaking-text {
+            background: white;
+            color: #ff0000;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .breaking-content {
+            flex-grow: 1;
+            font-weight: bold;
+        }
+
+        /* News Categories */
+        .news-categories {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            color: #ccc;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            color: #0a2f0a;
+            border-color: #00ff41;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Featured Story */
+        .featured-story {
+            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .featured-story:hover {
+            border-color: #00ff41;
+            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: all 0.3s;
+        }
+
+        .featured-story:hover .featured-image {
+            transform: scale(1.02);
+        }
+
+        .featured-content {
+            padding: 30px;
+        }
+
+        .featured-tag {
+            background: #00ff41;
+            color: #0a2f0a;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .featured-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .featured-excerpt {
+            font-size: 16px;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .featured-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .author {
+            color: #00ff41;
+            font-weight: bold;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .news-card {
+            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            gap: 20px;
+        }
+
+        .news-card:hover {
+            border-color: #00ff41;
+            box-shadow: 0 8px 20px rgba(0, 255, 65, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .news-image {
+            width: 150px;
+            height: 120px;
+            object-fit: cover;
+            transition: all 0.3s;
+        }
+
+        .news-card:hover .news-image {
+            transform: scale(1.05);
+        }
+
+        .news-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .news-tag {
+            background: rgba(0, 255, 65, 0.2);
+            color: #00ff41;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .news-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .news-excerpt {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .news-meta {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-section {
+            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00ff41;
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .trending-list {
+            list-style: none;
+        }
+
+        .trending-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .trending-item:hover {
+            background: rgba(0, 255, 65, 0.05);
+            padding-left: 10px;
+            border-radius: 8px;
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+        }
+
+        .trending-number {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00ff41;
+            min-width: 25px;
+        }
+
+        .trending-content {
+            flex-grow: 1;
+        }
+
+        .trending-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .trending-meta {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Social Feed */
+        .social-post {
+            background: rgba(0, 255, 65, 0.05);
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .social-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .social-platform {
+            background: #00ff41;
+            color: #0a2f0a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .social-time {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .social-content {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .news-card {
+                flex-direction: column;
+            }
+
+            .news-image {
+                width: 100%;
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 32px;
+            }
+
+            .featured-title {
+                font-size: 22px;
+            }
+
+            .breaking-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .news-categories {
+                gap: 10px;
+            }
+
+            .category-btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav-container">
+        <nav class="nav">
+            <div class="logo" onclick="window.open('artifact:nrl_website_enhanced', '_blank')">
+                <span class="logo-text">NRL</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Matches</a></li>
+                <li><a href="#">Schedule</a></li>
+                <li><a href="#" class="active">News</a></li>
+                <li><a href="#">Teams</a></li>
+                <li><a href="#">Players</a></li>
+                <li><a href="#">Stats</a></li>
+                <li><a href="#">Standings</a></li>
+                <li><a href="#">Academy League</a></li>
+                <li><a href="#">Free Agency</a></li>
+                <li><a href="#">Draft</a></li>
+                <li><a href="#">All-Star Game</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="sign-up">Sign Up</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1 class="page-title">News</h1>
+        <p class="page-subtitle">Latest updates, breaking news, and exclusive stories from the National Rematch League</p>
+        
+        <!-- Breaking News Banner -->
+        <div class="breaking-banner">
+            <span class="breaking-text">Breaking</span>
+            <span class="breaking-content">Storm FC announces major roster shake-up ahead of playoffs - Three players traded in blockbuster deal</span>
+        </div>
+
+        <!-- News Categories -->
+        <div class="news-categories">
+            <a href="#" class="category-btn active" onclick="filterNews('all')">All News</a>
+            <a href="#" class="category-btn" onclick="filterNews('breaking')">Breaking</a>
+            <a href="#" class="category-btn" onclick="filterNews('trades')">Trades</a>
+            <a href="#" class="category-btn" onclick="filterNews('playoffs')">Playoffs</a>
+            <a href="#" class="category-btn" onclick="filterNews('academy')">Academy</a>
+            <a href="#" class="category-btn" onclick="filterNews('features')">Features</a>
+            <a href="#" class="category-btn" onclick="filterNews('interviews')">Interviews</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="news-main">
+            <!-- Featured Story -->
+            <article class="featured-story">
+                <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Championship Victory" class="featured-image">
+                <div class="featured-content">
+                    <span class="featured-tag">Championship Final</span>
+                    <h2 class="featured-title">Dynasty Continues: Nova Core Captures Third Consecutive NRL Title</h2>
+                    <p class="featured-excerpt">In a thrilling championship final that went to overtime, Nova Core defeated Serpent Grove FC 3-2 to secure their third straight National Rematch League title. The victory caps off a dominant season that saw the team post a league-best 24-4 record during the regular season.</p>
+                    <div class="featured-meta">
+                        <span class="author">By Sarah Chen, NRL Reporter</span>
+                        <span>2 hours ago</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- News Grid -->
+            <div class="news-grid">
+                <article class="news-card">
+                    <img src="https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Trade News" class="news-image">
+                    <div class="news-content">
+                        <span class="news-tag">Trade Alert</span>
+                        <h3 class="news-title">Storm FC Acquires Star Forward in Three-Team Deal</h3>
+                        <p class="news-excerpt">The blockbuster trade sends veteran Marcus "Lightning" Rodriguez to Storm FC, while DryWater FC receives two prospects and draft picks...</p>
+                        <div class="news-meta">Alex Rivera • 4 hours ago</div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Academy News" class="news-image">
+                    <div class="news-content">
+                        <span class="news-tag">Academy</span>
+                        <h3 class="news-title">Academy League Finals Set: Top Prospects Battle for Glory</h3>
+                        <p class="news-excerpt">Eight teams remain in the Academy League championship hunt, with several players expected to make the jump to professional level...</p>
+                        <div class="news-meta">Jamie Park • 6 hours ago</div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://images.unsplash.com/photo-1556056504-5c7696c4c28d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Draft News" class="news-image">
+                    <div class="news-content">
+                        <span class="news-tag">Draft</span>
+                        <h3 class="news-title">2025 NRL Draft: Scouting Report on Top 10 Prospects</h3>
+                        <p class="news-excerpt">With the draft approaching, we break down the most promising talent entering the league, including surprise risers and potential steals...</p>
+                        <div class="news-meta">Michael Torres • 8 hours ago</div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="All-Star Game" class="news-image">
+                    <div class="news-content">
+                        <span class="news-tag">All-Star</span>
+                        <h3 class="news-title">All-Star Game Rosters Announced: Record 12 Teams Represented</h3>
+                        <p class="news-excerpt">The fan voting results are in, and this year's NRL All-Star Game will feature the most diverse roster in league history...</p>
+                        <div class="news-meta">Dana Kim • 12 hours ago</div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Free Agency" class="news-image">
+                    <div class="news-content">
+                        <span class="news-tag">Free Agency</span>
+                        <h3 class="news-title">Free Agency Frenzy: VICI0US VIPERS Sign Two Major Acquisitions</h3>
+                        <p class="news-excerpt">The Vipers bolster their championship hopes with the signings of veteran defender Ana "Shield" Martinez and rising star Tyler "Blitz" Johnson...</p>
+                        <div class="news-meta">Ryan Lee • 1 day ago</div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://images.unsplash.com/photo-1593717780851-6f68125c7e58?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Feature Story" class="news-image">
+                    <div class="news-content">
+                        <span class="news-tag">Feature</span>
+                        <h3 class="news-title">Behind the Scenes: How U20s Built Their Championship Culture</h3>
+                        <p class="news-excerpt">An exclusive look inside the U20s organization reveals the innovative training methods and team-building strategies that led to their breakthrough season...</p>
+                        <div class="news-meta">Jordan Smith • 1 day ago</div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Trending Stories -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Trending Stories</h3>
+                <ul class="trending-list">
+                    <li class="trending-item">
+                        <span class="trending-number">1</span>
+                        <div class="trending-content">
+                            <div class="trending-title">Nova Core wins third straight championship</div>
+                            <div class="trending-meta">15.2K views • 2 hours ago</div>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <span class="trending-number">2</span>
+                        <div class="trending-content">
+                            <div class="trending-title">Storm FC completes blockbuster trade</div>
+                            <div class="trending-meta">8.7K views • 4 hours ago</div>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <span class="trending-number">3</span>
+                        <div class="trending-content">
+                            <div class="trending-title">Academy League championship preview</div>
+                            <div class="trending-meta">6.3K views • 6 hours ago</div>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <span class="trending-number">4</span>
+                        <div class="trending-content">
+                            <div class="trending-title">2025 Draft prospect rankings</div>
+                            <div class="trending-meta">5.9K views • 8 hours ago</div>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <span class="trending-number">5</span>
+                        <div class="trending-content">
+                            <div class="trending-title">All-Star Game roster reveals</div>
+                            <div class="trending-meta">4.8K views • 12 hours ago</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Social Media Feed -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Social Buzz</h3>
+                <div class="social-post">
+                    <div class="social-header">
+                        <span class="social-platform">Twitter</span>
+                        <span class="social-time">15 mins ago</span>
+                    </div>
+                    <div class="social-content">
+                        "What a championship final! Nova Core showing why they're the dynasty to beat. #NRLChampions #NovaCore"
+                    </div>
+                </div>
+                <div class="social-post">
+                    <div class="social-header">
+                        <span class="social-platform">Instagram</span>
+                        <span class="social-time">32 mins ago</span>
+                    </div>
+                    <div class="social-content">
+                        "Storm FC fans are HYPED about the new trade! Rodriguez is going to be incredible in Storm colors ⚡"
+                    </div>
+                </div>
+                <div class="social-post">
+                    <div class="social-header">
+                        <span class="social-platform">TikTok</span>
+                        <span class="social-time">1 hour ago</span>
+                    </div>
+                    <div class="social-content">
+                        "Academy League highlights are INSANE this year! These young players are ready for the big leagues 🔥"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Quick Stats</h3>
+                <div style="text-align: center;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                        <div>
+                            <div style="font-size: 24px; color: #00ff41; font-weight: bold;">156</div>
+                            <div style="font-size: 12px; color: #ccc;">Articles This Month</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 24px; color: #00ff41; font-weight: bold;">2.4M</div>
+                            <div style="font-size: 12px; color: #ccc;">Total Views</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 24px; color: #00ff41; font-weight: bold;">47</div>
+                            <div style="font-size: 12px; color: #ccc;">Breaking Stories</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 24px; color: #00ff41; font-weight: bold;">23</div>
+                            <div style="font-size: 12px; color: #ccc;">Exclusive Interviews</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterNews(category) {
+            // Remove active class from all category buttons
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            console.log('Filtering news by category:', category);
+            
+            // Here you would filter the news articles based on category
+            // For now, we'll just log the action
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('NRL News page loaded');
+        });
+    </script>
+</body>
+</html>

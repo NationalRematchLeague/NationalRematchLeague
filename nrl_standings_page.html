@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standings - National Rematch League</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a2f0a 0%, #1a1a1a 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            padding: 0 20px;
+            box-shadow: 0 2px 20px rgba(0, 255, 65, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 60px;
+        }
+
+        .logo {
+            width: 55px;
+            height: 55px;
+            margin-right: 40px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid #00ff41;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at 30% 30%, 
+                rgba(255, 255, 255, 0.3) 0%,
+                rgba(0, 255, 65, 0.1) 40%,
+                rgba(0, 0, 0, 0.8) 100%);
+        }
+
+        .logo-text {
+            position: absolute;
+            font-size: 16px;
+            font-weight: 900;
+            color: #000000;
+            text-shadow: 0 0 2px rgba(0, 255, 65, 0.5);
+            letter-spacing: -1px;
+            z-index: 10;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            flex-grow: 1;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #0a2f0a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 20px 0;
+            transition: all 0.3s;
+            display: block;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: white;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 255, 65, 0.3);
+            border-radius: 8px;
+            z-index: 1000;
+            border: 1px solid rgba(0, 255, 65, 0.5);
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            color: #0a2f0a !important;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-bottom: 1px solid rgba(10, 47, 10, 0.1);
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(10, 47, 10, 0.1);
+            transform: translateX(5px);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .dropdown-content a:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+
+        .dropdown > a::after {
+            content: ' ▼';
+            font-size: 10px;
+            margin-left: 5px;
+        }
+
+        .sign-up {
+            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
+            color: #00ff41;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            border: 2px solid #00ff41;
+            transition: all 0.3s;
+        }
+
+        .sign-up:hover {
+            background: #00ff41;
+            color: #0a2f0a;
+            transform: scale(1.05);
+        }
+
+        /* Page Header */
+        .page-header {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px 20px;
+        }
+
+        .page-title {
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffffff 0%, #00ff41 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        /* Season Stats Bar */
+        .season-stats-bar {
+            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 255, 65, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            background: rgba(0, 255, 65, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00ff41;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #ccc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 255, 65, 0.2);
+            border-radius: 4px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff41, #00cc33);
+            border-radius: 4px;
+            width: 68%;
+            animation: progressGlow 2s infinite alternate;
+        }
+
+        @keyframes progressGlow {
+            from { box-shadow: 0 0 5px rgba(0, 255, 65, 0.5); }
+            to { box-shadow: 0 0 15px rgba(0, 255, 65, 0.8); }
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Standings Table Container */
+        .standings-container {
+            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.1);
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            color: #0a2f0a;
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-title {
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .view-toggles {
+            display: flex;
+            gap: 8px;
+        }
+
+        .view-toggle {
+            background: rgba(10, 47, 10, 0.3);
+            border: 1px solid rgba(10, 47, 10, 0.5);
+            color: #0a2f0a;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .view-toggle.active,
+        .view-toggle:hover {
+            background: #0a2f0a;
+            color: #00ff41;
+            border-color: #0a2f0a;
+        }
+
+        /* Modern Standings Table */
+        .standings-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: transparent;
+        }
+
+        .standings-table thead th {
+            background: rgba(0, 255, 65, 0.15);
+            color: #00ff41;
+            padding: 18px 12px;
+            text-align: left;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid rgba(0, 255, 65, 0.3);
+            position: sticky;
+            top: 0;
+        }
+
+        .standings-table thead th:first-child {
+            text-align: center;
+            width: 60px;
+        }
+
+        .standings-table tbody tr {
+            transition: all 0.3s;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .standings-table tbody tr:hover {
+            background: rgba(0, 255, 65, 0.05);
+            transform: scale(1.01);
+        }
+
+        .standings-table tbody td {
+            padding: 18px 12px;
+            vertical-align: middle;
+        }
+
+        /* Position Styling */
+        .position-cell {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            position: relative;
+        }
+
+        .position-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            border-radius: 50%;
+            background: rgba(0, 255, 65, 0.2);
+            color: #00ff41;
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        }
+
+        /* Playoff positioning */
+        .playoff-position .position-number {
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            color: #0a2f0a;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+        }
+
+        .elimination-position .position-number {
+            background: linear-gradient(135deg, #ff4444 0%, #cc3333 100%);
+            color: white;
+            box-shadow: 0 0 15px rgba(255, 68, 68, 0.4);
+        }
+
+        /* Team Cell Styling */
+        .team-cell {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-width: 200px;
+        }
+
+        .team-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #0a2f0a;
+            font-size: 14px;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+            flex-shrink: 0;
+        }
+
+        .team-info {
+            flex-grow: 1;
+        }
+
+        .team-name {
+            font-weight: bold;
+            font-size: 16px;
+            color: white;
+            margin-bottom: 2px;
+        }
+
+        .team-record {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .team-form {
+            display: flex;
+            gap: 3px;
+            margin-top: 4px;
+        }
+
+        .form-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .form-dot.win {
+            background: #00ff41;
+            box-shadow: 0 0 4px rgba(0, 255, 65, 0.6);
+        }
+
+        .form-dot.loss {
+            background: #ff6b6b;
+            box-shadow: 0 0 4px rgba(255, 107, 107, 0.6);
+        }
+
+        /* Stat Cells */
+        .stat-cell {
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .wins-cell { color: #00ff41; }
+        .losses-cell { color: #ff6b6b; }
+        .percentage-cell { color: #ffd700; }
+        .streak-cell { color: #00ccff; }
+
+        /* Special Row Styling */
+        .playoff-spot {
+            background: linear-gradient(90deg, rgba(0, 255, 65, 0.08) 0%, transparent 100%);
+            border-left: 4px solid #00ff41;
+        }
+
+        .elimination-zone {
+            background: linear-gradient(90deg, rgba(255, 68, 68, 0.08) 0%, transparent 100%);
+            border-left: 4px solid #ff4444;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-section {
+            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+
+        .sidebar-section:hover {
+            border-color: rgba(0, 255, 65, 0.5);
+            box-shadow: 0 5px 20px rgba(0, 255, 65, 0.1);
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00ff41;
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Playoff Picture */
+        .playoff-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .playoff-team {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(0, 255, 65, 0.08);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            transition: all 0.3s;
+        }
+
+        .playoff-team:hover {
+            background: rgba(0, 255, 65, 0.12);
+            transform: translateX(5px);
+        }
+
+        .playoff-seed {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            color: #0a2f0a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+        }
+
+        .playoff-team-info {
+            flex-grow: 1;
+        }
+
+        .playoff-team-name {
+            font-weight: bold;
+            color: white;
+            margin-bottom: 2px;
+        }
+
+        .playoff-team-record {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        /* League Leaders */
+        .leaders-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .leader-category {
+            margin-bottom: 20px;
+        }
+
+        .leader-category h4 {
+            color: #00ff41;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .leader-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .leader-item:last-child {
+            border-bottom: none;
+        }
+
+        .leader-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .leader-team-tag {
+            background: rgba(0, 255, 65, 0.2);
+            color: #00ff41;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .leader-value {
+            font-weight: bold;
+            color: #00ff41;
+            font-size: 16px;
+        }
+
+        /* Movement Indicators */
+        .movement-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .movement-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .movement-up {
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+        }
+
+        .movement-down {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+        }
+
+        .movement-indicator {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .movement-up .movement-indicator {
+            color: #00ff41;
+        }
+
+        .movement-down .movement-indicator {
+            color: #ff6b6b;
+        }
+
+        /* Key Games */
+        .key-games-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .key-game {
+            padding: 15px;
+            background: rgba(0, 255, 65, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            transition: all 0.3s;
+        }
+
+        .key-game:hover {
+            background: rgba(0, 255, 65, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .game-time {
+            font-weight: bold;
+            color: #00ff41;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .game-matchup {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .game-implications {
+            font-size: 12px;
+            color: #ccc;
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .season-stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .standings-table {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 32px;
+            }
+
+            .season-stats-bar {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .table-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .standings-table thead th,
+            .standings-table tbody td {
+                padding: 10px 6px;
+                font-size: 11px;
+            }
+
+            .team-cell {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+
+            .team-logo {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav-container">
+        <nav class="nav">
+            <div class="logo" onclick="window.open('artifact:nrl_website_enhanced', '_blank')">
+                <span class="logo-text">NRL</span>
+            </div>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="#">Matches</a>
+                    <div class="dropdown-content">
+                        <a href="#">Live Matches</a>
+                        <a href="#">Recent Results</a>
+                        <a href="#">Upcoming Matches</a>
+                        <a href="#">Match Highlights</a>
+                        <a href="#">Playoffs</a>
+                        <a href="#">Championship Series</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Schedule</a>
+                    <div class="dropdown-content">
+                        <a href="#">Season 2 Schedule</a>
+                        <a href="#">Playoffs Schedule</a>
+                        <a href="#">Championship Schedule</a>
+                        <a href="#">Key Dates</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">News</a>
+                    <div class="dropdown-content">
+                        <a href="#">Breaking News</a>
+                        <a href="#">Top Stories</a>
+                        <a href="#">Academy League</a>
+                        <a href="#">Draft News</a>
+                        <a href="#">Features</a>
+                        <a href="#">Interviews</a>
+                        <a href="#">Events</a>
+                        <a href="#">Transactions</a>
+                    </div>
+                </li>
+                <li><a href="#">Academy League</a></li>
+                <li><a href="#">Free Agency</a></li>
+                <li><a href="#">Draft</a></li>
+                <li><a href="#">All-Star Game</a></li>
+                <li class="dropdown">
+                    <a href="#">Stats</a>
+                    <div class="dropdown-content">
+                        <a href="#">Player Stats</a>
+                        <a href="#">Team Stats</a>
+                        <a href="#">League Leaders</a>
+                        <a href="#">Advanced Analytics</a>
+                        <a href="#">Historical Stats</a>
+                    </div>
+                </li>
+                <li><a href="#" class="active">Standings</a></li>
+                <li class="dropdown">
+                    <a href="#">Teams</a>
+                    <div class="dropdown-content">
+                        <a href="#">Serpent Grove FC</a>
+                        <a href="#">DryWater FC</a>
+                        <a href="#">67ers</a>
+                        <a href="#">VICI0US VIPERS</a>
+                        <a href="#">U20s</a>
+                        <a href="#">Nova Core</a>
+                        <a href="#">Neon City</a>
+                        <a href="#">St. Paul Strikers</a>
+                        <a href="#">Storm FC</a>
+                        <a href="#">Liquid FC</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Players</a>
+                    <div class="dropdown-content">
+                        <a href="#">Players Home</a>
+                        <a href="#">Player Stats</a>
+                        <a href="#">Starting Lineups</a>
+                        <a href="#">Free Agent Tracker</a>
+                        <a href="#">Transactions</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="sign-up">Sign Up</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1 class="page-title">Standings</h1>
+        <p class="page-subtitle">Current league standings, playoff race, and team performance analysis</p>
+        
+        <!-- Season Stats Bar -->
+        <div class="season-stats-bar">
+            <div class="stat-box">
+                <div class="stat-number">68%</div>
+                <div class="stat-label">Season Complete</div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">156</div>
+                <div class="stat-label">Games Played</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">24</div>
+                <div class="stat-label">Games Remaining</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Playoff Spots</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">Sep 5</div>
+                <div class="stat-label">Playoffs Start</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Standings Table -->
+        <div class="standings-container">
+            <div class="table-header">
+                <div class="table-title">Season 2 Standings</div>
+                <div class="view-toggles">
+                    <button class="view-toggle active" onclick="switchView('overall')">Overall</button>
+                    <button class="view-toggle" onclick="switchView('conference')">Conference</button>
+                    <button class="view-toggle" onclick="switchView('division')">Division</button>
+                    <button class="view-toggle" onclick="switchView('recent')">Last 10</button>
+                </div>
+            </div>
+            
+            <table class="standings-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Team</th>
+                        <th>W</th>
+                        <th>L</th>
+                        <th>WIN%</th>
+                        <th>GB</th>
+                        <th>PF</th>
+                        <th>PA</th>
+                        <th>DIFF</th>
+                        <th>STRK</th>
+                        <th>L10</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="playoff-spot playoff-position">
+                        <td class="position-cell">
+                            <span class="position-number">1</span>
+                        </td>
+                        <td class="team-cell">
+                            <div class="team-logo">NC</div>
+                            <div class="team-info">
+                                <div class="team-name">Nova Core</div>
+                                <div class="team-record">The Innovators • Core Arena</div>
+                                <div class="team-form">
+                                    <span class="form-dot win"></span>
+                                    <span class="form-dot win"></span>
+                                    <span class="form-dot win"></span>
+                                    <span class="form-dot win"></span>
+                                    <span class="form-dot win"></span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="stat-cell wins-cell">24</td>
+                        <td class="stat-cell losses-cell">4</td>
+                        <td class="
