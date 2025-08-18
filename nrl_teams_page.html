@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams - National Rematch League</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a2f0a 0%, #1a1a1a 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            padding: 0 20px;
+            box-shadow: 0 2px 20px rgba(0, 255, 65, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 60px;
+        }
+
+        .logo {
+            width: 55px;
+            height: 55px;
+            margin-right: 40px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid #00ff41;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at 30% 30%, 
+                rgba(255, 255, 255, 0.3) 0%,
+                rgba(0, 255, 65, 0.1) 40%,
+                rgba(0, 0, 0, 0.8) 100%);
+        }
+
+        .logo-text {
+            position: absolute;
+            font-size: 16px;
+            font-weight: 900;
+            color: #000000;
+            text-shadow: 0 0 2px rgba(0, 255, 65, 0.5);
+            letter-spacing: -1px;
+            z-index: 10;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            flex-grow: 1;
+        }
+
+        .nav-links a {
+            color: #0a2f0a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 20px 0;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: white;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+
+        .sign-up {
+            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
+            color: #00ff41;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            border: 2px solid #00ff41;
+            transition: all 0.3s;
+        }
+
+        .sign-up:hover {
+            background: #00ff41;
+            color: #0a2f0a;
+            transform: scale(1.05);
+        }
+
+        /* Page Header */
+        .page-header {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px 20px;
+        }
+
+        .page-title {
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffffff 0%, #00ff41 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        /* Filter Options */
+        .filter-options {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            color: #ccc;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            color: #0a2f0a;
+            border-color: #00ff41;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+
+        /* Teams Grid */
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .team-card {
+            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .team-card:hover {
+            border-color: #00ff41;
+            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .team-header {
+            background: linear-gradient(135deg, rgba(0, 255, 65, 0.1) 0%, rgba(0, 255, 65, 0.05) 100%);
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .team-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #0a2f0a;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        }
+
+        .team-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #00ff41;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
+
+        .team-nickname {
+            font-size: 14px;
+            color: #ccc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .team-record {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 255, 65, 0.2);
+            color: #00ff41;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .team-content {
+            padding: 25px;
+        }
+
+        .team-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 12px;
+            background: rgba(0, 255, 65, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 65, 0.1);
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #00ff41;
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #ccc;
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        .team-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            font-size: 13px;
+        }
+
+        .info-label {
+            color: #00ff41;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .info-value {
+            color: #ccc;
+        }
+
+        .roster-preview {
+            margin-bottom: 20px;
+        }
+
+        .roster-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #00ff41;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .player-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .player-tag {
+            background: rgba(0, 255, 65, 0.1);
+            color: #ccc;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .team-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 8px;
+            background: transparent;
+            color: #00ff41;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .action-btn:hover {
+            background: #00ff41;
+            color: #0a2f0a;
+            border-color: #00ff41;
+        }
+
+        /* League Overview */
+        .league-overview {
+            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .overview-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ff41;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .overview-stat {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 255, 65, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .overview-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00ff41;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
+
+        .overview-label {
+            font-size: 14px;
+            color: #ccc;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .teams-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 25px;
+            }
+
+            .team-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 32px;
+            }
+
+            .teams-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .team-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .team-info {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-options {
+                gap: 10px;
+            }
+
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav-container">
+        <nav class="nav">
+            <div class="logo" onclick="window.open('artifact:nrl_website_enhanced', '_blank')">
+                <span class="logo-text">NRL</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Matches</a></li>
+                <li><a href="#">Schedule</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#" class="active">Teams</a></li>
+                <li><a href="#">Players</a></li>
+                <li><a href="#">Stats</a></li>
+                <li><a href="#">Standings</a></li>
+                <li><a href="#">Academy League</a></li>
+                <li><a href="#">Free Agency</a></li>
+                <li><a href="#">Draft</a></li>
+                <li><a href="#">All-Star Game</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="sign-up">Sign Up</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1 class="page-title">Teams</h1>
+        <p class="page-subtitle">Complete roster information, team stats, and profiles for all 10 NRL franchises</p>
+        
+        <!-- Filter Options -->
+        <div class="filter-options">
+            <a href="#" class="filter-btn active" onclick="filterTeams('all')">All Teams</a>
+            <a href="#" class="filter-btn" onclick="filterTeams('playoff')">Playoff Teams</a>
+            <a href="#" class="filter-btn" onclick="filterTeams('conference')">By Conference</a>
+            <a href="#" class="filter-btn" onclick="filterTeams('alphabetical')">Alphabetical</a>
+            <a href="#" class="filter-btn" onclick="filterTeams('standings')">By Standings</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- League Overview -->
+        <div class="league-overview">
+            <h2 class="overview-title">League Overview</h2>
+            <div class="overview-stats">
+                <div class="overview-stat">
+                    <div class="overview-number">10</div>
+                    <div class="overview-label">Teams</div>
+                </div>
+                <div class="overview-stat">
+                    <div class="overview-number">150</div>
+                    <div class="overview-label">Total Players</div>
+                </div>
+                <div class="overview-stat">
+                    <div class="overview-number">15</div>
+                    <div class="overview-label">Avg Team Size</div>
+                </div>
+                <div class="overview-stat">
+                    <div class="overview-number">6</div>
+                    <div class="overview-label">Playoff Spots</div>
+                </div>
+                <div class="overview-stat">
+                    <div class="overview-number">$1500</div>
+                    <div class="overview-label">Prize Pool</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Teams Grid -->
+        <div class="teams-grid">
+            <!-- Nova Core -->
+            <div class="team-card" onclick="viewTeam('nova-core')">
+                <div class="team-header">
+                    <div class="team-record">24-4</div>
+                    <div class="team-logo">NC</div>
+                    <div class="team-name">Nova Core</div>
+                    <div class="team-nickname">The Innovators</div>
+                </div>
+                <div class="team-content">
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">78</div>
+                            <div class="stat-label">Points For</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">69</div>
+                            <div class="stat-label">Points Against</div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <div class="info-item">
+                            <div class="info-label">Founded</div>
+                            <div class="info-value">2023</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Home Venue</div>
+                            <div class="info-value">Grove Stadium</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Head Coach</div>
+                            <div class="info-value">Sarah "Snake" Johnson</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Captain</div>
+                            <div class="info-value">Carlos "Venom" Martinez</div>
+                        </div>
+                    </div>
+                    <div class="roster-preview">
+                        <div class="roster-title">Key Players</div>
+                        <div class="player-list">
+                            <span class="player-tag">Carlos Martinez (C)</span>
+                            <span class="player-tag">Luna "Strike" Park</span>
+                            <span class="player-tag">Rico "Fang" Davis</span>
+                            <span class="player-tag">Zoe "Serpent" Wilson</span>
+                        </div>
+                    </div>
+                    <div class="team-actions">
+                        <a href="#" class="action-btn">View Roster</a>
+                        <a href="#" class="action-btn">Team Stats</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VICI0US VIPERS -->
+            <div class="team-card" onclick="viewTeam('vicious-vipers')">
+                <div class="team-header">
+                    <div class="team-record">19-9</div>
+                    <div class="team-logo">VV</div>
+                    <div class="team-name">VICI0US VIPERS</div>
+                    <div class="team-nickname">The Predators</div>
+                </div>
+                <div class="team-content">
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">3rd</div>
+                            <div class="stat-label">Standing</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">75</div>
+                            <div class="stat-label">Points For</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">71</div>
+                            <div class="stat-label">Points Against</div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <div class="info-item">
+                            <div class="info-label">Founded</div>
+                            <div class="info-value">2023</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Home Venue</div>
+                            <div class="info-value">Viper's Den</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Head Coach</div>
+                            <div class="info-value">Marcus "Venom" Torres</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Captain</div>
+                            <div class="info-value">Ana "Vicious" Garcia</div>
+                        </div>
+                    </div>
+                    <div class="roster-preview">
+                        <div class="roster-title">Key Players</div>
+                        <div class="player-list">
+                            <span class="player-tag">Ana Garcia (C)</span>
+                            <span class="player-tag">Max "Bite" Thompson</span>
+                            <span class="player-tag">Kai "Venom" Zhang</span>
+                            <span class="player-tag">Riley "Strike" Brown</span>
+                        </div>
+                    </div>
+                    <div class="team-actions">
+                        <a href="#" class="action-btn">View Roster</a>
+                        <a href="#" class="action-btn">Team Stats</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Storm FC -->
+            <div class="team-card" onclick="viewTeam('storm-fc')">
+                <div class="team-header">
+                    <div class="team-record">18-10</div>
+                    <div class="team-logo">ST</div>
+                    <div class="team-name">Storm FC</div>
+                    <div class="team-nickname">The Thunder</div>
+                </div>
+                <div class="team-content">
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">4th</div>
+                            <div class="stat-label">Standing</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">73</div>
+                            <div class="stat-label">Points For</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">68</div>
+                            <div class="stat-label">Points Against</div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <div class="info-item">
+                            <div class="info-label">Founded</div>
+                            <div class="info-value">2023</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Home Venue</div>
+                            <div class="info-value">Thunder Dome</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Head Coach</div>
+                            <div class="info-value">Elena "Lightning" Petrov</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Captain</div>
+                            <div class="info-value">Jake "Storm" Anderson</div>
+                        </div>
+                    </div>
+                    <div class="roster-preview">
+                        <div class="roster-title">Key Players</div>
+                        <div class="player-list">
+                            <span class="player-tag">Jake Anderson (C)</span>
+                            <span class="player-tag">Mia "Thunder" O'Brien</span>
+                            <span class="player-tag">Diego "Lightning" Ruiz</span>
+                            <span class="player-tag">Sam "Bolt" Taylor</span>
+                        </div>
+                    </div>
+                    <div class="team-actions">
+                        <a href="#" class="action-btn">View Roster</a>
+                        <a href="#" class="action-btn">Team Stats</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Liquid FC -->
+            <div class="team-card" onclick="viewTeam('liquid-fc')">
+                <div class="team-header">
+                    <div class="team-record">16-12</div>
+                    <div class="team-logo">LQ</div>
+                    <div class="team-name">Liquid FC</div>
+                    <div class="team-nickname">The Flow</div>
+                </div>
+                <div class="team-content">
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">5th</div>
+                            <div class="stat-label">Standing</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">70</div>
+                            <div class="stat-label">Points For</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">72</div>
+                            <div class="stat-label">Points Against</div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <div class="info-item">
+                            <div class="info-label">Founded</div>
+                            <div class="info-value">2023</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Home Venue</div>
+                            <div class="info-value">Flow Arena</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Head Coach</div>
+                            <div class="info-value">Ryan "Wave" Mitchell</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Captain</div>
+                            <div class="info-value">Lily "Liquid" Chang</div>
+                        </div>
+                    </div>
+                    <div class="roster-preview">
+                        <div class="roster-title">Key Players</div>
+                        <div class="player-list">
+                            <span class="player-tag">Lily Chang (C)</span>
+                            <span class="player-tag">Noah "Stream" Williams</span>
+                            <span class="player-tag">Aria "Flow" Johnson</span>
+                            <span class="player-tag">Felix "Tide" Lopez</span>
+                        </div>
+                    </div>
+                    <div class="team-actions">
+                        <a href="#" class="action-btn">View Roster</a>
+                        <a href="#" class="action-btn">Team Stats</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DryWater FC -->
+            <div class="team-card" onclick="viewTeam('drywater-fc')">
+                <div class="team-header">
+                    <div class="team-record">15-13</div>
+                    <div class="team-logo">DW</div>
+                    <div class="team-name">DryWater FC</div>
+                    <div class="team-nickname">The Desert Storm</div>
+                </div>
+                <div class="team-content">
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">6th</div>
+                            <div class="stat-label">Standing</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">68</div>
+                            <div class="stat-label">Points For</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">70</div>
+                            <div class="stat-label">Points Against</div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <div class="info-item">
+                            <div class="info-label">Founded</div>
+                            <div class="info-value">2023</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Home Venue</div>
+                            <div class="info-value">Oasis Stadium</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Head Coach</div>
+                            <div class="info-value">Omar "Mirage" Hassan</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Captain</div>
+                            <div class="info-value">Phoenix "Dry" Roberts</div>
+                        </div>
+                    </div>
+                    <div class="roster-preview">
+                        <div class="roster-title">Key Players</div>
+                        <div class="player-list">
+                            <span class="player-tag">Phoenix Roberts (C)</span>
+                            <span class="player-tag">Sage "Dust" Miller</span>
+                            <span class="player-tag">Atlas "Sand" Kumar</span>
+                            <span class="player-tag">River "Drought" Kim</span>
+                        </div>
+                    </div>
+                    <div class="team-actions">
+                        <a href="#" class="action-btn">View Roster</a>
+                        <a href="#" class="action-btn">Team Stats</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 67ers -->
+            <div class="team-card" onclick="viewTeam('67ers')">
+                <div class="team-header">
+                    <div class="team-record">14-14</div>
+                    <div class="team-logo">67</div>
+                    <div class="team-name">67ers</div>
+                    <div class="team-nickname">The Legends</div>
+                </div>
+                <div class="team-content">
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">7th</div>
+                            <div class="stat-label">Standing</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">66</div>
+                            <div class="stat-label">Points For</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">68</div>
+                            <div class="stat-label">Points Against</div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <div class="info-item">
+                            <div class="info-label">Founded</div>
+                            <div class="info-value">2023</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Home Venue</div>
+                            <div class="info-value">Legacy Arena</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Head Coach</div>
+                            <div class="info-value">Tony "Classic" Romano</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Captain</div>
+                            <div class="info-value">Marcus "Legend" Thompson</div>
+                        </div>
+                    </div>
+                    <div class="roster-preview">
+                        <div class="roster-title">Key Players</div>
+                        <div class="player-list">
+                            <span class="player-tag">Marcus Thompson (C)</span>
+                            <span class="player-tag">Vintage "67" Jackson</span>
+                            <span class="player-tag">Retro "Classic" Lee</span>
+                            <span class="player-tag">Echo "Throwback" Davis</span>
+                        </div>
+                    </div>
+                    <div class="team-actions">
+                        <a href="#" class="action-btn">View Roster</a>
+                        <a href="#" class="action-btn">Team Stats</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- St. Paul Strikers -->
+            <div class="team-card" onclick="viewTeam('st-paul-strikers')">
+                <div class="team-header">
+                    <div class="team-record">12-16</div>
+                    <div class="team-logo">SP</div>
+                    <div class="team-name">St. Paul Strikers</div>
+                    <div class="team-nickname">The Saints</div>
+                </div>
+                <div class="team-content">
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">8th</div>
+                            <div class="stat-label">Standing</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">63</div>
+                            <div class="stat-label">Points For</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">75</div>
+                            <div class="stat-label">Points Against</div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <div class="info-item">
+                            <div class="info-label">Founded</div>
+                            <div class="info-value">2023</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Home Venue</div>
+                            <div class="info-value">Saints Stadium</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Head Coach</div>
+                            <div class="info-value">Grace "Saint" Peterson</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Captain</div>
+                            <div class="info-value">Paul "Strike" O'Connor</div>
+                        </div>
+                    </div>
+                    <div class="roster-preview">
+                        <div class="roster-title">Key Players</div>
+                        <div class="player-list">
+                            <span class="player-tag">Paul O'Connor (C)</span>
+                            <span class="player-tag">Faith "Spirit" Clark</span>
+                            <span class="player-tag">Hope "Angel" Martinez</span>
+                            <span class="player-tag">Divine "Saint" Wilson</span>
+                        </div>
+                    </div>
+                    <div class="team-actions">
+                        <a href="#" class="action-btn">View Roster</a>
+                        <a href="#" class="action-btn">Team Stats</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Neon City -->
+            <div class="team-card" onclick="viewTeam('neon-city')">
+                <div class="team-header">
+                    <div class="team-record">10-18</div>
+                    <div class="team-logo">NE</div>
+                    <div class="team-name">Neon City</div>
+                    <div class="team-nickname">The Lights</div>
+                </div>
+                <div class="team-content">
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">9th</div>
+                            <div class="stat-label">Standing</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">58</div>
+                            <div class="stat-label">Points For</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">78</div>
+                            <div class="stat-label">Points Against</div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <div class="info-item">
+                            <div class="info-label">Founded</div>
+                            <div class="info-value">2023</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Home Venue</div>
+                            <div class="info-value">Neon Arena</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Head Coach</div>
+                            <div class="info-value">Zara "Neon" Fujita</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Captain</div>
+                            <div class="info-value">Cyber "Glow" Rodriguez</div>
+                        </div>
+                    </div>
+                    <div class="roster-preview">
+                        <div class="roster-title">Key Players</div>
+                        <div class="player-list">
+                            <span class="player-tag">Cyber Rodriguez (C)</span>
+                            <span class="player-tag">Neon "Bright" Singh</span>
+                            <span class="player-tag">Electric "Spark" Jones</span>
+                            <span class="player-tag">Prism "Light" Chen</span>
+                        </div>
+                    </div>
+                    <div class="team-actions">
+                        <a href="#" class="action-btn">View Roster</a>
+                        <a href="#" class="action-btn">Team Stats</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- U20s -->
+            <div class="team-card" onclick="viewTeam('u20s')">
+                <div class="team-header">
+                    <div class="team-record">8-20</div>
+                    <div class="team-logo">U2</div>
+                    <div class="team-name">U20s</div>
+                    <div class="team-nickname">The Rising Stars</div>
+                </div>
+                <div class="team-content">
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">10th</div>
+                            <div class="stat-label">Standing</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">54</div>
+                            <div class="stat-label">Points For</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">81</div>
+                            <div class="stat-label">Points Against</div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <div class="info-item">
+                            <div class="info-label">Founded</div>
+                            <div class="info-value">2023</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Home Venue</div>
+                            <div class="info-value">Youth Arena</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Head Coach</div>
+                            <div class="info-value">Jamie "Youth" Park</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Captain</div>
+                            <div class="info-value">Alex "Future" Thompson</div>
+                        </div>
+                    </div>
+                    <div class="roster-preview">
+                        <div class="roster-title">Key Players</div>
+                        <div class="player-list">
+                            <span class="player-tag">Alex Thompson (C)</span>
+                            <span class="player-tag">Young "Rookie" Kim</span>
+                            <span class="player-tag">Fresh "New" Williams</span>
+                            <span class="player-tag">Rising "Star" Davis</span>
+                        </div>
+                    </div>
+                    <div class="team-actions">
+                        <a href="#" class="action-btn">View Roster</a>
+                        <a href="#" class="action-btn">Team Stats</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterTeams(filter) {
+            // Remove active class from all filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            console.log('Filtering teams by:', filter);
+            
+            // Here you would implement the actual filtering logic
+            // For now, we'll just log the action
+        }
+
+        function viewTeam(teamId) {
+            console.log('Viewing team:', teamId);
+            // Here you would navigate to the individual team page
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('NRL Teams page loaded');
+        });
+    </script>
+</body>
+</html> class="stat-item">
+                            <div class="stat-value">1st</div>
+                            <div class="stat-label">Standing</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">82</div>
+                            <div class="stat-label">Points For</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">64</div>
+                            <div class="stat-label">Points Against</div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <div class="info-item">
+                            <div class="info-label">Founded</div>
+                            <div class="info-value">2023</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Home Venue</div>
+                            <div class="info-value">Core Arena</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Head Coach</div>
+                            <div class="info-value">Alex Chen</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Captain</div>
+                            <div class="info-value">Maya "Core" Rodriguez</div>
+                        </div>
+                    </div>
+                    <div class="roster-preview">
+                        <div class="roster-title">Key Players</div>
+                        <div class="player-list">
+                            <span class="player-tag">Maya Rodriguez (C)</span>
+                            <span class="player-tag">Tyler "Flash" Kim</span>
+                            <span class="player-tag">Jordan "Pulse" Lee</span>
+                            <span class="player-tag">Alex "Nova" Smith</span>
+                        </div>
+                    </div>
+                    <div class="team-actions">
+                        <a href="#" class="action-btn">View Roster</a>
+                        <a href="#" class="action-btn">Team Stats</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Serpent Grove FC -->
+            <div class="team-card" onclick="viewTeam('serpent-grove')">
+                <div class="team-header">
+                    <div class="team-record">21-7</div>
+                    <div class="team-logo">SG</div>
+                    <div class="team-name">Serpent Grove FC</div>
+                    <div class="team-nickname">The Vipers</div>
+                </div>
+                <div class="team-content">
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">2nd</div>
+                            <div class="stat-label">Standing</div>
+                        </div>
+                        <div

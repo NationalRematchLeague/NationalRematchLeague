@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Players - National Rematch League</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a2f0a 0%, #1a1a1a 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            padding: 0 20px;
+            box-shadow: 0 2px 20px rgba(0, 255, 65, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 60px;
+        }
+
+        .logo {
+            width: 55px;
+            height: 55px;
+            margin-right: 40px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid #00ff41;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at 30% 30%, 
+                rgba(255, 255, 255, 0.3) 0%,
+                rgba(0, 255, 65, 0.1) 40%,
+                rgba(0, 0, 0, 0.8) 100%);
+        }
+
+        .logo-text {
+            position: absolute;
+            font-size: 16px;
+            font-weight: 900;
+            color: #000000;
+            text-shadow: 0 0 2px rgba(0, 255, 65, 0.5);
+            letter-spacing: -1px;
+            z-index: 10;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            flex-grow: 1;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #0a2f0a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 20px 0;
+            transition: all 0.3s;
+            display: block;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: white;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 255, 65, 0.3);
+            border-radius: 8px;
+            z-index: 1000;
+            border: 1px solid rgba(0, 255, 65, 0.5);
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            color: #0a2f0a !important;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-bottom: 1px solid rgba(10, 47, 10, 0.1);
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(10, 47, 10, 0.1);
+            transform: translateX(5px);
+        }
+
+        .dropdown > a::after {
+            content: ' ▼';
+            font-size: 10px;
+            margin-left: 5px;
+        }
+
+        .sign-up {
+            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
+            color: #00ff41;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            border: 2px solid #00ff41;
+            transition: all 0.3s;
+        }
+
+        .sign-up:hover {
+            background: #00ff41;
+            color: #0a2f0a;
+            transform: scale(1.05);
+        }
+
+        /* Page Header */
+        .page-header {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px 20px;
+        }
+
+        .page-title {
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffffff 0%, #00ff41 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        /* Search and Filter Bar */
+        .search-filter-bar {
+            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px 12px 50px;
+            background: rgba(0, 255, 65, 0.1);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 25px;
+            color: white;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #00ff41;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+        }
+
+        .search-input::placeholder {
+            color: #ccc;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #00ff41;
+            font-size: 16px;
+        }
+
+        .filter-dropdown {
+            position: relative;
+        }
+
+        .filter-select {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(0, 255, 65, 0.1);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 10px;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: #00ff41;
+        }
+
+        .sort-dropdown {
+            position: relative;
+        }
+
+        /* Stats Overview */
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            border-color: #00ff41;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.2);
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #00ff41;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #ccc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Players Grid */
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .player-card {
+            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .player-card:hover {
+            border-color: #00ff41;
+            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .player-header {
+            background: linear-gradient(135deg, rgba(0, 255, 65, 0.1) 0%, rgba(0, 255, 65, 0.05) 100%);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .player-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #0a2f0a;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        }
+
+        .player-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #00ff41;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
+
+        .player-nickname {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .player-team {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 255, 65, 0.2);
+            color: #00ff41;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .player-position {
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            color: #0a2f0a;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .player-content {
+            padding: 20px;
+        }
+
+        .player-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .player-stat {
+            text-align: center;
+            padding: 10px;
+            background: rgba(0, 255, 65, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 65, 0.1);
+        }
+
+        .player-stat-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00ff41;
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        }
+
+        .player-stat-label {
+            font-size: 10px;
+            color: #ccc;
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        .player-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-label {
+            color: #00ff41;
+            font-weight: bold;
+        }
+
+        .info-value {
+            color: #ccc;
+        }
+
+        .player-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 8px;
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 6px;
+            background: transparent;
+            color: #00ff41;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .action-btn:hover {
+            background: #00ff41;
+            color: #0a2f0a;
+            border-color: #00ff41;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-section {
+            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00ff41;
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Top Performers */
+        .top-performers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .performer-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(0, 255, 65, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            transition: all 0.3s;
+        }
+
+        .performer-item:hover {
+            background: rgba(0, 255, 65, 0.1);
+            transform: translateX(5px);
+        }
+
+        .performer-rank {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            color: #0a2f0a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .performer-info {
+            flex-grow: 1;
+        }
+
+        .performer-name {
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .performer-team {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .performer-stat {
+            font-weight: bold;
+            color: #00ff41;
+            font-size: 16px;
+        }
+
+        /* Awards Section */
+        .awards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .award-item {
+            padding: 15px;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .award-item:hover {
+            background: rgba(255, 215, 0, 0.15);
+        }
+
+        .award-title {
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+
+        .award-winner {
+            color: white;
+            margin-bottom: 3px;
+        }
+
+        .award-team {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        /* Rising Stars */
+        .rising-stars-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .rising-star-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: rgba(0, 255, 65, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .rising-star-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .rising-star-avatar {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #0a2f0a;
+            font-size: 12px;
+        }
+
+        .rising-star-details {
+            flex-grow: 1;
+        }
+
+        .rising-star-name {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .rising-star-team {
+            font-size: 11px;
+            color: #ccc;
+        }
+
+        .trending-indicator {
+            color: #00ff41;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .search-filter-bar {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .players-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 32px;
+            }
+
+            .players-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .player-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-overview {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav-container">
+        <nav class="nav">
+            <div class="logo" onclick="window.open('artifact:nrl_website_enhanced', '_blank')">
+                <span class="logo-text">NRL</span>
+            </div>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="#">Matches</a>
+                    <div class="dropdown-content">
+                        <a href="#">Live Matches</a>
+                        <a href="#">Recent Results</a>
+                        <a href="#">Upcoming Matches</a>
+                        <a href="#">Match Highlights</a>
+                        <a href="#">Playoffs</a>
+                        <a href="#">Championship Series</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Schedule</a>
+                    <div class="dropdown-content">
+                        <a href="#">Season 2 Schedule</a>
+                        <a href="#">Playoffs Schedule</a>
+                        <a href="#">Championship Schedule</a>
+                        <a href="#">Key Dates</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">News</a>
+                    <div class="dropdown-content">
+                        <a href="#">Breaking News</a>
+                        <a href="#">Top Stories</a>
+                        <a href="#">Academy League</a>
+                        <a href="#">Draft News</a>
+                        <a href="#">Features</a>
+                        <a href="#">Interviews</a>
+                        <a href="#">Events</a>
+                        <a href="#">Transactions</a>
+                    </div>
+                </li>
+                <li><a href="#">Academy League</a></li>
+                <li><a href="#">Free Agency</a></li>
+                <li><a href="#">Draft</a></li>
+                <li><a href="#">All-Star Game</a></li>
+                <li class="dropdown">
+                    <a href="#">Stats</a>
+                    <div class="dropdown-content">
+                        <a href="#">Player Stats</a>
+                        <a href="#">Team Stats</a>
+                        <a href="#">League Leaders</a>
+                        <a href="#">Advanced Analytics</a>
+                        <a href="#">Historical Stats</a>
+                    </div>
+                </li>
+                <li><a href="#">Standings</a></li>
+                <li><a href="#">Teams</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">Players</a>
+                    <div class="dropdown-content">
+                        <a href="#">Players Home</a>
+                        <a href="#">Player Stats</a>
+                        <a href="#">Starting Lineups</a>
+                        <a href="#">Free Agent Tracker</a>
+                        <a href="#">Transactions</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="sign-up">Sign Up</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1 class="page-title">Players</h1>
+        <p class="page-subtitle">Comprehensive player profiles, statistics, and performance analytics from across the NRL</p>
+        
+        <!-- Search and Filter Bar -->
+        <div class="search-filter-bar">
+            <div class="search-box">
+                <div class="search-icon">🔍</div>
+                <input type="text" class="search-input" placeholder="Search players by name, team, or position..." onkeyup="searchPlayers(this.value)">
+            </div>
+            <div class="filter-dropdown">
+                <select class="filter-select" onchange="filterByTeam(this.value)">
+                    <option value="all">All Teams</option>
+                    <option value="nova-core">Nova Core</option>
+                    <option value="serpent-grove">Serpent Grove FC</option>
+                    <option value="vicious-vipers">VICI0US VIPERS</option>
+                    <option value="storm-fc">Storm FC</option>
+                    <option value="liquid-fc">Liquid FC</option>
+                    <option value="drywater-fc">DryWater FC</option>
+                    <option value="67ers">67ers</option>
+                    <option value="st-paul">St. Paul Strikers</option>
+                    <option value="neon-city">Neon City</option>
+                    <option value="u20s">U20s</option>
+                </select>
+            </div>
+            <div class="sort-dropdown">
+                <select class="filter-select" onchange="sortPlayers(this.value)">
+                    <option value="name">Sort by Name</option>
+                    <option value="team">Sort by Team</option>
+                    <option value="position">Sort by Position</option>
+                    <option value="performance">Sort by Performance</option>
+                    <option value="rating">Sort by Rating</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="stats-overview">
+            <div class="stat-card">
+                <div class="stat-number">150</div>
+                <div class="stat-label">Total Players</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Avg Per Team</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">47</div>
+                <div class="stat-label">Rookies</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">23</div>
+                <div class="stat-label">Veterans</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">12</div>
+                <div class="stat-label">All-Stars</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Players Grid -->
+        <div class="players-section">
+            <div class="players-grid" id="playersGrid">
+                <!-- Maya Rodriguez - Nova Core -->
+                <div class="player-card" onclick="viewPlayer('maya-rodriguez')">
+                    <div class="player-header">
+                        <div class="player-team">NC</div>
+                        <div class="player-avatar">MR</div>
+                        <div class="player-name">Maya Rodriguez</div>
+                        <div class="player-nickname">"Core"</div>
+                        <div class="player-position">Captain</div>
+                    </div>
+                    <div class="player-content">
+                        <div class="player-stats">
+                            <div class="player-stat">
+                                <div class="player-stat-value">95</div>
+                                <div class="player-stat-label">Rating</div>
+                            </div>
+                            <div class="player-stat">
+                                <div class="player-stat-value">24</div>
+                                <div class="player-stat-label">Matches</div>
+                            </div>
+                            <div class="player-stat">
+                                <div class="player-stat-value">87%</div>
+                                <div class="player-stat-label">Win Rate</div>
+                            </div>
+                        </div>
+                        <div class="player-info">
+                            <div class="info-item">
+                                <span class="info-label">Age:</span>
+                                <span class="info-value">24</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Experience:</span>
+                                <span class="info-value">3 years</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Position:</span>
+                                <span class="info-value">Leader</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Status:</span>
+                                <span class="info-value">Active</span>
+                            </div>
+                        </div>
+                        <div class="player-actions">
+                            <a href="#" class="action-btn">View Profile</a>
+                            <a href="#" class="action-btn">Stats</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carlos Martinez - Serpent Grove -->
+                <div class="player-card" onclick="viewPlayer('carlos-martinez')">
+                    <div class="player-header">
+                        <div class="player-team">SG</div>
+                        <div class="player-avatar">CM</div>
+                        <div class="player-name">Carlos Martinez</div>
+                        <div class="player-nickname">"Venom"</div>
+                        <div class="player-position">Captain</div>
+                    </div>
+                    <div class="player-content">
+                        <div class="player-stats">
+                            <div class="player-stat">
+                                <div class="player-stat-value">92</div>
+                                <div class="player-stat-label">Rating</div>
+                            </div>
+                            <div class="player-stat">
+                                <div class="player-stat-value">28</div>
+                                <div class="player-stat-label">Matches</div>
+                            </div>
+                            <div class="player-stat">
+                                <div class="player-stat-value">75%</div>
+                                <div class="player-stat-label">Win Rate</div>
+                            </div>
+                        </div>
+                        <div class="player-info">
+                            <div class="info-item">
+                                <span class="info-label">Age:</span>
+                                <span class="info-value">26</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Experience:</span>
+                                <span class="info-value">4 years</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Position:</span>
+                                <span class="info-value">Striker</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Status:</span>
+                                <span class="info-value">Active</span>
+                            </div>
+                        </div>
+                        <div class="player-actions">
+                            <a href="#" class="action-btn">View Profile</a>
+                            <a href="#" class="action-btn">Stats</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ana Garcia - VICI0US VIPERS -->
+                <div class="player-card" onclick="viewPlayer('ana-garcia')">
+                    <div class="player-header">
+                        <div class="player-team">VV</div>
+                        <div class="player-avatar">AG</div>
+                        <div class="player-name">Ana Garcia</div>
+                        <div class="player-nickname">"Vicious"</div>
+                        <div class="player-position">Captain</div>
+                    </div>
+                    <div class="player-content">
+                        <div class="player-stats">
+                            <div class="player-stat">
+                                <div class="player-stat-value">90</div>
+                                <div class="player-stat-label">Rating</div>
+                            </div>
+                            <div class="player-stat">
+                                <div class="player-stat-value">28</div>
+                                <div class="player-stat-label">Matches</div>
+                            </div>
+                            <div class="player-stat">
+                                <div class="player-stat-value">68%</div>
+                                <div class="player-stat-label">Win Rate</div>
+                            </div>
+                        </div>
+                        <div class="player-info">
+                            <div class="info-item">
+                                <span class="info-label">Age:</span>
+                                <span class="info-value">25</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Experience:</span>
+                                <span class="info-value">3 years</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Position:</span>
+                                <span class="info-value">Assassin</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Status:</span>
+                                <span class="info-value">Active</span>
+                            </div>
+                        </div>
+                        <div class="player-actions">
+                            <a href="#" class="action-btn">View Profile</a>
+                            <a href="#" class="action-btn">Stats</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jake Anderson - Storm FC -->
+                <div class="player-card" onclick="viewPlayer('jake-anderson')">
+                    <div class="player-header">
+                        <div class="player-team">ST</div>
+                        <div class="player-avatar">JA</div>
+                        <div class="player-name">Jake Anderson</div>
+                        <div class="player-nickname">"Storm"</div>
+                        <div class="player-position">Captain</div>
+                    </div>
+                    <div class="player-content">
+                        <div class="player-stats">
+                            <div class="player-stat">
+                                <div class="player-stat-value">88</div>
+                                <div class="player-stat-label">Rating</div>
+                            </div>
+                            <div class="player-stat">
+                                <div class="player-stat-value">28</div>
+                                <div class="player-stat-label">Matches</div>
+                            </div>
+                            <div class="player-stat">
+                                <div class="player-stat-value">64%</div>
+                                <div class="player-stat-label">Win Rate</div>
+                            </div>
+                        </div>
+                        <div class="player-info">
+                            <div class="info-item">
+                                <span class="info-label">Age:</span>
+                                <span class="info-value">27</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Experience:</span>
+                                <span class="info-value">5 years</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Position:</span>
+                                <span class="info-value">Tank</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Status:</span>
+                                <span class="info-value">Active</span>
+                            </div>
+                        </div>
+                        <div class="player-actions">
+                            <a href="#" class="action-btn">View Profile</a>
+                            <a href="#" class="action-btn">Stats</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tyler Kim - Nova Core -->
+                <div class="player-card" onclick="viewPlayer('tyler-kim')">
+                    <div class="player-header">
+                        <div class="player-team">NC</div>
+                        <div class="player-avatar">TK</div>
+                        <div class="player-name">Tyler Kim</div>
+                        <div class="player-nickname">"Flash"</div>
+                        <div class="player-position">Rookie</div>
+                    </div>
+                    <div class="player-content">
+                        <div class="player-stats">
+                            <div class="player-stat">
+                                <div class="player-stat-value">85</div>
+                                <div class="player-stat-label">Rating</div>
+                            </div>
+                            <div class="player-stat">
+                                <div class="player-stat-value">20</div>
+                                <div class="player-stat-label">Matches</div>
+                            </div>
+                            <div class="player-stat">
+                                <div class="player-stat-value">85%</div>
+                                <div class="player-stat-label">Win Rate</div>
+                            </div>
+                        </div>
+                        <div class="player-info">
+                            <div class="info-item">
+                                <span class="info-label">Age:</span>
+                                <span class="info-value">19</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Experience:</span>
+                                <span class="info-value">1 year</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Position:</span>
+                                <span class="info-value">Speed</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Status:</span>
+                                <span class="info-value">Rising Star</span>
+                            </div>
+                        </div>
+                        <div class="player-actions">
+                            <a href="#" class="action-btn">View Profile</a>
+                            <a href="#" class="action-btn">Stats</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lily Chang - Liquid FC -->
+                <div class="player-card" onclick="viewPlayer('lily-chang')">
+                    <div class="player-header">
+                        <div class="player-team">LQ</div>
+                        <div class="player-avatar">LC</div>
+                        <div class="player-name">Lily Chang</div>
+                        <div class="player-nickname">"Liquid"</div>
+                        <div class="player-position">Captain</div>
+                    </div>
+                    <div class="player-content">
+                        <div class="player-stats">
+                            <div class="player-stat">
+                                <div class="player-stat-value">87</div>
+                                <div class="player-stat-label">Rating</div>
+                            </div>
+                            <div class="player-stat">
+                                <div class="player-stat-value">28</div>
+                                <div class="player-stat-label">Matches</div>
+                            </div>
+                            <div class="player-stat">
+                                <div class="player-stat-value">57%</div>
+                                <div class="player-stat-label">Win Rate</div>
+                            </div>
+                        </div>
+                        <div class="player-info">
+                            <div class="info-item">
+                                <span class="info-label">Age:</span>
+                                <span class="info-value">23</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Experience:</span>
+                                <span class="info-value">2 years</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Position:</span>
+                                <span class="info-value">Support</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Status:</span>
+                                <span class="info-value">Active</span>
+                            </div>
+                        </div>
+                        <div class="player-actions">
+                            <a href="#" class="action-btn">View Profile</a>
+                            <a href="#" class="action-btn">Stats</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Top Performers -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">🏆 Top Performers</h3>
+                <div class="top-performers-list">
+                    <div class="performer-item">
+                        <div class="performer-rank">1</div>
+                        <div class="performer-info">
+                            <div class="performer-name">Maya "Core" Rodriguez</div>
+                            <div class="performer-team">Nova Core</div>
+                        </div>
+                        <div class="performer-stat">95</div>
+                    </div>
+                    <div class="performer-item">
+                        <div class="performer-rank">2</div>
+                        <div class="performer-info">
+                            <div class="performer-name">Carlos "Venom" Martinez</div>
+                            <div class="performer-team">Serpent Grove FC</div>
+                        </div>
+                        <div class="performer-stat">92</div>
+                    </div>
+                    <div class="performer-item">
+                        <div class="performer-rank">3</div>
+                        <div class="performer-info">
+                            <div class="performer-name">Ana "Vicious" Garcia</div>
+                            <div class="performer-team">VICI0US VIPERS</div>
+                        </div>
+                        <div class="performer-stat">90</div>
+                    </div>
+                    <div class="performer-item">
+                        <div class="performer-rank">4</div>
+                        <div class="performer-info">
+                            <div class="performer-name">Jake "Storm" Anderson</div>
+                            <div class="performer-team">Storm FC</div>
+                        </div>
+                        <div class="performer-stat">88</div>
+                    </div>
+                    <div class="performer-item">
+                        <div class="performer-rank">5</div>
+                        <div class="performer-info">
+                            <div class="performer-name">Lily "Liquid" Chang</div>
+                            <div class="performer-team">Liquid FC</div>
+                        </div>
+                        <div class="performer-stat">87</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Season Awards -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">🏅 Season Awards</h3>
+                <div class="awards-list">
+                    <div class="award-item">
+                        <div class="award-title">MVP (Most Valuable Player)</div>
+                        <div class="award-winner">Maya "Core" Rodriguez</div>
+                        <div class="award-team">Nova Core</div>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-title">Rookie of the Year</div>
+                        <div class="award-winner">Tyler "Flash" Kim</div>
+                        <div class="award-team">Nova Core</div>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-title">Best Newcomer</div>
+                        <div class="award-winner">Phoenix "Dry" Roberts</div>
+                        <div class="award-team">DryWater FC</div>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-title">Comeback Player</div>
+                        <div class="award-winner">Marcus "Legend" Thompson</div>
+                        <div class="award-team">67ers</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rising Stars -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">⭐ Rising Stars</h3>
+                <div class="rising-stars-list">
+                    <div class="rising-star-item">
+                        <div class="rising-star-info">
+                            <div class="rising-star-avatar">TK</div>
+                            <div class="rising-star-details">
+                                <div class="rising-star-name">Tyler "Flash" Kim</div>
+                                <div class="rising-star-team">Nova Core</div>
+                            </div>
+                        </div>
+                        <div class="trending-indicator">📈</div>
+                    </div>
+                    <div class="rising-star-item">
+                        <div class="rising-star-info">
+                            <div class="rising-star-avatar">MT</div>
+                            <div class="rising-star-details">
+                                <div class="rising-star-name">Mia "Thunder" O'Brien</div>
+                                <div class="rising-star-team">Storm FC</div>
+                            </div>
+                        </div>
+                        <div class="trending-indicator">📈</div>
+                    </div>
+                    <div class="rising-star-item">
+                        <div class="rising-star-info">
+                            <div class="rising-star-avatar">NW</div>
+                            <div class="rising-star-details">
+                                <div class="rising-star-name">Noah "Stream" Williams</div>
+                                <div class="rising-star-team">Liquid FC</div>
+                            </div>
+                        </div>
+                        <div class="trending-indicator">📈</div>
+                    </div>
+                    <div class="rising-star-item">
+                        <div class="rising-star-info">
+                            <div class="rising-star-avatar">SM</div>
+                            <div class="rising-star-details">
+                                <div class="rising-star-name">Sage "Dust" Miller</div>
+                                <div class="rising-star-team">DryWater FC</div>
+                            </div>
+                        </div>
+                        <div class="trending-indicator">📈</div>
+                    </div>
+                    <div class="rising-star-item">
+                        <div class="rising-star-info">
+                            <div class="rising-star-avatar">AT</div>
+                            <div class="rising-star-details">
+                                <div class="rising-star-name">Alex "Future" Thompson</div>
+                                <div class="rising-star-team">U20s</div>
+                            </div>
+                        </div>
+                        <div class="trending-indicator">📈</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Player Statistics -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">📊 League Stats</h3>
+                <div style="font-size: 14px; line-height: 1.6;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding: 8px; background: rgba(0,255,65,0.1); border-radius: 5px;">
+                        <span>Highest Rating:</span>
+                        <span style="color: #00ff41; font-weight: bold;">95 (Maya Rodriguez)</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding: 8px; background: rgba(0,255,65,0.1); border-radius: 5px;">
+                        <span>Most Matches:</span>
+                        <span style="color: #00ff41; font-weight: bold;">28 (Multiple Players)</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding: 8px; background: rgba(0,255,65,0.1); border-radius: 5px;">
+                        <span>Best Win Rate:</span>
+                        <span style="color: #00ff41; font-weight: bold;">87% (Maya Rodriguez)</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding: 8px; background: rgba(0,255,65,0.1); border-radius: 5px;">
+                        <span>Youngest Player:</span>
+                        <span style="color: #00ff41; font-weight: bold;">18 (Rising Star)</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 8px; background: rgba(0,255,65,0.1); border-radius: 5px;">
+                        <span>Most Experienced:</span>
+                        <span style="color: #00ff41; font-weight: bold;">8 Years (Veteran)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function searchPlayers(query) {
+            console.log('Searching for players:', query);
+            // Here you would implement the actual search functionality
+            // Filter the players grid based on the search query
+        }
+
+        function filterByTeam(team) {
+            console.log('Filtering by team:', team);
+            // Here you would implement team filtering
+            // Show/hide player cards based on selected team
+        }
+
+        function sortPlayers(sortBy) {
+            console.log('Sorting players by:', sortBy);
+            // Here you would implement sorting functionality
+            // Reorder the players grid based on selected criteria
+        }
+
+        function viewPlayer(playerId) {
+            console.log('Viewing player profile:', playerId);
+            // Here you would navigate to the individual player profile page
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('NRL Players page loaded');
+            
+            // Add some interactive effects
+            const playerCards = document.querySelectorAll('.player-card');
+            playerCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
