@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Players - National Rematch League</title>
+    <title>Players - Major Rematch League</title>
     <style>
         * {
             margin: 0;
@@ -13,16 +13,16 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a2f0a 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #242424 0%, #1a1a1a 100%);
             color: white;
             min-height: 100vh;
         }
 
         /* Navigation */
         .nav-container {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             padding: 0 20px;
-            box-shadow: 0 2px 20px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 2px 20px rgba(65, 219, 145, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -53,8 +53,8 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 3px solid #00ff41;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+            border: 3px solid #41DB90;
+            box-shadow: 0 0 10px rgba(65, 219, 145, 0.8);
             animation: pulse 2s infinite;
         }
 
@@ -71,7 +71,7 @@
             border-radius: 50%;
             background: radial-gradient(ellipse at 30% 30%, 
                 rgba(255, 255, 255, 0.3) 0%,
-                rgba(0, 255, 65, 0.1) 40%,
+                rgba(65, 219, 145, 0.1) 40%,
                 rgba(0, 0, 0, 0.8) 100%);
         }
 
@@ -80,7 +80,7 @@
             font-size: 16px;
             font-weight: 900;
             color: #000000;
-            text-shadow: 0 0 2px rgba(0, 255, 65, 0.5);
+            text-shadow: 0 0 2px rgba(65, 219, 145, 0.5);
             letter-spacing: -1px;
             z-index: 10;
         }
@@ -97,7 +97,7 @@
         }
 
         .nav-links a {
-            color: #0a2f0a;
+            color: #242424;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
@@ -121,12 +121,12 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 8px 16px rgba(65, 219, 145, 0.3);
             border-radius: 8px;
             z-index: 1000;
-            border: 1px solid rgba(0, 255, 65, 0.5);
+            border: 1px solid rgba(65, 219, 145, 0.5);
             opacity: 0;
             transform: translateY(-10px);
             transition: all 0.3s;
@@ -139,7 +139,7 @@
         }
 
         .dropdown-content a {
-            color: #0a2f0a !important;
+            color: #242424 !important;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
@@ -155,26 +155,26 @@
         }
 
         .dropdown > a::after {
-            content: ' ▼';
+            content: ' â–¼';
             font-size: 10px;
             margin-left: 5px;
         }
 
         .sign-up {
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
-            color: #00ff41;
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
+            color: #41DB90;
             padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
-            border: 2px solid #00ff41;
+            border: 2px solid #41DB90;
             transition: all 0.3s;
         }
 
         .sign-up:hover {
-            background: #00ff41;
-            color: #0a2f0a;
+            background: #41DB90;
+            color: #242424;
             transform: scale(1.05);
         }
 
@@ -189,7 +189,7 @@
             font-size: 48px;
             font-weight: bold;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #ffffff 0%, #00ff41 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #41DB90 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -204,8 +204,8 @@
 
         /* Search and Filter Bar */
         .search-filter-bar {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             padding: 25px;
             margin-bottom: 30px;
@@ -222,8 +222,8 @@
         .search-input {
             width: 100%;
             padding: 12px 20px 12px 50px;
-            background: rgba(0, 255, 65, 0.1);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: rgba(65, 219, 145, 0.1);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 25px;
             color: white;
             font-size: 14px;
@@ -232,8 +232,8 @@
 
         .search-input:focus {
             outline: none;
-            border-color: #00ff41;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+            border-color: #41DB90;
+            box-shadow: 0 0 15px rgba(65, 219, 145, 0.3);
         }
 
         .search-input::placeholder {
@@ -245,7 +245,7 @@
             left: 18px;
             top: 50%;
             transform: translateY(-50%);
-            color: #00ff41;
+            color: #41DB90;
             font-size: 16px;
         }
 
@@ -256,8 +256,8 @@
         .filter-select {
             width: 100%;
             padding: 12px 15px;
-            background: rgba(0, 255, 65, 0.1);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: rgba(65, 219, 145, 0.1);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 10px;
             color: white;
             font-size: 14px;
@@ -267,7 +267,7 @@
 
         .filter-select:focus {
             outline: none;
-            border-color: #00ff41;
+            border-color: #41DB90;
         }
 
         .sort-dropdown {
@@ -283,8 +283,8 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 12px;
             padding: 20px;
             text-align: center;
@@ -292,16 +292,16 @@
         }
 
         .stat-card:hover {
-            border-color: #00ff41;
+            border-color: #41DB90;
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.2);
+            box-shadow: 0 10px 25px rgba(65, 219, 145, 0.2);
         }
 
         .stat-number {
             font-size: 28px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
             margin-bottom: 5px;
         }
 
@@ -330,8 +330,8 @@
         }
 
         .player-card {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             overflow: hidden;
             cursor: pointer;
@@ -340,13 +340,13 @@
         }
 
         .player-card:hover {
-            border-color: #00ff41;
-            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.2);
+            border-color: #41DB90;
+            box-shadow: 0 10px 25px rgba(65, 219, 145, 0.2);
             transform: translateY(-5px);
         }
 
         .player-header {
-            background: linear-gradient(135deg, rgba(0, 255, 65, 0.1) 0%, rgba(0, 255, 65, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(65, 219, 145, 0.1) 0%, rgba(65, 219, 145, 0.05) 100%);
             padding: 20px;
             text-align: center;
             position: relative;
@@ -355,7 +355,7 @@
         .player-avatar {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -363,16 +363,16 @@
             margin: 0 auto 15px;
             font-size: 32px;
             font-weight: bold;
-            color: #0a2f0a;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+            color: #242424;
+            box-shadow: 0 0 20px rgba(65, 219, 145, 0.3);
         }
 
         .player-name {
             font-size: 20px;
             font-weight: bold;
             margin-bottom: 5px;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
         }
 
         .player-nickname {
@@ -386,8 +386,8 @@
             position: absolute;
             top: 15px;
             right: 15px;
-            background: rgba(0, 255, 65, 0.2);
-            color: #00ff41;
+            background: rgba(65, 219, 145, 0.2);
+            color: #41DB90;
             padding: 4px 10px;
             border-radius: 12px;
             font-size: 11px;
@@ -395,8 +395,8 @@
         }
 
         .player-position {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            color: #0a2f0a;
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            color: #242424;
             padding: 4px 12px;
             border-radius: 15px;
             font-size: 12px;
@@ -418,16 +418,16 @@
         .player-stat {
             text-align: center;
             padding: 10px;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             border-radius: 8px;
-            border: 1px solid rgba(0, 255, 65, 0.1);
+            border: 1px solid rgba(65, 219, 145, 0.1);
         }
 
         .player-stat-value {
             font-size: 18px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
         }
 
         .player-stat-label {
@@ -451,7 +451,7 @@
         }
 
         .info-label {
-            color: #00ff41;
+            color: #41DB90;
             font-weight: bold;
         }
 
@@ -467,10 +467,10 @@
         .action-btn {
             flex: 1;
             padding: 8px;
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 6px;
             background: transparent;
-            color: #00ff41;
+            color: #41DB90;
             font-size: 11px;
             font-weight: bold;
             text-transform: uppercase;
@@ -481,9 +481,9 @@
         }
 
         .action-btn:hover {
-            background: #00ff41;
-            color: #0a2f0a;
-            border-color: #00ff41;
+            background: #41DB90;
+            color: #242424;
+            border-color: #41DB90;
         }
 
         /* Sidebar */
@@ -494,8 +494,8 @@
         }
 
         .sidebar-section {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             padding: 25px;
         }
@@ -503,8 +503,8 @@
         .sidebar-title {
             font-size: 18px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
             margin-bottom: 20px;
             text-transform: uppercase;
         }
@@ -521,22 +521,22 @@
             align-items: center;
             gap: 15px;
             padding: 15px;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             border-radius: 10px;
-            border: 1px solid rgba(0, 255, 65, 0.2);
+            border: 1px solid rgba(65, 219, 145, 0.2);
             transition: all 0.3s;
         }
 
         .performer-item:hover {
-            background: rgba(0, 255, 65, 0.1);
+            background: rgba(65, 219, 145, 0.1);
             transform: translateX(5px);
         }
 
         .performer-rank {
             width: 30px;
             height: 30px;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            color: #0a2f0a;
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            color: #242424;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -561,7 +561,7 @@
 
         .performer-stat {
             font-weight: bold;
-            color: #00ff41;
+            color: #41DB90;
             font-size: 16px;
         }
 
@@ -612,9 +612,9 @@
             justify-content: space-between;
             align-items: center;
             padding: 12px;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             border-radius: 8px;
-            border: 1px solid rgba(0, 255, 65, 0.2);
+            border: 1px solid rgba(65, 219, 145, 0.2);
         }
 
         .rising-star-info {
@@ -626,13 +626,13 @@
         .rising-star-avatar {
             width: 35px;
             height: 35px;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #0a2f0a;
+            color: #242424;
             font-size: 12px;
         }
 
@@ -651,7 +651,7 @@
         }
 
         .trending-indicator {
-            color: #00ff41;
+            color: #41DB90;
             font-weight: bold;
             font-size: 18px;
         }
@@ -701,7 +701,7 @@
     <div class="nav-container">
         <nav class="nav">
             <div class="logo" onclick="window.open('https://nationalrematchleague.github.io/NationalRematchLeague/')">
-                <span class="logo-text">NRL</span>
+                <span class="logo-text">MRL</span>
             </div>
             <ul class="nav-links">
                 <li class="dropdown">
@@ -778,7 +778,7 @@
         <!-- Search and Filter Bar -->
         <div class="search-filter-bar">
             <div class="search-box">
-                <div class="search-icon">🔍</div>
+                <div class="search-icon">ðŸ”</div>
                 <input type="text" class="search-input" placeholder="Search players by name, team, or position..." onkeyup="searchPlayers(this.value)">
             </div>
             <div class="filter-dropdown">
@@ -1137,7 +1137,7 @@
         <div class="sidebar">
             <!-- Top Performers -->
             <div class="sidebar-section">
-                <h3 class="sidebar-title">🏆 Top Performers</h3>
+                <h3 class="sidebar-title">ðŸ† Top Performers</h3>
                 <div class="top-performers-list">
                     <div class="performer-item">
                         <div class="performer-rank">1</div>
@@ -1184,7 +1184,7 @@
 
             <!-- Season Awards -->
             <div class="sidebar-section">
-                <h3 class="sidebar-title">🏅 Season Awards</h3>
+                <h3 class="sidebar-title">ðŸ… Season Awards</h3>
                 <div class="awards-list">
                     <div class="award-item">
                         <div class="award-title">MVP (Most Valuable Player)</div>
@@ -1211,7 +1211,7 @@
 
             <!-- Rising Stars -->
             <div class="sidebar-section">
-                <h3 class="sidebar-title">⭐ Rising Stars</h3>
+                <h3 class="sidebar-title">â­ Rising Stars</h3>
                 <div class="rising-stars-list">
                     <div class="rising-star-item">
                         <div class="rising-star-info">
@@ -1221,7 +1221,7 @@
                                 <div class="rising-star-team">Nova Core</div>
                             </div>
                         </div>
-                        <div class="trending-indicator">📈</div>
+                        <div class="trending-indicator">ðŸ“ˆ</div>
                     </div>
                     <div class="rising-star-item">
                         <div class="rising-star-info">
@@ -1231,7 +1231,7 @@
                                 <div class="rising-star-team">Storm FC</div>
                             </div>
                         </div>
-                        <div class="trending-indicator">📈</div>
+                        <div class="trending-indicator">ðŸ“ˆ</div>
                     </div>
                     <div class="rising-star-item">
                         <div class="rising-star-info">
@@ -1241,7 +1241,7 @@
                                 <div class="rising-star-team">Liquid FC</div>
                             </div>
                         </div>
-                        <div class="trending-indicator">📈</div>
+                        <div class="trending-indicator">ðŸ“ˆ</div>
                     </div>
                     <div class="rising-star-item">
                         <div class="rising-star-info">
@@ -1251,7 +1251,7 @@
                                 <div class="rising-star-team">DryWater FC</div>
                             </div>
                         </div>
-                        <div class="trending-indicator">📈</div>
+                        <div class="trending-indicator">ðŸ“ˆ</div>
                     </div>
                     <div class="rising-star-item">
                         <div class="rising-star-info">
@@ -1261,34 +1261,34 @@
                                 <div class="rising-star-team">U20s</div>
                             </div>
                         </div>
-                        <div class="trending-indicator">📈</div>
+                        <div class="trending-indicator">ðŸ“ˆ</div>
                     </div>
                 </div>
             </div>
 
             <!-- Player Statistics -->
             <div class="sidebar-section">
-                <h3 class="sidebar-title">📊 League Stats</h3>
+                <h3 class="sidebar-title">ðŸ“Š League Stats</h3>
                 <div style="font-size: 14px; line-height: 1.6;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding: 8px; background: rgba(0,255,65,0.1); border-radius: 5px;">
                         <span>Highest Rating:</span>
-                        <span style="color: #00ff41; font-weight: bold;">95 (Maya Rodriguez)</span>
+                        <span style="color: #41DB90; font-weight: bold;">95 (Maya Rodriguez)</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding: 8px; background: rgba(0,255,65,0.1); border-radius: 5px;">
                         <span>Most Matches:</span>
-                        <span style="color: #00ff41; font-weight: bold;">28 (Multiple Players)</span>
+                        <span style="color: #41DB90; font-weight: bold;">28 (Multiple Players)</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding: 8px; background: rgba(0,255,65,0.1); border-radius: 5px;">
                         <span>Best Win Rate:</span>
-                        <span style="color: #00ff41; font-weight: bold;">87% (Maya Rodriguez)</span>
+                        <span style="color: #41DB90; font-weight: bold;">87% (Maya Rodriguez)</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding: 8px; background: rgba(0,255,65,0.1); border-radius: 5px;">
                         <span>Youngest Player:</span>
-                        <span style="color: #00ff41; font-weight: bold;">18 (Rising Star)</span>
+                        <span style="color: #41DB90; font-weight: bold;">18 (Rising Star)</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; padding: 8px; background: rgba(0,255,65,0.1); border-radius: 5px;">
                         <span>Most Experienced:</span>
-                        <span style="color: #00ff41; font-weight: bold;">8 Years (Veteran)</span>
+                        <span style="color: #41DB90; font-weight: bold;">8 Years (Veteran)</span>
                     </div>
                 </div>
             </div>
@@ -1338,3 +1338,7 @@
     </script>
 </body>
 </html>
+
+
+
+

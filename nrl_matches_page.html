@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matches - National Rematch League</title>
+    <title>Matches - Major Rematch League</title>
     <style>
         * {
             margin: 0;
@@ -13,16 +13,16 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a2f0a 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #242424 0%, #1a1a1a 100%);
             color: white;
             min-height: 100vh;
         }
 
         /* Navigation - Same as homepage */
         .nav-container {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             padding: 0 20px;
-            box-shadow: 0 2px 20px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 2px 20px rgba(65, 219, 145, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -54,8 +54,8 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 3px solid #00ff41;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+            border: 3px solid #41DB90;
+            box-shadow: 0 0 10px rgba(65, 219, 145, 0.8);
             animation: pulse 2s infinite;
         }
 
@@ -72,7 +72,7 @@
             border-radius: 50%;
             background: radial-gradient(ellipse at 30% 30%, 
                 rgba(255, 255, 255, 0.3) 0%,
-                rgba(0, 255, 65, 0.1) 40%,
+                rgba(65, 219, 145, 0.1) 40%,
                 rgba(0, 0, 0, 0.8) 100%);
         }
 
@@ -81,7 +81,7 @@
             font-size: 16px;
             font-weight: 900;
             color: #000000;
-            text-shadow: 0 0 2px rgba(0, 255, 65, 0.5);
+            text-shadow: 0 0 2px rgba(65, 219, 145, 0.5);
             letter-spacing: -1px;
             z-index: 10;
         }
@@ -98,7 +98,7 @@
         }
 
         .nav-links a {
-            color: #0a2f0a;
+            color: #242424;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
@@ -123,12 +123,12 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 8px 16px rgba(65, 219, 145, 0.3);
             border-radius: 8px;
             z-index: 1000;
-            border: 1px solid rgba(0, 255, 65, 0.5);
+            border: 1px solid rgba(65, 219, 145, 0.5);
             opacity: 0;
             transform: translateY(-10px);
             transition: all 0.3s;
@@ -141,7 +141,7 @@
         }
 
         .dropdown-content a {
-            color: #0a2f0a !important;
+            color: #242424 !important;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
@@ -166,7 +166,7 @@
         }
 
         .dropdown > a::after {
-            content: ' ▼';
+            content: ' â–¼';
             font-size: 10px;
             margin-left: 5px;
         }
@@ -175,27 +175,27 @@
             display: none;
             background: none;
             border: none;
-            color: #0a2f0a;
+            color: #242424;
             font-size: 24px;
             cursor: pointer;
             padding: 10px;
         }
 
         .sign-up {
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
-            color: #00ff41;
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
+            color: #41DB90;
             padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
-            border: 2px solid #00ff41;
+            border: 2px solid #41DB90;
             transition: all 0.3s;
         }
 
         .sign-up:hover {
-            background: #00ff41;
-            color: #0a2f0a;
+            background: #41DB90;
+            color: #242424;
             transform: scale(1.05);
         }
 
@@ -210,7 +210,7 @@
             font-size: 48px;
             font-weight: bold;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #ffffff 0%, #00ff41 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #41DB90 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -232,8 +232,8 @@
         }
 
         .filter-tab {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             color: #ccc;
             padding: 12px 24px;
             border-radius: 25px;
@@ -248,10 +248,10 @@
 
         .filter-tab:hover,
         .filter-tab.active {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            color: #0a2f0a;
-            border-color: #00ff41;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            color: #242424;
+            border-color: #41DB90;
+            box-shadow: 0 0 15px rgba(65, 219, 145, 0.3);
         }
 
         /* Main Content */
@@ -265,8 +265,8 @@
         .section-title {
             font-size: 24px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
             margin-bottom: 25px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -288,8 +288,8 @@
         }
 
         .schedule-card {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 12px;
             padding: 20px;
             transition: all 0.3s;
@@ -298,8 +298,8 @@
         }
 
         .schedule-card:hover {
-            border-color: #00ff41;
-            box-shadow: 0 8px 20px rgba(0, 255, 65, 0.2);
+            border-color: #41DB90;
+            box-shadow: 0 8px 20px rgba(65, 219, 145, 0.2);
             transform: translateY(-3px);
         }
 
@@ -314,7 +314,7 @@
         }
 
         .schedule-card.upcoming {
-            border-color: #00ff41;
+            border-color: #41DB90;
         }
 
         .schedule-status {
@@ -340,15 +340,15 @@
         }
 
         .schedule-card.upcoming .schedule-status {
-            background: #00ff41;
-            color: #0a2f0a;
+            background: #41DB90;
+            color: #242424;
         }
 
         .schedule-time {
             font-size: 18px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
             margin-bottom: 15px;
         }
 
@@ -368,7 +368,7 @@
             display: block;
             font-size: 20px;
             font-weight: bold;
-            color: #00ff41;
+            color: #41DB90;
             margin-bottom: 5px;
         }
 
@@ -387,7 +387,7 @@
         }
 
         .schedule-card.upcoming .schedule-score {
-            color: #00ff41;
+            color: #41DB90;
             font-size: 16px;
         }
 
@@ -399,8 +399,8 @@
             letter-spacing: 1px;
         }
         .match-card {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             padding: 25px;
             transition: all 0.3s;
@@ -410,8 +410,8 @@
         }
 
         .match-card:hover {
-            border-color: #00ff41;
-            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.2);
+            border-color: #41DB90;
+            box-shadow: 0 10px 25px rgba(65, 219, 145, 0.2);
             transform: translateY(-5px);
         }
 
@@ -433,8 +433,8 @@
         }
 
         .status-upcoming {
-            background: #00ff41;
-            color: #0a2f0a;
+            background: #41DB90;
+            color: #242424;
         }
 
         .status-finished {
@@ -468,7 +468,7 @@
         .team-logo {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -476,13 +476,13 @@
             margin: 0 auto 10px;
             font-size: 24px;
             font-weight: bold;
-            color: #0a2f0a;
+            color: #242424;
         }
 
         .vs {
             font-size: 20px;
             font-weight: bold;
-            color: #00ff41;
+            color: #41DB90;
             margin: 0 20px;
         }
 
@@ -492,8 +492,8 @@
             align-items: center;
             font-size: 36px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
             margin-bottom: 15px;
         }
 
@@ -506,7 +506,7 @@
         }
 
         .match-time {
-            color: #00ff41;
+            color: #41DB90;
             font-weight: bold;
         }
 
@@ -516,16 +516,16 @@
 
         /* Schedule Table */
         .schedule-table {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             overflow: hidden;
             margin-bottom: 40px;
         }
 
         .table-header {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            color: #0a2f0a;
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            color: #242424;
             padding: 20px;
             font-size: 18px;
             font-weight: bold;
@@ -539,13 +539,13 @@
         }
 
         .schedule-header {
-            background: rgba(0, 255, 65, 0.1);
+            background: rgba(65, 219, 145, 0.1);
             padding: 15px;
             font-weight: bold;
             text-transform: uppercase;
             font-size: 12px;
-            color: #00ff41;
-            border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+            color: #41DB90;
+            border-bottom: 1px solid rgba(65, 219, 145, 0.2);
         }
 
         .schedule-row {
@@ -560,7 +560,7 @@
         }
 
         .schedule-cell:hover {
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
         }
 
         /* Stats Section */
@@ -572,8 +572,8 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 1px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 1px solid rgba(65, 219, 145, 0.3);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
@@ -581,15 +581,15 @@
         }
 
         .stat-card:hover {
-            border-color: #00ff41;
+            border-color: #41DB90;
             transform: translateY(-3px);
         }
 
         .stat-number {
             font-size: 28px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
         }
 
         .stat-label {
@@ -647,7 +647,7 @@
     <div class="nav-container">
         <nav class="nav">
             <div class="logo" onclick="window.open('https://nationalrematchleague.github.io/NationalRematchLeague/')"
-                <span class="logo-text">NRL</span>
+                <span class="logo-text">MRL</span>
             </div>
             <ul class="nav-links">
                 <li class="dropdown">
@@ -724,7 +724,7 @@
                     </div>
                 </li>
             </ul>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">â˜°</button>
             <div class="nav-actions">
                 <a href="#" class="sign-up">Sign Up</a>
             </div>
@@ -734,15 +734,15 @@
     <!-- Page Header -->
     <div class="page-header">
         <h1 class="page-title">Matches</h1>
-        <p class="page-subtitle">Live games, upcoming fixtures, and recent results from the National Rematch League</p>
+        <p class="page-subtitle">Live games, upcoming fixtures, and recent results from the Major Rematch League</p>
         
         <!-- Filter Tabs -->
         <div class="filter-tabs">
-            <a href="#" class="filter-tab active" onclick="filterMatches('live')">🔴 Live</a>
-            <a href="#" class="filter-tab" onclick="filterMatches('upcoming')">📅 Upcoming</a>
-            <a href="#" class="filter-tab" onclick="filterMatches('recent')">📊 Recent Results</a>
-            <a href="#" class="filter-tab" onclick="filterMatches('playoffs')">🏆 Playoffs</a>
-            <a href="#" class="filter-tab" onclick="filterMatches('all')">📋 All Matches</a>
+            <a href="#" class="filter-tab active" onclick="filterMatches('live')">ðŸ”´ Live</a>
+            <a href="#" class="filter-tab" onclick="filterMatches('upcoming')">ðŸ“… Upcoming</a>
+            <a href="#" class="filter-tab" onclick="filterMatches('recent')">ðŸ“Š Recent Results</a>
+            <a href="#" class="filter-tab" onclick="filterMatches('playoffs')">ðŸ† Playoffs</a>
+            <a href="#" class="filter-tab" onclick="filterMatches('all')">ðŸ“‹ All Matches</a>
         </div>
     </div>
 
@@ -750,7 +750,7 @@
     <div class="main-content">
         <!-- Live Matches -->
         <section class="live-section">
-            <h2 class="section-title">🔴 Live Matches</h2>
+            <h2 class="section-title">ðŸ”´ Live Matches</h2>
             <div class="matches-grid">
                 <div class="match-card">
                     <div class="match-status status-live">LIVE</div>
@@ -796,7 +796,7 @@
 
         <!-- Today's Schedule -->
         <section class="today-schedule-section">
-            <h2 class="section-title">📅 Today's Schedule</h2>
+            <h2 class="section-title">ðŸ“… Today's Schedule</h2>
             <div class="today-schedule-grid">
                 <div class="schedule-card completed">
                     <div class="schedule-status">Final</div>
@@ -816,7 +816,7 @@
                 </div>
 
                 <div class="schedule-card live">
-                    <div class="schedule-status">🔴 LIVE</div>
+                    <div class="schedule-status">ðŸ”´ LIVE</div>
                     <div class="schedule-time">5:30 PM</div>
                     <div class="schedule-matchup">
                         <div class="schedule-team">
@@ -870,7 +870,7 @@
 
         <!-- Upcoming Matches -->
         <section class="upcoming-section">
-            <h2 class="section-title">📅 Upcoming Matches</h2>
+            <h2 class="section-title">ðŸ“… Upcoming Matches</h2>
             <div class="matches-grid">
                 <div class="match-card">
                     <div class="match-status status-upcoming">Today 8:00 PM</div>
@@ -936,7 +936,7 @@
 
         <!-- Recent Results -->
         <section class="recent-section">
-            <h2 class="section-title">📊 Recent Results</h2>
+            <h2 class="section-title">ðŸ“Š Recent Results</h2>
             <div class="matches-grid">
                 <div class="match-card">
                     <div class="match-status status-finished">Final</div>
@@ -982,7 +982,7 @@
 
         <!-- Match Statistics -->
         <section class="stats-section">
-            <h2 class="section-title">📈 Today's Match Statistics</h2>
+            <h2 class="section-title">ðŸ“ˆ Today's Match Statistics</h2>
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-number">4</div>
@@ -1100,8 +1100,12 @@
 
         // Initialize page - show all sections by default
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('NRL Matches page loaded');
+            console.log('MRL Matches page loaded');
         });
     </script>
 </body>
 </html>
+
+
+
+

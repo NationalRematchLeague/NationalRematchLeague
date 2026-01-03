@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schedule - National Rematch League</title>
+    <title>Schedule - Major Rematch League</title>
     <style>
         * {
             margin: 0;
@@ -13,16 +13,16 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a2f0a 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #242424 0%, #1a1a1a 100%);
             color: white;
             min-height: 100vh;
         }
 
         /* Navigation */
         .nav-container {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             padding: 0 20px;
-            box-shadow: 0 2px 20px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 2px 20px rgba(65, 219, 145, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -54,8 +54,8 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 3px solid #00ff41;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+            border: 3px solid #41DB90;
+            box-shadow: 0 0 10px rgba(65, 219, 145, 0.8);
             animation: pulse 2s infinite;
         }
 
@@ -72,7 +72,7 @@
             border-radius: 50%;
             background: radial-gradient(ellipse at 30% 30%, 
                 rgba(255, 255, 255, 0.3) 0%,
-                rgba(0, 255, 65, 0.1) 40%,
+                rgba(65, 219, 145, 0.1) 40%,
                 rgba(0, 0, 0, 0.8) 100%);
         }
 
@@ -81,7 +81,7 @@
             font-size: 16px;
             font-weight: 900;
             color: #000000;
-            text-shadow: 0 0 2px rgba(0, 255, 65, 0.5);
+            text-shadow: 0 0 2px rgba(65, 219, 145, 0.5);
             letter-spacing: -1px;
             z-index: 10;
         }
@@ -98,7 +98,7 @@
         }
 
         .nav-links a {
-            color: #0a2f0a;
+            color: #242424;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
@@ -114,20 +114,20 @@
         }
 
         .sign-up {
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
-            color: #00ff41;
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
+            color: #41DB90;
             padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
-            border: 2px solid #00ff41;
+            border: 2px solid #41DB90;
             transition: all 0.3s;
         }
 
         .sign-up:hover {
-            background: #00ff41;
-            color: #0a2f0a;
+            background: #41DB90;
+            color: #242424;
             transform: scale(1.05);
         }
 
@@ -142,7 +142,7 @@
             font-size: 48px;
             font-weight: bold;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #ffffff 0%, #00ff41 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #41DB90 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -160,8 +160,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             padding: 20px;
             margin-bottom: 30px;
@@ -174,8 +174,8 @@
         }
 
         .nav-btn {
-            background: #00ff41;
-            color: #0a2f0a;
+            background: #41DB90;
+            color: #242424;
             border: none;
             padding: 10px 15px;
             border-radius: 8px;
@@ -192,8 +192,8 @@
         .current-month {
             font-size: 24px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
         }
 
         .view-options {
@@ -204,7 +204,7 @@
         .view-btn {
             background: transparent;
             color: #ccc;
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             padding: 8px 16px;
             border-radius: 20px;
             cursor: pointer;
@@ -216,9 +216,9 @@
 
         .view-btn.active,
         .view-btn:hover {
-            background: #00ff41;
-            color: #0a2f0a;
-            border-color: #00ff41;
+            background: #41DB90;
+            color: #242424;
+            border-color: #41DB90;
         }
 
         /* Main Content */
@@ -233,15 +233,15 @@
 
         /* Schedule Grid */
         .schedule-container {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             overflow: hidden;
         }
 
         .schedule-header {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            color: #0a2f0a;
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            color: #242424;
             padding: 20px;
             font-size: 18px;
             font-weight: bold;
@@ -252,21 +252,21 @@
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 1px;
-            background: rgba(0, 255, 65, 0.1);
+            background: rgba(65, 219, 145, 0.1);
         }
 
         .day-header {
-            background: rgba(0, 255, 65, 0.2);
+            background: rgba(65, 219, 145, 0.2);
             padding: 15px 10px;
             text-align: center;
             font-weight: bold;
             font-size: 12px;
             text-transform: uppercase;
-            color: #00ff41;
+            color: #41DB90;
         }
 
         .day-cell {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
             min-height: 120px;
             padding: 10px;
             position: relative;
@@ -274,7 +274,7 @@
         }
 
         .day-cell:hover {
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
         }
 
         .day-number {
@@ -285,13 +285,13 @@
         }
 
         .day-cell.today .day-number {
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
         }
 
         .match-item {
-            background: rgba(0, 255, 65, 0.1);
-            border: 1px solid rgba(0, 255, 65, 0.3);
+            background: rgba(65, 219, 145, 0.1);
+            border: 1px solid rgba(65, 219, 145, 0.3);
             border-radius: 4px;
             padding: 4px 6px;
             margin-bottom: 3px;
@@ -301,12 +301,12 @@
         }
 
         .match-item:hover {
-            background: rgba(0, 255, 65, 0.2);
+            background: rgba(65, 219, 145, 0.2);
             transform: scale(1.02);
         }
 
         .match-time {
-            color: #00ff41;
+            color: #41DB90;
             font-weight: bold;
         }
 
@@ -324,8 +324,8 @@
         }
 
         .sidebar-section {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             padding: 25px;
         }
@@ -333,8 +333,8 @@
         .sidebar-title {
             font-size: 18px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
             margin-bottom: 20px;
             text-transform: uppercase;
         }
@@ -357,7 +357,7 @@
 
         .upcoming-date {
             font-size: 12px;
-            color: #00ff41;
+            color: #41DB90;
             font-weight: bold;
         }
 
@@ -372,10 +372,10 @@
             align-items: center;
             gap: 15px;
             padding: 15px;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             border-radius: 10px;
             margin-bottom: 10px;
-            border: 1px solid rgba(0, 255, 65, 0.2);
+            border: 1px solid rgba(65, 219, 145, 0.2);
         }
 
         .date-icon {
@@ -383,7 +383,7 @@
         }
 
         .date-info h4 {
-            color: #00ff41;
+            color: #41DB90;
             font-size: 14px;
             margin-bottom: 3px;
         }
@@ -434,7 +434,7 @@
     <div class="nav-container">
         <nav class="nav">
             <div class="logo" onclick="window.open('https://nationalrematchleague.github.io/NationalRematchLeague/')">
-                <span class="logo-text">NRL</span>
+                <span class="logo-text">MRL</span>
             </div>
             <ul class="nav-links">
                 <li><a href="https://nationalrematchleague.github.io/NationalRematchLeague/nrl_matches_page">Matches</a></li>
@@ -463,9 +463,9 @@
         <!-- Calendar Navigation -->
         <div class="calendar-nav">
             <div class="month-selector">
-                <button class="nav-btn" onclick="changeMonth(-1)">‹</button>
+                <button class="nav-btn" onclick="changeMonth(-1)">â€¹</button>
                 <span class="current-month">August 2025</span>
-                <button class="nav-btn" onclick="changeMonth(1)">›</button>
+                <button class="nav-btn" onclick="changeMonth(1)">â€º</button>
             </div>
             <div class="view-options">
                 <button class="view-btn active" onclick="changeView('month')">Month</button>
@@ -700,28 +700,28 @@
             <div class="sidebar-section">
                 <h3 class="sidebar-title">Key Dates</h3>
                 <div class="key-date">
-                    <div class="date-icon">🏆</div>
+                    <div class="date-icon">ðŸ†</div>
                     <div class="date-info">
                         <h4>Aug 31</h4>
                         <p>Regular Season Ends</p>
                     </div>
                 </div>
                 <div class="key-date">
-                    <div class="date-icon">⚡</div>
+                    <div class="date-icon">âš¡</div>
                     <div class="date-info">
                         <h4>Sep 5</h4>
                         <p>Playoffs Begin</p>
                     </div>
                 </div>
                 <div class="key-date">
-                    <div class="date-icon">🌟</div>
+                    <div class="date-icon">ðŸŒŸ</div>
                     <div class="date-info">
                         <h4>Sep 15</h4>
-                        <p>NRL All-Star Game</p>
+                        <p>MRL All-Star Game</p>
                     </div>
                 </div>
                 <div class="key-date">
-                    <div class="date-icon">🏅</div>
+                    <div class="date-icon">ðŸ…</div>
                     <div class="date-info">
                         <h4>Sep 28</h4>
                         <p>Championship Final</p>
@@ -733,7 +733,7 @@
             <div class="sidebar-section">
                 <h3 class="sidebar-title">Season Progress</h3>
                 <div style="text-align: center;">
-                    <div style="font-size: 36px; color: #00ff41; font-weight: bold; text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);">68%</div>
+                    <div style="font-size: 36px; color: #41DB90; font-weight: bold; text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);">68%</div>
                     <div style="font-size: 12px; color: #ccc; margin-top: 5px;">SEASON COMPLETE</div>
                     <div style="margin-top: 15px; font-size: 14px; color: #ccc;">
                         <div>124 / 180 Matches Played</div>
@@ -785,3 +785,7 @@
     </script>
 </body>
 </html>
+
+
+
+
