@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teams - National Rematch League</title>
+    <title>Teams - Major Rematch League</title>
     <style>
         * {
             margin: 0;
@@ -13,16 +13,16 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a2f0a 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #242424 0%, #1a1a1a 100%);
             color: white;
             min-height: 100vh;
         }
 
         /* Navigation */
         .nav-container {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             padding: 0 20px;
-            box-shadow: 0 2px 20px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 2px 20px rgba(65, 219, 145, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -53,8 +53,8 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 3px solid #00ff41;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+            border: 3px solid #41DB90;
+            box-shadow: 0 0 10px rgba(65, 219, 145, 0.8);
             animation: pulse 2s infinite;
         }
 
@@ -71,7 +71,7 @@
             border-radius: 50%;
             background: radial-gradient(ellipse at 30% 30%, 
                 rgba(255, 255, 255, 0.3) 0%,
-                rgba(0, 255, 65, 0.1) 40%,
+                rgba(65, 219, 145, 0.1) 40%,
                 rgba(0, 0, 0, 0.8) 100%);
         }
 
@@ -80,7 +80,7 @@
             font-size: 16px;
             font-weight: 900;
             color: #000000;
-            text-shadow: 0 0 2px rgba(0, 255, 65, 0.5);
+            text-shadow: 0 0 2px rgba(65, 219, 145, 0.5);
             letter-spacing: -1px;
             z-index: 10;
         }
@@ -93,7 +93,7 @@
         }
 
         .nav-links a {
-            color: #0a2f0a;
+            color: #242424;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
@@ -108,20 +108,20 @@
         }
 
         .sign-up {
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
-            color: #00ff41;
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
+            color: #41DB90;
             padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
-            border: 2px solid #00ff41;
+            border: 2px solid #41DB90;
             transition: all 0.3s;
         }
 
         .sign-up:hover {
-            background: #00ff41;
-            color: #0a2f0a;
+            background: #41DB90;
+            color: #242424;
             transform: scale(1.05);
         }
 
@@ -136,7 +136,7 @@
             font-size: 48px;
             font-weight: bold;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #ffffff 0%, #00ff41 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #41DB90 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -158,8 +158,8 @@
         }
 
         .filter-btn {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             color: #ccc;
             padding: 12px 20px;
             border-radius: 25px;
@@ -173,10 +173,10 @@
 
         .filter-btn:hover,
         .filter-btn.active {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            color: #0a2f0a;
-            border-color: #00ff41;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            color: #242424;
+            border-color: #41DB90;
+            box-shadow: 0 0 15px rgba(65, 219, 145, 0.3);
         }
 
         /* Main Content */
@@ -195,8 +195,8 @@
         }
 
         .team-card {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             overflow: hidden;
             cursor: pointer;
@@ -205,13 +205,13 @@
         }
 
         .team-card:hover {
-            border-color: #00ff41;
-            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.2);
+            border-color: #41DB90;
+            box-shadow: 0 10px 25px rgba(65, 219, 145, 0.2);
             transform: translateY(-5px);
         }
 
         .team-header {
-            background: linear-gradient(135deg, rgba(0, 255, 65, 0.1) 0%, rgba(0, 255, 65, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(65, 219, 145, 0.1) 0%, rgba(65, 219, 145, 0.05) 100%);
             padding: 25px;
             text-align: center;
             position: relative;
@@ -220,7 +220,7 @@
         .team-logo {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -228,16 +228,16 @@
             margin: 0 auto 15px;
             font-size: 32px;
             font-weight: bold;
-            color: #0a2f0a;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+            color: #242424;
+            box-shadow: 0 0 20px rgba(65, 219, 145, 0.3);
         }
 
         .team-name {
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 5px;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
         }
 
         .team-nickname {
@@ -251,8 +251,8 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background: rgba(0, 255, 65, 0.2);
-            color: #00ff41;
+            background: rgba(65, 219, 145, 0.2);
+            color: #41DB90;
             padding: 6px 12px;
             border-radius: 15px;
             font-size: 12px;
@@ -273,16 +273,16 @@
         .stat-item {
             text-align: center;
             padding: 12px;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             border-radius: 10px;
-            border: 1px solid rgba(0, 255, 65, 0.1);
+            border: 1px solid rgba(65, 219, 145, 0.1);
         }
 
         .stat-value {
             font-size: 20px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
         }
 
         .stat-label {
@@ -304,7 +304,7 @@
         }
 
         .info-label {
-            color: #00ff41;
+            color: #41DB90;
             font-weight: bold;
             margin-bottom: 3px;
         }
@@ -320,7 +320,7 @@
         .roster-title {
             font-size: 14px;
             font-weight: bold;
-            color: #00ff41;
+            color: #41DB90;
             margin-bottom: 10px;
             text-transform: uppercase;
         }
@@ -332,12 +332,12 @@
         }
 
         .player-tag {
-            background: rgba(0, 255, 65, 0.1);
+            background: rgba(65, 219, 145, 0.1);
             color: #ccc;
             padding: 4px 8px;
             border-radius: 12px;
             font-size: 11px;
-            border: 1px solid rgba(0, 255, 65, 0.2);
+            border: 1px solid rgba(65, 219, 145, 0.2);
         }
 
         .team-actions {
@@ -348,10 +348,10 @@
         .action-btn {
             flex: 1;
             padding: 10px;
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 8px;
             background: transparent;
-            color: #00ff41;
+            color: #41DB90;
             font-size: 12px;
             font-weight: bold;
             text-transform: uppercase;
@@ -362,15 +362,15 @@
         }
 
         .action-btn:hover {
-            background: #00ff41;
-            color: #0a2f0a;
-            border-color: #00ff41;
+            background: #41DB90;
+            color: #242424;
+            border-color: #41DB90;
         }
 
         /* League Overview */
         .league-overview {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 40px;
@@ -379,8 +379,8 @@
         .overview-title {
             font-size: 24px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
             margin-bottom: 20px;
             text-transform: uppercase;
         }
@@ -394,16 +394,16 @@
         .overview-stat {
             text-align: center;
             padding: 20px;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             border-radius: 12px;
-            border: 1px solid rgba(0, 255, 65, 0.2);
+            border: 1px solid rgba(65, 219, 145, 0.2);
         }
 
         .overview-number {
             font-size: 32px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
         }
 
         .overview-label {
@@ -463,7 +463,7 @@
     <div class="nav-container">
         <nav class="nav">
             <div class="logo" onclick="window.open('ahttps://nationalrematchleague.github.io/NationalRematchLeague/')">
-                <span class="logo-text">NRL</span>
+                <span class="logo-text">MRL</span>
             </div>
             <ul class="nav-links">
                 <li><a href="https://nationalrematchleague.github.io/NationalRematchLeague/nrl_matches_page">Matches</a></li>
@@ -1130,3 +1130,7 @@
                             <div class="stat-label">Standing</div>
                         </div>
                         <div
+
+
+
+

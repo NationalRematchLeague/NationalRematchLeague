@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>National Rematch League - All-Star Game</title>
+    <title>Major Rematch League - All-Star Game</title>
     <style>
         * {
             margin: 0;
@@ -13,16 +13,16 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a2f0a 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #242424 0%, #1a1a1a 100%);
             color: white;
             min-height: 100vh;
         }
 
         /* Navigation */
         .nav-container {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             padding: 0 20px;
-            box-shadow: 0 2px 20px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 2px 20px rgba(65, 219, 145, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -58,12 +58,12 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 3px solid #00ff41;
+            border: 3px solid #41DB90;
             box-shadow: 
-                0 0 10px rgba(0, 255, 65, 0.8),
-                0 0 20px rgba(0, 255, 65, 0.6),
-                0 0 30px rgba(0, 255, 65, 0.4),
-                inset 0 0 10px rgba(0, 255, 65, 0.3);
+                0 0 10px rgba(65, 219, 145, 0.8),
+                0 0 20px rgba(65, 219, 145, 0.6),
+                0 0 30px rgba(65, 219, 145, 0.4),
+                inset 0 0 10px rgba(65, 219, 145, 0.3);
             background: transparent;
             animation: pulse 2s infinite;
         }
@@ -81,7 +81,7 @@
             border-radius: 50%;
             background: radial-gradient(ellipse at 30% 30%, 
                 rgba(255, 255, 255, 0.3) 0%,
-                rgba(0, 255, 65, 0.1) 40%,
+                rgba(65, 219, 145, 0.1) 40%,
                 rgba(0, 0, 0, 0.8) 100%);
             box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
         }
@@ -92,7 +92,7 @@
             font-weight: 900;
             color: #000000;
             text-shadow: 
-                0 0 2px rgba(0, 255, 65, 0.5),
+                0 0 2px rgba(65, 219, 145, 0.5),
                 0 1px 2px rgba(0, 0, 0, 0.3);
             letter-spacing: -1px;
             z-index: 10;
@@ -107,7 +107,7 @@
         }
 
         .nav-links a {
-            color: #0a2f0a;
+            color: #242424;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
@@ -134,22 +134,22 @@
         }
 
         .sign-up {
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
-            color: #00ff41;
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
+            color: #41DB90;
             padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
-            border: 2px solid #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            border: 2px solid #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
             transition: all 0.3s;
         }
 
         .sign-up:hover {
-            background: #00ff41;
-            color: #0a2f0a;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.6);
+            background: #41DB90;
+            color: #242424;
+            box-shadow: 0 0 15px rgba(65, 219, 145, 0.6);
             transform: scale(1.05);
         }
 
@@ -163,12 +163,12 @@
         /* Hero Section */
         .hero-section {
             position: relative;
-            background: linear-gradient(135deg, #0a2f0a 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
             border-radius: 20px;
             overflow: hidden;
             margin-bottom: 50px;
-            border: 3px solid #00ff41;
-            box-shadow: 0 0 40px rgba(0, 255, 65, 0.3);
+            border: 3px solid #41DB90;
+            box-shadow: 0 0 40px rgba(65, 219, 145, 0.3);
         }
 
         .hero-background {
@@ -194,18 +194,18 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff 0%, #00ff41 50%, #ffd700 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #41DB90 50%, #ffd700 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(0, 255, 65, 0.5);
+            text-shadow: 0 0 30px rgba(65, 219, 145, 0.5);
         }
 
         .hero-subtitle {
             font-size: 24px;
-            color: #00ff41;
+            color: #41DB90;
             margin-bottom: 30px;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
         }
 
         .hero-details {
@@ -237,7 +237,7 @@
 
         .vote-now-btn {
             background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-            color: #0a2f0a;
+            color: #242424;
             padding: 20px 40px;
             border-radius: 50px;
             text-decoration: none;
@@ -267,14 +267,14 @@
         /* Tab Navigation */
         .tab-navigation {
             display: flex;
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
             border-radius: 15px;
             padding: 15px;
             margin-bottom: 40px;
             gap: 10px;
             flex-wrap: wrap;
             justify-content: center;
-            border: 1px solid #00ff41;
+            border: 1px solid #41DB90;
         }
 
         .tab-btn {
@@ -294,15 +294,15 @@
         }
 
         .tab-btn:hover {
-            color: #00ff41;
-            border-color: rgba(0, 255, 65, 0.3);
+            color: #41DB90;
+            border-color: rgba(65, 219, 145, 0.3);
         }
 
         .tab-btn.active {
-            color: #0a2f0a;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            border-color: #00ff41;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+            color: #242424;
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            border-color: #41DB90;
+            box-shadow: 0 0 20px rgba(65, 219, 145, 0.4);
         }
 
         /* Content Sections */
@@ -323,18 +323,18 @@
         }
 
         .team-voting {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
             border-radius: 15px;
             padding: 30px;
-            border: 1px solid #00ff41;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            border: 1px solid #41DB90;
+            box-shadow: 0 0 20px rgba(65, 219, 145, 0.1);
         }
 
         .team-header {
             text-align: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 2px solid rgba(0, 255, 65, 0.3);
+            border-bottom: 2px solid rgba(65, 219, 145, 0.3);
         }
 
         .team-title {
@@ -366,10 +366,10 @@
         .position-title {
             font-size: 18px;
             font-weight: bold;
-            color: #00ff41;
+            color: #41DB90;
             margin-bottom: 20px;
             text-transform: uppercase;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
         }
 
         .player-candidates {
@@ -378,8 +378,8 @@
         }
 
         .player-card {
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
-            border: 1px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
+            border: 1px solid rgba(65, 219, 145, 0.3);
             border-radius: 12px;
             padding: 20px;
             transition: all 0.3s;
@@ -388,8 +388,8 @@
         }
 
         .player-card:hover {
-            border-color: #00ff41;
-            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.2);
+            border-color: #41DB90;
+            box-shadow: 0 10px 25px rgba(65, 219, 145, 0.2);
             transform: translateY(-3px);
         }
 
@@ -400,7 +400,7 @@
         }
 
         .player-card.selected::before {
-            content: '⭐';
+            content: 'â­';
             position: absolute;
             top: 10px;
             right: 15px;
@@ -431,13 +431,13 @@
 
         .stat-line {
             font-size: 12px;
-            color: #00ff41;
+            color: #41DB90;
             margin-bottom: 3px;
         }
 
         .vote-percentage {
-            background: #00ff41;
-            color: #0a2f0a;
+            background: #41DB90;
+            color: #242424;
             padding: 5px 10px;
             border-radius: 15px;
             font-size: 11px;
@@ -454,11 +454,11 @@
         }
 
         .roster-team {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
             border-radius: 15px;
             padding: 30px;
-            border: 1px solid #00ff41;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            border: 1px solid #41DB90;
+            box-shadow: 0 0 20px rgba(65, 219, 145, 0.1);
         }
 
         .roster-header {
@@ -492,8 +492,8 @@
         }
 
         .roster-player {
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
-            border: 1px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
+            border: 1px solid rgba(65, 219, 145, 0.3);
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 10px;
@@ -502,8 +502,8 @@
         }
 
         .roster-player:hover {
-            border-color: #00ff41;
-            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.2);
+            border-color: #41DB90;
+            box-shadow: 0 5px 15px rgba(65, 219, 145, 0.2);
         }
 
         .roster-player-name {
@@ -526,11 +526,11 @@
         }
 
         .history-card {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
             border-radius: 15px;
             padding: 30px;
-            border: 1px solid #00ff41;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            border: 1px solid #41DB90;
+            box-shadow: 0 0 20px rgba(65, 219, 145, 0.1);
         }
 
         .history-year {
@@ -549,7 +549,7 @@
         }
 
         .history-item h4 {
-            color: #00ff41;
+            color: #41DB90;
             margin-bottom: 10px;
             font-size: 14px;
             text-transform: uppercase;
@@ -582,20 +582,20 @@
 
         /* Events Schedule */
         .events-timeline {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
             border-radius: 15px;
             padding: 30px;
-            border: 1px solid #00ff41;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            border: 1px solid #41DB90;
+            box-shadow: 0 0 20px rgba(65, 219, 145, 0.1);
         }
 
         .timeline-title {
             font-size: 24px;
             font-weight: bold;
-            color: #00ff41;
+            color: #41DB90;
             text-align: center;
             margin-bottom: 30px;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
         }
 
         .timeline-event {
@@ -603,20 +603,20 @@
             align-items: center;
             padding: 20px;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
             border-radius: 10px;
-            border-left: 4px solid #00ff41;
+            border-left: 4px solid #41DB90;
             transition: all 0.3s;
         }
 
         .timeline-event:hover {
             transform: translateX(10px);
-            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.2);
+            box-shadow: 0 5px 15px rgba(65, 219, 145, 0.2);
         }
 
         .event-date {
-            background: #00ff41;
-            color: #0a2f0a;
+            background: #41DB90;
+            color: #242424;
             padding: 10px 15px;
             border-radius: 8px;
             font-weight: bold;
@@ -698,7 +698,7 @@
     <div class="nav-container">
         <nav class="nav">
             <div class="logo" onclick="window.location.href='https://nationalrematchleague.github.io/NationalRematchLeague/'">
-                <span class="logo-text">NRL</span>
+                <span class="logo-text">MRL</span>
             </div>
             <ul class="nav-links">
                 <li><a href="https://nationalrematchleague.github.io/NationalRematchLeague/nrl_matches_page">Matches</a></li>
@@ -725,7 +725,7 @@
         <div class="hero-section">
             <div class="hero-background"></div>
             <div class="hero-content">
-                <h1 class="hero-title">NRL All-Star Game</h1>
+                <h1 class="hero-title">MRL All-Star Game</h1>
                 <p class="hero-subtitle">Season 3 Mid-Season Spectacular</p>
                 <div class="hero-details">
                     <div class="hero-detail">
@@ -734,7 +734,7 @@
                     </div>
                     <div class="hero-detail">
                         <div class="detail-label">Venue</div>
-                        <div class="detail-value">NRL Arena</div>
+                        <div class="detail-value">MRL Arena</div>
                     </div>
                     <div class="hero-detail">
                         <div class="detail-label">Format</div>
@@ -745,7 +745,7 @@
                         <div class="detail-value">TBD</div>
                     </div>
                 </div>
-                <a href="#" class="vote-now-btn" onclick="showTab('voting')">🗳️ Vote Now</a>
+                <a href="#" class="vote-now-btn" onclick="showTab('voting')">ðŸ—³ï¸ Vote Now</a>
             </div>
         </div>
 
@@ -874,3 +874,7 @@
                                 <div class="vote-percentage">43% of votes</div>
                             </div>
                             <div class="player
+
+
+
+

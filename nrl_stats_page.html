@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stats - National Rematch League</title>
+    <title>Stats - Major Rematch League</title>
     <style>
         * {
             margin: 0;
@@ -13,16 +13,16 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a2f0a 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #242424 0%, #1a1a1a 100%);
             color: white;
             min-height: 100vh;
         }
 
         /* Navigation */
         .nav-container {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             padding: 0 20px;
-            box-shadow: 0 2px 20px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 2px 20px rgba(65, 219, 145, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -53,8 +53,8 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 3px solid #00ff41;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+            border: 3px solid #41DB90;
+            box-shadow: 0 0 10px rgba(65, 219, 145, 0.8);
             animation: pulse 2s infinite;
         }
 
@@ -71,7 +71,7 @@
             border-radius: 50%;
             background: radial-gradient(ellipse at 30% 30%, 
                 rgba(255, 255, 255, 0.3) 0%,
-                rgba(0, 255, 65, 0.1) 40%,
+                rgba(65, 219, 145, 0.1) 40%,
                 rgba(0, 0, 0, 0.8) 100%);
         }
 
@@ -80,7 +80,7 @@
             font-size: 16px;
             font-weight: 900;
             color: #000000;
-            text-shadow: 0 0 2px rgba(0, 255, 65, 0.5);
+            text-shadow: 0 0 2px rgba(65, 219, 145, 0.5);
             letter-spacing: -1px;
             z-index: 10;
         }
@@ -97,7 +97,7 @@
         }
 
         .nav-links a {
-            color: #0a2f0a;
+            color: #242424;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
@@ -121,12 +121,12 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 8px 16px rgba(65, 219, 145, 0.3);
             border-radius: 8px;
             z-index: 1000;
-            border: 1px solid rgba(0, 255, 65, 0.5);
+            border: 1px solid rgba(65, 219, 145, 0.5);
             opacity: 0;
             transform: translateY(-10px);
             transition: all 0.3s;
@@ -139,7 +139,7 @@
         }
 
         .dropdown-content a {
-            color: #0a2f0a !important;
+            color: #242424 !important;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
@@ -155,26 +155,26 @@
         }
 
         .dropdown > a::after {
-            content: ' ▼';
+            content: ' â–¼';
             font-size: 10px;
             margin-left: 5px;
         }
 
         .sign-up {
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
-            color: #00ff41;
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
+            color: #41DB90;
             padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
-            border: 2px solid #00ff41;
+            border: 2px solid #41DB90;
             transition: all 0.3s;
         }
 
         .sign-up:hover {
-            background: #00ff41;
-            color: #0a2f0a;
+            background: #41DB90;
+            color: #242424;
             transform: scale(1.05);
         }
 
@@ -189,7 +189,7 @@
             font-size: 48px;
             font-weight: bold;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #ffffff 0%, #00ff41 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #41DB90 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -211,8 +211,8 @@
         }
 
         .category-btn {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             color: #ccc;
             padding: 12px 20px;
             border-radius: 25px;
@@ -226,10 +226,10 @@
 
         .category-btn:hover,
         .category-btn.active {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            color: #0a2f0a;
-            border-color: #00ff41;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            color: #242424;
+            border-color: #41DB90;
+            box-shadow: 0 0 15px rgba(65, 219, 145, 0.3);
         }
 
         /* Main Content */
@@ -248,8 +248,8 @@
         }
 
         .overview-card {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             padding: 25px;
             text-align: center;
@@ -257,16 +257,16 @@
         }
 
         .overview-card:hover {
-            border-color: #00ff41;
+            border-color: #41DB90;
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.2);
+            box-shadow: 0 10px 25px rgba(65, 219, 145, 0.2);
         }
 
         .overview-number {
             font-size: 36px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 15px rgba(65, 219, 145, 0.5);
             margin-bottom: 10px;
         }
 
@@ -283,7 +283,7 @@
             font-weight: bold;
         }
 
-        .positive { color: #00ff41; }
+        .positive { color: #41DB90; }
         .negative { color: #ff6b6b; }
 
         /* Content Grid */
@@ -296,23 +296,23 @@
 
         /* Section Styling */
         .stats-section {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             padding: 25px;
             transition: all 0.3s;
         }
 
         .stats-section:hover {
-            border-color: rgba(0, 255, 65, 0.5);
-            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.1);
+            border-color: rgba(65, 219, 145, 0.5);
+            box-shadow: 0 10px 25px rgba(65, 219, 145, 0.1);
         }
 
         .section-title {
             font-size: 20px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -330,30 +330,30 @@
             align-items: center;
             gap: 15px;
             padding: 15px;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             border-radius: 10px;
-            border: 1px solid rgba(0, 255, 65, 0.1);
+            border: 1px solid rgba(65, 219, 145, 0.1);
             transition: all 0.3s;
         }
 
         .leader-item:hover {
-            background: rgba(0, 255, 65, 0.1);
-            border-color: rgba(0, 255, 65, 0.3);
+            background: rgba(65, 219, 145, 0.1);
+            border-color: rgba(65, 219, 145, 0.3);
             transform: translateX(5px);
         }
 
         .leader-rank {
             width: 35px;
             height: 35px;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            color: #0a2f0a;
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            color: #242424;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             font-size: 14px;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+            box-shadow: 0 0 10px rgba(65, 219, 145, 0.4);
         }
 
         .leader-rank.gold { background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); }
@@ -378,8 +378,8 @@
         .leader-stat {
             font-size: 20px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
         }
 
         /* Team Stats Grid */
@@ -390,16 +390,16 @@
         }
 
         .team-stat-card {
-            background: rgba(0, 255, 65, 0.05);
-            border: 1px solid rgba(0, 255, 65, 0.2);
+            background: rgba(65, 219, 145, 0.05);
+            border: 1px solid rgba(65, 219, 145, 0.2);
             border-radius: 12px;
             padding: 20px;
             transition: all 0.3s;
         }
 
         .team-stat-card:hover {
-            background: rgba(0, 255, 65, 0.1);
-            border-color: rgba(0, 255, 65, 0.4);
+            background: rgba(65, 219, 145, 0.1);
+            border-color: rgba(65, 219, 145, 0.4);
             transform: translateY(-3px);
         }
 
@@ -413,13 +413,13 @@
         .team-logo {
             width: 35px;
             height: 35px;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #0a2f0a;
+            color: #242424;
             font-size: 12px;
         }
 
@@ -437,13 +437,13 @@
         .team-stat {
             text-align: center;
             padding: 8px;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             border-radius: 6px;
         }
 
         .team-stat-value {
             font-weight: bold;
-            color: #00ff41;
+            color: #41DB90;
             font-size: 16px;
         }
 
@@ -456,8 +456,8 @@
 
         /* Full Width Sections */
         .full-width-section {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 40px;
@@ -510,8 +510,8 @@
         }
 
         .analytics-card {
-            background: rgba(0, 255, 65, 0.05);
-            border: 1px solid rgba(0, 255, 65, 0.2);
+            background: rgba(65, 219, 145, 0.05);
+            border: 1px solid rgba(65, 219, 145, 0.2);
             border-radius: 12px;
             padding: 20px;
             text-align: center;
@@ -519,7 +519,7 @@
         }
 
         .analytics-card:hover {
-            background: rgba(0, 255, 65, 0.1);
+            background: rgba(65, 219, 145, 0.1);
             transform: scale(1.02);
         }
 
@@ -531,8 +531,8 @@
         .analytics-value {
             font-size: 24px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
             margin-bottom: 5px;
         }
 
@@ -593,7 +593,7 @@
     <div class="nav-container">
         <nav class="nav">
             <div class="logo" onclick="window.open('https://nationalrematchleague.github.io/NationalRematchLeague/')">
-                <span class="logo-text">NRL</span>
+                <span class="logo-text">MRL</span>
             </div>
             <ul class="nav-links">
                 <li class="dropdown">
@@ -712,7 +712,7 @@
         <div class="content-grid">
             <!-- Top Players -->
             <div class="stats-section">
-                <h2 class="section-title">🏆 Top Players</h2>
+                <h2 class="section-title">ðŸ† Top Players</h2>
                 <div class="leaders-list">
                     <div class="leader-item">
                         <div class="leader-rank gold">1</div>
@@ -759,7 +759,7 @@
 
             <!-- Team Performance -->
             <div class="stats-section">
-                <h2 class="section-title">⚡ Team Leaders</h2>
+                <h2 class="section-title">âš¡ Team Leaders</h2>
                 <div class="team-stats-grid">
                     <div class="team-stat-card">
                         <div class="team-header">
@@ -816,35 +816,35 @@
 
         <!-- Advanced Analytics -->
         <div class="full-width-section">
-            <h2 class="section-title">🔬 Advanced Analytics</h2>
+            <h2 class="section-title">ðŸ”¬ Advanced Analytics</h2>
             <div class="analytics-grid">
                 <div class="analytics-card">
-                    <div class="analytics-icon">⚡</div>
+                    <div class="analytics-icon">âš¡</div>
                     <div class="analytics-value">92.3</div>
                     <div class="analytics-label">League Rating</div>
                 </div>
                 <div class="analytics-card">
-                    <div class="analytics-icon">🎯</div>
+                    <div class="analytics-icon">ðŸŽ¯</div>
                     <div class="analytics-value">76%</div>
                     <div class="analytics-label">Accuracy</div>
                 </div>
                 <div class="analytics-card">
-                    <div class="analytics-icon">⏱️</div>
+                    <div class="analytics-icon">â±ï¸</div>
                     <div class="analytics-value">1.8h</div>
                     <div class="analytics-label">Avg Duration</div>
                 </div>
                 <div class="analytics-card">
-                    <div class="analytics-icon">🔥</div>
+                    <div class="analytics-icon">ðŸ”¥</div>
                     <div class="analytics-value">34</div>
                     <div class="analytics-label">Upsets</div>
                 </div>
                 <div class="analytics-card">
-                    <div class="analytics-icon">📈</div>
+                    <div class="analytics-icon">ðŸ“ˆ</div>
                     <div class="analytics-value">87%</div>
                     <div class="analytics-label">Competitive Balance</div>
                 </div>
                 <div class="analytics-card">
-                    <div class="analytics-icon">👥</div>
+                    <div class="analytics-icon">ðŸ‘¥</div>
                     <div class="analytics-value">94%</div>
                     <div class="analytics-label">Player Satisfaction</div>
                 </div>
@@ -853,7 +853,7 @@
 
         <!-- League Records -->
         <div class="full-width-section">
-            <h2 class="section-title">🏅 League Records</h2>
+            <h2 class="section-title">ðŸ… League Records</h2>
             <div class="records-grid">
                 <div class="record-item">
                     <div class="record-category">Single Game Record</div>
@@ -890,22 +890,22 @@
 
         <!-- Performance Insights -->
         <div class="full-width-section">
-            <h2 class="section-title">💡 Performance Insights</h2>
+            <h2 class="section-title">ðŸ’¡ Performance Insights</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
                 <div style="padding: 20px; background: rgba(0,255,65,0.1); border-radius: 12px; border: 1px solid rgba(0,255,65,0.3);">
-                    <h4 style="color: #00ff41; margin-bottom: 10px; font-size: 16px;">🏆 Most Competitive Season</h4>
+                    <h4 style="color: #41DB90; margin-bottom: 10px; font-size: 16px;">ðŸ† Most Competitive Season</h4>
                     <p style="color: #ccc; line-height: 1.6; font-size: 14px;">68% of games decided by 2 goals or less, up 15% from last season. This represents the tightest competition in NRL history.</p>
                 </div>
                 <div style="padding: 20px; background: rgba(0,255,65,0.1); border-radius: 12px; border: 1px solid rgba(0,255,65,0.3);">
-                    <h4 style="color: #00ff41; margin-bottom: 10px; font-size: 16px;">⭐ Rising Talent Pipeline</h4>
+                    <h4 style="color: #41DB90; margin-bottom: 10px; font-size: 16px;">â­ Rising Talent Pipeline</h4>
                     <p style="color: #ccc; line-height: 1.6; font-size: 14px;">47 rookie players are contributing significantly across all teams, showing the strength of the Academy League development system.</p>
                 </div>
                 <div style="padding: 20px; background: rgba(0,255,65,0.1); border-radius: 12px; border: 1px solid rgba(0,255,65,0.3);">
-                    <h4 style="color: #00ff41; margin-bottom: 10px; font-size: 16px;">🔥 Playoff Race Intensity</h4>
+                    <h4 style="color: #41DB90; margin-bottom: 10px; font-size: 16px;">ðŸ”¥ Playoff Race Intensity</h4>
                     <p style="color: #ccc; line-height: 1.6; font-size: 14px;">Only 3 wins separate 6th place from 9th place - the tightest playoff race in league history with multiple teams still in contention.</p>
                 </div>
                 <div style="padding: 20px; background: rgba(0,255,65,0.1); border-radius: 12px; border: 1px solid rgba(0,255,65,0.3);">
-                    <h4 style="color: #00ff41; margin-bottom: 10px; font-size: 16px;">📺 Fan Engagement Surge</h4>
+                    <h4 style="color: #41DB90; margin-bottom: 10px; font-size: 16px;">ðŸ“º Fan Engagement Surge</h4>
                     <p style="color: #ccc; line-height: 1.6; font-size: 14px;">Average viewership up 34% compared to inaugural season, with social media engagement reaching all-time highs during championship matches.</p>
                 </div>
             </div>
@@ -914,41 +914,41 @@
         <!-- Statistical Leaders -->
         <div class="content-grid">
             <div class="stats-section">
-                <h2 class="section-title">📊 Statistical Leaders</h2>
+                <h2 class="section-title">ðŸ“Š Statistical Leaders</h2>
                 <div style="font-size: 14px; line-height: 1.8;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding: 10px; background: rgba(0,255,65,0.1); border-radius: 6px;">
                         <span><strong>Highest Rating:</strong></span>
-                        <span style="color: #00ff41; font-weight: bold;">95 (Maya Rodriguez)</span>
+                        <span style="color: #41DB90; font-weight: bold;">95 (Maya Rodriguez)</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding: 10px; background: rgba(0,255,65,0.1); border-radius: 6px;">
                         <span><strong>Most Matches:</strong></span>
-                        <span style="color: #00ff41; font-weight: bold;">28 (Multiple Players)</span>
+                        <span style="color: #41DB90; font-weight: bold;">28 (Multiple Players)</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding: 10px; background: rgba(0,255,65,0.1); border-radius: 6px;">
                         <span><strong>Best Win Rate:</strong></span>
-                        <span style="color: #00ff41; font-weight: bold;">87% (Maya Rodriguez)</span>
+                        <span style="color: #41DB90; font-weight: bold;">87% (Maya Rodriguez)</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding: 10px; background: rgba(0,255,65,0.1); border-radius: 6px;">
                         <span><strong>Most Goals:</strong></span>
-                        <span style="color: #00ff41; font-weight: bold;">45 (Carlos Martinez)</span>
+                        <span style="color: #41DB90; font-weight: bold;">45 (Carlos Martinez)</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(0,255,65,0.1); border-radius: 6px;">
                         <span><strong>Best Defense:</strong></span>
-                        <span style="color: #00ff41; font-weight: bold;">Nova Core (64 GA)</span>
+                        <span style="color: #41DB90; font-weight: bold;">Nova Core (64 GA)</span>
                     </div>
                 </div>
             </div>
 
             <div class="stats-section">
-                <h2 class="section-title">🎯 Season Highlights</h2>
+                <h2 class="section-title">ðŸŽ¯ Season Highlights</h2>
                 <div style="font-size: 14px; line-height: 1.8;">
                     <div style="margin-bottom: 15px; padding: 12px; background: rgba(255,215,0,0.1); border-radius: 8px; border-left: 4px solid #ffd700;">
                         <strong style="color: #ffd700;">Championship Race:</strong><br>
                         <span style="color: #ccc;">Nova Core leads with 24-4 record, clinched #1 seed</span>
                     </div>
                     
-                    <div style="margin-bottom: 15px; padding: 12px; background: rgba(0,255,65,0.1); border-radius: 8px; border-left: 4px solid #00ff41;">
-                        <strong style="color: #00ff41;">Rookie Success:</strong><br>
+                    <div style="margin-bottom: 15px; padding: 12px; background: rgba(0,255,65,0.1); border-radius: 8px; border-left: 4px solid #41DB90;">
+                        <strong style="color: #41DB90;">Rookie Success:</strong><br>
                         <span style="color: #ccc;">Tyler Kim leads all rookies with 85 rating</span>
                     </div>
                     
@@ -957,8 +957,8 @@
                         <span style="color: #ccc;">U20s defeated Nova Core 3-2 in regular season</span>
                     </div>
                     
-                    <div style="padding: 12px; background: rgba(0,255,65,0.1); border-radius: 8px; border-left: 4px solid #00ff41;">
-                        <strong style="color: #00ff41;">MVP Race:</strong><br>
+                    <div style="padding: 12px; background: rgba(0,255,65,0.1); border-radius: 8px; border-left: 4px solid #41DB90;">
+                        <strong style="color: #41DB90;">MVP Race:</strong><br>
                         <span style="color: #ccc;">Maya Rodriguez leads with dominant performances</span>
                     </div>
                 </div>
@@ -1040,3 +1040,7 @@
     </script>
 </body>
 </html>
+
+
+
+

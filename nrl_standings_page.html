@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Standings - National Rematch League</title>
+    <title>Standings - Major Rematch League</title>
     <style>
         * {
             margin: 0;
@@ -13,16 +13,16 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a2f0a 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #242424 0%, #1a1a1a 100%);
             color: white;
             min-height: 100vh;
         }
 
         /* Navigation */
         .nav-container {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             padding: 0 20px;
-            box-shadow: 0 2px 20px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 2px 20px rgba(65, 219, 145, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -53,8 +53,8 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 3px solid #00ff41;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+            border: 3px solid #41DB90;
+            box-shadow: 0 0 10px rgba(65, 219, 145, 0.8);
             animation: pulse 2s infinite;
         }
 
@@ -71,7 +71,7 @@
             border-radius: 50%;
             background: radial-gradient(ellipse at 30% 30%, 
                 rgba(255, 255, 255, 0.3) 0%,
-                rgba(0, 255, 65, 0.1) 40%,
+                rgba(65, 219, 145, 0.1) 40%,
                 rgba(0, 0, 0, 0.8) 100%);
         }
 
@@ -80,7 +80,7 @@
             font-size: 16px;
             font-weight: 900;
             color: #000000;
-            text-shadow: 0 0 2px rgba(0, 255, 65, 0.5);
+            text-shadow: 0 0 2px rgba(65, 219, 145, 0.5);
             letter-spacing: -1px;
             z-index: 10;
         }
@@ -97,7 +97,7 @@
         }
 
         .nav-links a {
-            color: #0a2f0a;
+            color: #242424;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
@@ -122,12 +122,12 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 8px 16px rgba(65, 219, 145, 0.3);
             border-radius: 8px;
             z-index: 1000;
-            border: 1px solid rgba(0, 255, 65, 0.5);
+            border: 1px solid rgba(65, 219, 145, 0.5);
             opacity: 0;
             transform: translateY(-10px);
             transition: all 0.3s;
@@ -140,7 +140,7 @@
         }
 
         .dropdown-content a {
-            color: #0a2f0a !important;
+            color: #242424 !important;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
@@ -165,26 +165,26 @@
         }
 
         .dropdown > a::after {
-            content: ' ▼';
+            content: ' â–¼';
             font-size: 10px;
             margin-left: 5px;
         }
 
         .sign-up {
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
-            color: #00ff41;
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
+            color: #41DB90;
             padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
-            border: 2px solid #00ff41;
+            border: 2px solid #41DB90;
             transition: all 0.3s;
         }
 
         .sign-up:hover {
-            background: #00ff41;
-            color: #0a2f0a;
+            background: #41DB90;
+            color: #242424;
             transform: scale(1.05);
         }
 
@@ -199,7 +199,7 @@
             font-size: 48px;
             font-weight: bold;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #ffffff 0%, #00ff41 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #41DB90 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -214,8 +214,8 @@
 
         /* Season Stats Bar */
         .season-stats-bar {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             padding: 25px;
             margin-bottom: 30px;
@@ -227,22 +227,22 @@
         .stat-box {
             text-align: center;
             padding: 15px;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             border-radius: 10px;
-            border: 1px solid rgba(0, 255, 65, 0.2);
+            border: 1px solid rgba(65, 219, 145, 0.2);
             transition: all 0.3s;
         }
 
         .stat-box:hover {
-            background: rgba(0, 255, 65, 0.1);
+            background: rgba(65, 219, 145, 0.1);
             transform: translateY(-3px);
         }
 
         .stat-number {
             font-size: 32px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
             margin-bottom: 5px;
         }
 
@@ -256,7 +256,7 @@
         .progress-bar {
             width: 100%;
             height: 8px;
-            background: rgba(0, 255, 65, 0.2);
+            background: rgba(65, 219, 145, 0.2);
             border-radius: 4px;
             margin-top: 10px;
             overflow: hidden;
@@ -264,15 +264,15 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #00ff41, #00cc33);
+            background: linear-gradient(90deg, #41DB90, #41DB90);
             border-radius: 4px;
             width: 68%;
             animation: progressGlow 2s infinite alternate;
         }
 
         @keyframes progressGlow {
-            from { box-shadow: 0 0 5px rgba(0, 255, 65, 0.5); }
-            to { box-shadow: 0 0 15px rgba(0, 255, 65, 0.8); }
+            from { box-shadow: 0 0 5px rgba(65, 219, 145, 0.5); }
+            to { box-shadow: 0 0 15px rgba(65, 219, 145, 0.8); }
         }
 
         /* Main Content Layout */
@@ -287,16 +287,16 @@
 
         /* Standings Table Container */
         .standings-container {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.1);
+            box-shadow: 0 0 30px rgba(65, 219, 145, 0.1);
         }
 
         .table-header {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            color: #0a2f0a;
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            color: #242424;
             padding: 20px 25px;
             display: flex;
             justify-content: space-between;
@@ -318,7 +318,7 @@
         .view-toggle {
             background: rgba(10, 47, 10, 0.3);
             border: 1px solid rgba(10, 47, 10, 0.5);
-            color: #0a2f0a;
+            color: #242424;
             padding: 6px 12px;
             border-radius: 6px;
             font-size: 11px;
@@ -330,9 +330,9 @@
 
         .view-toggle.active,
         .view-toggle:hover {
-            background: #0a2f0a;
-            color: #00ff41;
-            border-color: #0a2f0a;
+            background: #242424;
+            color: #41DB90;
+            border-color: #242424;
         }
 
         /* Modern Standings Table */
@@ -343,15 +343,15 @@
         }
 
         .standings-table thead th {
-            background: rgba(0, 255, 65, 0.15);
-            color: #00ff41;
+            background: rgba(65, 219, 145, 0.15);
+            color: #41DB90;
             padding: 18px 12px;
             text-align: left;
             font-size: 11px;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-bottom: 2px solid rgba(0, 255, 65, 0.3);
+            border-bottom: 2px solid rgba(65, 219, 145, 0.3);
             position: sticky;
             top: 0;
         }
@@ -367,7 +367,7 @@
         }
 
         .standings-table tbody tr:hover {
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             transform: scale(1.01);
         }
 
@@ -390,16 +390,16 @@
             height: 32px;
             line-height: 32px;
             border-radius: 50%;
-            background: rgba(0, 255, 65, 0.2);
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            background: rgba(65, 219, 145, 0.2);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
         }
 
         /* Playoff positioning */
         .playoff-position .position-number {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            color: #0a2f0a;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            color: #242424;
+            box-shadow: 0 0 15px rgba(65, 219, 145, 0.4);
         }
 
         .elimination-position .position-number {
@@ -419,15 +419,15 @@
         .team-logo {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #0a2f0a;
+            color: #242424;
             font-size: 14px;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 0 10px rgba(65, 219, 145, 0.3);
             flex-shrink: 0;
         }
 
@@ -461,8 +461,8 @@
         }
 
         .form-dot.win {
-            background: #00ff41;
-            box-shadow: 0 0 4px rgba(0, 255, 65, 0.6);
+            background: #41DB90;
+            box-shadow: 0 0 4px rgba(65, 219, 145, 0.6);
         }
 
         .form-dot.loss {
@@ -477,15 +477,15 @@
             font-size: 14px;
         }
 
-        .wins-cell { color: #00ff41; }
+        .wins-cell { color: #41DB90; }
         .losses-cell { color: #ff6b6b; }
         .percentage-cell { color: #ffd700; }
         .streak-cell { color: #00ccff; }
 
         /* Special Row Styling */
         .playoff-spot {
-            background: linear-gradient(90deg, rgba(0, 255, 65, 0.08) 0%, transparent 100%);
-            border-left: 4px solid #00ff41;
+            background: linear-gradient(90deg, rgba(65, 219, 145, 0.08) 0%, transparent 100%);
+            border-left: 4px solid #41DB90;
         }
 
         .elimination-zone {
@@ -501,23 +501,23 @@
         }
 
         .sidebar-section {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             padding: 25px;
             transition: all 0.3s;
         }
 
         .sidebar-section:hover {
-            border-color: rgba(0, 255, 65, 0.5);
-            box-shadow: 0 5px 20px rgba(0, 255, 65, 0.1);
+            border-color: rgba(65, 219, 145, 0.5);
+            box-shadow: 0 5px 20px rgba(65, 219, 145, 0.1);
         }
 
         .sidebar-title {
             font-size: 18px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -535,29 +535,29 @@
             align-items: center;
             gap: 15px;
             padding: 15px;
-            background: rgba(0, 255, 65, 0.08);
+            background: rgba(65, 219, 145, 0.08);
             border-radius: 10px;
-            border: 1px solid rgba(0, 255, 65, 0.2);
+            border: 1px solid rgba(65, 219, 145, 0.2);
             transition: all 0.3s;
         }
 
         .playoff-team:hover {
-            background: rgba(0, 255, 65, 0.12);
+            background: rgba(65, 219, 145, 0.12);
             transform: translateX(5px);
         }
 
         .playoff-seed {
             width: 30px;
             height: 30px;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            color: #0a2f0a;
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            color: #242424;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             font-size: 14px;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+            box-shadow: 0 0 10px rgba(65, 219, 145, 0.4);
         }
 
         .playoff-team-info {
@@ -587,7 +587,7 @@
         }
 
         .leader-category h4 {
-            color: #00ff41;
+            color: #41DB90;
             font-size: 14px;
             margin-bottom: 10px;
             text-transform: uppercase;
@@ -613,8 +613,8 @@
         }
 
         .leader-team-tag {
-            background: rgba(0, 255, 65, 0.2);
-            color: #00ff41;
+            background: rgba(65, 219, 145, 0.2);
+            color: #41DB90;
             padding: 2px 6px;
             border-radius: 8px;
             font-size: 10px;
@@ -623,7 +623,7 @@
 
         .leader-value {
             font-weight: bold;
-            color: #00ff41;
+            color: #41DB90;
             font-size: 16px;
         }
 
@@ -644,8 +644,8 @@
         }
 
         .movement-up {
-            background: rgba(0, 255, 65, 0.1);
-            border: 1px solid rgba(0, 255, 65, 0.3);
+            background: rgba(65, 219, 145, 0.1);
+            border: 1px solid rgba(65, 219, 145, 0.3);
         }
 
         .movement-down {
@@ -659,7 +659,7 @@
         }
 
         .movement-up .movement-indicator {
-            color: #00ff41;
+            color: #41DB90;
         }
 
         .movement-down .movement-indicator {
@@ -675,20 +675,20 @@
 
         .key-game {
             padding: 15px;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             border-radius: 10px;
-            border: 1px solid rgba(0, 255, 65, 0.2);
+            border: 1px solid rgba(65, 219, 145, 0.2);
             transition: all 0.3s;
         }
 
         .key-game:hover {
-            background: rgba(0, 255, 65, 0.08);
+            background: rgba(65, 219, 145, 0.08);
             transform: translateY(-2px);
         }
 
         .game-time {
             font-weight: bold;
-            color: #00ff41;
+            color: #41DB90;
             font-size: 14px;
             margin-bottom: 8px;
         }
@@ -765,7 +765,7 @@
     <div class="nav-container">
         <nav class="nav">
             <div class="logo" onclick="window.open('https://nationalrematchleague.github.io/NationalRematchLeague/')">
-                <span class="logo-text">NRL</span>
+                <span class="logo-text">MRL</span>
             </div>
             <ul class="nav-links">
                 <li class="dropdown">
@@ -920,7 +920,7 @@
                             <div class="team-logo">NC</div>
                             <div class="team-info">
                                 <div class="team-name">Nova Core</div>
-                                <div class="team-record">The Innovators • Core Arena</div>
+                                <div class="team-record">The Innovators â€¢ Core Arena</div>
                                 <div class="team-form">
                                     <span class="form-dot win"></span>
                                     <span class="form-dot win"></span>
@@ -933,3 +933,7 @@
                         <td class="stat-cell wins-cell">24</td>
                         <td class="stat-cell losses-cell">4</td>
                         <td class="
+
+
+
+

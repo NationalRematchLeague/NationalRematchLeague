@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youth Academy - National Rematch League</title>
+    <title>Youth Academy - Major Rematch League</title>
     <style>
         * {
             margin: 0;
@@ -13,16 +13,16 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a2f0a 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #242424 0%, #1a1a1a 100%);
             color: white;
             min-height: 100vh;
         }
 
         /* Navigation */
         .nav-container {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             padding: 0 20px;
-            box-shadow: 0 2px 20px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 2px 20px rgba(65, 219, 145, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -53,8 +53,8 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 3px solid #00ff41;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+            border: 3px solid #41DB90;
+            box-shadow: 0 0 10px rgba(65, 219, 145, 0.8);
             animation: pulse 2s infinite;
         }
 
@@ -71,7 +71,7 @@
             border-radius: 50%;
             background: radial-gradient(ellipse at 30% 30%, 
                 rgba(255, 255, 255, 0.3) 0%,
-                rgba(0, 255, 65, 0.1) 40%,
+                rgba(65, 219, 145, 0.1) 40%,
                 rgba(0, 0, 0, 0.8) 100%);
         }
 
@@ -80,7 +80,7 @@
             font-size: 16px;
             font-weight: 900;
             color: #000000;
-            text-shadow: 0 0 2px rgba(0, 255, 65, 0.5);
+            text-shadow: 0 0 2px rgba(65, 219, 145, 0.5);
             letter-spacing: -1px;
             z-index: 10;
         }
@@ -93,7 +93,7 @@
         }
 
         .nav-links a {
-            color: #0a2f0a;
+            color: #242424;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
@@ -108,26 +108,26 @@
         }
 
         .sign-up {
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
-            color: #00ff41;
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
+            color: #41DB90;
             padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
-            border: 2px solid #00ff41;
+            border: 2px solid #41DB90;
             transition: all 0.3s;
         }
 
         .sign-up:hover {
-            background: #00ff41;
-            color: #0a2f0a;
+            background: #41DB90;
+            color: #242424;
             transform: scale(1.05);
         }
 
         /* Hero Section */
         .hero-section {
-            background: linear-gradient(135deg, rgba(0, 255, 65, 0.1) 0%, rgba(0, 255, 65, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(65, 219, 145, 0.1) 0%, rgba(65, 219, 145, 0.05) 100%);
             padding: 60px 20px;
             text-align: center;
             position: relative;
@@ -141,7 +141,7 @@
             left: -50%;
             width: 200%;
             height: 100%;
-            background: linear-gradient(45deg, transparent 30%, rgba(0, 255, 65, 0.05) 50%, transparent 70%);
+            background: linear-gradient(45deg, transparent 30%, rgba(65, 219, 145, 0.05) 50%, transparent 70%);
             animation: shimmer 3s infinite;
         }
 
@@ -161,7 +161,7 @@
             font-size: 56px;
             font-weight: bold;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #ffffff 0%, #00ff41 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #41DB90 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -171,9 +171,9 @@
 
         .hero-subtitle {
             font-size: 24px;
-            color: #00ff41;
+            color: #41DB90;
             margin-bottom: 15px;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
         }
 
         .hero-description {
@@ -199,8 +199,8 @@
         .hero-stat-number {
             font-size: 48px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 15px rgba(65, 219, 145, 0.5);
             margin-bottom: 8px;
         }
 
@@ -226,8 +226,8 @@
         .section-title {
             font-size: 36px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
             margin-bottom: 20px;
             text-transform: uppercase;
             text-align: center;
@@ -251,8 +251,8 @@
         }
 
         .program-card {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 20px;
             padding: 30px;
             transition: all 0.3s;
@@ -267,7 +267,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(65, 219, 145, 0.1), transparent);
             transition: left 0.5s;
         }
 
@@ -276,30 +276,30 @@
         }
 
         .program-card:hover {
-            border-color: #00ff41;
+            border-color: #41DB90;
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 255, 65, 0.2);
+            box-shadow: 0 20px 40px rgba(65, 219, 145, 0.2);
         }
 
         .program-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 36px;
             margin-bottom: 20px;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+            box-shadow: 0 0 20px rgba(65, 219, 145, 0.4);
         }
 
         .program-title {
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 15px;
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
         }
 
         .program-description {
@@ -323,16 +323,16 @@
         }
 
         .program-features li::before {
-            content: '✓';
+            content: 'âœ“';
             position: absolute;
             left: 0;
-            color: #00ff41;
+            color: #41DB90;
             font-weight: bold;
         }
 
         .program-cta {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            color: #0a2f0a;
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            color: #242424;
             padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
@@ -347,13 +347,13 @@
         .program-cta:hover {
             background: white;
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 5px 15px rgba(65, 219, 145, 0.3);
         }
 
         /* Talent Pathway */
         .pathway-section {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 20px;
             padding: 50px;
             margin-bottom: 80px;
@@ -363,8 +363,8 @@
         .pathway-title {
             font-size: 32px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
             margin-bottom: 30px;
             text-transform: uppercase;
         }
@@ -377,8 +377,8 @@
         }
 
         .pathway-stage {
-            background: rgba(0, 255, 65, 0.1);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: rgba(65, 219, 145, 0.1);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             padding: 25px;
             position: relative;
@@ -386,19 +386,19 @@
         }
 
         .pathway-stage:hover {
-            background: rgba(0, 255, 65, 0.15);
-            border-color: #00ff41;
+            background: rgba(65, 219, 145, 0.15);
+            border-color: #41DB90;
             transform: scale(1.05);
         }
 
         .pathway-stage::after {
-            content: '→';
+            content: 'â†’';
             position: absolute;
             right: -20px;
             top: 50%;
             transform: translateY(-50%);
             font-size: 24px;
-            color: #00ff41;
+            color: #41DB90;
             font-weight: bold;
         }
 
@@ -409,13 +409,13 @@
         .stage-number {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #0a2f0a;
+            color: #242424;
             margin: 0 auto 15px;
             font-size: 18px;
         }
@@ -424,7 +424,7 @@
             font-size: 18px;
             font-weight: bold;
             margin-bottom: 10px;
-            color: #00ff41;
+            color: #41DB90;
         }
 
         .stage-description {
@@ -445,8 +445,8 @@
         }
 
         .student-card {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.3s;
@@ -454,13 +454,13 @@
         }
 
         .student-card:hover {
-            border-color: #00ff41;
+            border-color: #41DB90;
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 255, 65, 0.2);
+            box-shadow: 0 15px 30px rgba(65, 219, 145, 0.2);
         }
 
         .student-header {
-            background: rgba(0, 255, 65, 0.1);
+            background: rgba(65, 219, 145, 0.1);
             padding: 20px;
             text-align: center;
             position: relative;
@@ -469,23 +469,23 @@
         .student-avatar {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
             font-weight: bold;
-            color: #0a2f0a;
+            color: #242424;
             margin: 0 auto 15px;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 0 20px rgba(65, 219, 145, 0.3);
         }
 
         .student-name {
             font-size: 18px;
             font-weight: bold;
             margin-bottom: 5px;
-            color: #00ff41;
+            color: #41DB90;
         }
 
         .student-level {
@@ -495,8 +495,8 @@
         }
 
         .student-badge {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            color: #0a2f0a;
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            color: #242424;
             padding: 4px 12px;
             border-radius: 12px;
             font-size: 12px;
@@ -522,14 +522,14 @@
         .progress-bar {
             width: 100%;
             height: 8px;
-            background: rgba(0, 255, 65, 0.2);
+            background: rgba(65, 219, 145, 0.2);
             border-radius: 4px;
             overflow: hidden;
         }
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #00ff41, #00cc33);
+            background: linear-gradient(90deg, #41DB90, #41DB90);
             border-radius: 4px;
             transition: width 0.3s;
         }
@@ -544,13 +544,13 @@
         .student-stat {
             text-align: center;
             padding: 8px;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             border-radius: 6px;
         }
 
         .student-stat-value {
             font-weight: bold;
-            color: #00ff41;
+            color: #41DB90;
             font-size: 14px;
         }
 
@@ -568,8 +568,8 @@
 
         /* Facilities Section */
         .facilities-section {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 20px;
             padding: 50px;
             margin-bottom: 80px;
@@ -582,8 +582,8 @@
         }
 
         .facility-item {
-            background: rgba(0, 255, 65, 0.05);
-            border: 1px solid rgba(0, 255, 65, 0.2);
+            background: rgba(65, 219, 145, 0.05);
+            border: 1px solid rgba(65, 219, 145, 0.2);
             border-radius: 15px;
             padding: 25px;
             text-align: center;
@@ -591,8 +591,8 @@
         }
 
         .facility-item:hover {
-            background: rgba(0, 255, 65, 0.1);
-            border-color: rgba(0, 255, 65, 0.4);
+            background: rgba(65, 219, 145, 0.1);
+            border-color: rgba(65, 219, 145, 0.4);
             transform: translateY(-5px);
         }
 
@@ -604,7 +604,7 @@
         .facility-title {
             font-size: 20px;
             font-weight: bold;
-            color: #00ff41;
+            color: #41DB90;
             margin-bottom: 10px;
         }
 
@@ -616,11 +616,11 @@
 
         /* Application Section */
         .application-section {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             border-radius: 20px;
             padding: 50px;
             text-align: center;
-            color: #0a2f0a;
+            color: #242424;
         }
 
         .application-title {
@@ -663,8 +663,8 @@
         }
 
         .application-cta {
-            background: #0a2f0a;
-            color: #00ff41;
+            background: #242424;
+            color: #41DB90;
             padding: 15px 40px;
             border-radius: 30px;
             text-decoration: none;
@@ -678,7 +678,7 @@
 
         .application-cta:hover {
             background: white;
-            color: #0a2f0a;
+            color: #242424;
             transform: scale(1.05);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
@@ -694,7 +694,7 @@
             }
 
             .pathway-stage::after {
-                content: '↓';
+                content: 'â†“';
                 right: auto;
                 bottom: -20px;
                 top: auto;
@@ -735,7 +735,7 @@
     <div class="nav-container">
         <nav class="nav">
             <div class="logo" onclick="window.open('https://nationalrematchleague.github.io/NationalRematchLeague/')">
-                <span class="logo-text">NRL</span>
+                <span class="logo-text">MRL</span>
             </div>
             <ul class="nav-links">
                 <li><a href="https://nationalrematchleague.github.io/NationalRematchLeague/nrl_matches_page">Matches</a></li>
@@ -791,12 +791,12 @@
     <div class="main-content">
         <!-- Programs Section -->
         <div class="programs-section">
-            <h2 class="section-title">🎓 Academy Programs</h2>
+            <h2 class="section-title">ðŸŽ“ Academy Programs</h2>
             <p class="section-subtitle">Choose the development path that matches your ambition and skill level</p>
             
             <div class="programs-grid">
                 <div class="program-card">
-                    <div class="program-icon">🌟</div>
+                    <div class="program-icon">ðŸŒŸ</div>
                     <h3 class="program-title">Elite Training Program</h3>
                     <p class="program-description">
                         Our flagship program for the most promising talent. Intensive training with professional coaches, 
@@ -813,7 +813,7 @@
                 </div>
 
                 <div class="program-card">
-                    <div class="program-icon">📚</div>
+                    <div class="program-icon">ðŸ“š</div>
                     <h3 class="program-title">Foundation Program</h3>
                     <p class="program-description">
                         Perfect for developing players aged 14-17. Focus on fundamentals, teamwork, 
@@ -830,7 +830,7 @@
                 </div>
 
                 <div class="program-card">
-                    <div class="program-icon">⚡</div>
+                    <div class="program-icon">âš¡</div>
                     <h3 class="program-title">Intensive Bootcamp</h3>
                     <p class="program-description">
                         4-week intensive program during school breaks. High-intensity training designed 
@@ -847,7 +847,7 @@
                 </div>
 
                 <div class="program-card">
-                    <div class="program-icon">🏆</div>
+                    <div class="program-icon">ðŸ†</div>
                     <h3 class="program-title">Scholarship Program</h3>
                     <p class="program-description">
                         Full and partial scholarships for exceptional talent from underrepresented communities. 
@@ -867,7 +867,7 @@
 
         <!-- Talent Pathway -->
         <div class="pathway-section">
-            <h2 class="pathway-title">🚀 Professional Pathway</h2>
+            <h2 class="pathway-title">ðŸš€ Professional Pathway</h2>
             <div class="pathway-flow">
                 <div class="pathway-stage">
                     <div class="stage-number">1</div>
@@ -894,7 +894,7 @@
 
         <!-- Current Students -->
         <div class="students-section">
-            <h2 class="section-title">⭐ Rising Stars</h2>
+            <h2 class="section-title">â­ Rising Stars</h2>
             <p class="section-subtitle">Meet some of our most promising academy students making waves in competitive play</p>
             
             <div class="students-grid">
@@ -902,7 +902,11 @@
                     <div class="student-header">
                         <div class="student-avatar">TC</div>
                         <div class="student-name">Taylor "Comet" Chang</div>
-                        <div class="student-level">Elite Program • Age 18</div>
+                        <div class="student-level">Elite Program â€¢ Age 18</div>
                         <div class="student-badge">Academy MVP</div>
                     </div>
                     
+
+
+
+

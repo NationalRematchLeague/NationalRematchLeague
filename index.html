@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>National Rematch League - Home</title>
+    <title>Major Rematch League - Home</title>
     <style>
         * {
             margin: 0;
@@ -13,16 +13,16 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a2f0a 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #242424 0%, #1a1a1a 100%);
             color: white;
             min-height: 100vh;
         }
 
         /* Navigation */
         .nav-container {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             padding: 0 20px;
-            box-shadow: 0 2px 20px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 2px 20px rgba(65, 219, 145, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -58,12 +58,12 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 3px solid #00ff41;
+            border: 3px solid #41DB90;
             box-shadow: 
-                0 0 10px rgba(0, 255, 65, 0.8),
-                0 0 20px rgba(0, 255, 65, 0.6),
-                0 0 30px rgba(0, 255, 65, 0.4),
-                inset 0 0 10px rgba(0, 255, 65, 0.3);
+                0 0 10px rgba(65, 219, 145, 0.8),
+                0 0 20px rgba(65, 219, 145, 0.6),
+                0 0 30px rgba(65, 219, 145, 0.4),
+                inset 0 0 10px rgba(65, 219, 145, 0.3);
             background: transparent;
             animation: pulse 2s infinite;
         }
@@ -81,7 +81,7 @@
             border-radius: 50%;
             background: radial-gradient(ellipse at 30% 30%, 
                 rgba(255, 255, 255, 0.3) 0%,
-                rgba(0, 255, 65, 0.1) 40%,
+                rgba(65, 219, 145, 0.1) 40%,
                 rgba(0, 0, 0, 0.8) 100%);
             box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
         }
@@ -92,7 +92,7 @@
             font-weight: 900;
             color: #000000;
             text-shadow: 
-                0 0 2px rgba(0, 255, 65, 0.5),
+                0 0 2px rgba(65, 219, 145, 0.5),
                 0 1px 2px rgba(0, 0, 0, 0.3);
             letter-spacing: -1px;
             z-index: 10;
@@ -111,7 +111,7 @@
         }
 
         .nav-links a {
-            color: #0a2f0a;
+            color: #242424;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
@@ -135,12 +135,12 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 8px 16px rgba(65, 219, 145, 0.3);
             border-radius: 8px;
             z-index: 1000;
-            border: 1px solid rgba(0, 255, 65, 0.5);
+            border: 1px solid rgba(65, 219, 145, 0.5);
             opacity: 0;
             transform: translateY(-10px);
             transition: all 0.3s;
@@ -153,7 +153,7 @@
         }
 
         .dropdown-content a {
-            color: #0a2f0a !important;
+            color: #242424 !important;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
@@ -169,7 +169,7 @@
         }
 
         .dropdown > a::after {
-            content: ' ▼';
+            content: ' â–¼';
             font-size: 10px;
             margin-left: 5px;
         }
@@ -181,22 +181,22 @@
         }
 
         .sign-up {
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
-            color: #00ff41;
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
+            color: #41DB90;
             padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
-            border: 2px solid #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            border: 2px solid #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
             transition: all 0.3s;
         }
 
         .sign-up:hover {
-            background: #00ff41;
-            color: #0a2f0a;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.6);
+            background: #41DB90;
+            color: #242424;
+            box-shadow: 0 0 15px rgba(65, 219, 145, 0.6);
             transform: scale(1.05);
         }
 
@@ -213,19 +213,19 @@
         /* Hero Section */
         .hero-section {
             position: relative;
-            background: linear-gradient(135deg, #0a2f0a 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
             border-radius: 12px;
             overflow: hidden;
             height: 600px;
-            border: 2px solid #00ff41;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+            border: 2px solid #41DB90;
+            box-shadow: 0 0 30px rgba(65, 219, 145, 0.2);
             cursor: pointer;
             transition: all 0.3s;
         }
 
         .hero-section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 10px 40px rgba(65, 219, 145, 0.3);
         }
 
         .hero-image {
@@ -251,8 +251,8 @@
         }
 
         .breaking-tag {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            color: #0a2f0a;
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            color: #242424;
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 12px;
@@ -260,13 +260,13 @@
             margin-bottom: 20px;
             display: inline-block;
             text-shadow: none;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+            box-shadow: 0 0 15px rgba(65, 219, 145, 0.4);
             animation: glow 2s infinite alternate;
         }
 
         @keyframes glow {
-            from { box-shadow: 0 0 15px rgba(0, 255, 65, 0.4); }
-            to { box-shadow: 0 0 25px rgba(0, 255, 65, 0.8); }
+            from { box-shadow: 0 0 15px rgba(65, 219, 145, 0.4); }
+            to { box-shadow: 0 0 25px rgba(65, 219, 145, 0.8); }
         }
 
         .hero-title {
@@ -276,7 +276,7 @@
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: -1px;
-            background: linear-gradient(135deg, #ffffff 0%, #00ff41 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #41DB90 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -290,9 +290,9 @@
         }
 
         .read-button {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            border: 2px solid #00ff41;
-            color: #0a2f0a;
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            border: 2px solid #41DB90;
+            color: #242424;
             padding: 15px 30px;
             border-radius: 50px;
             text-decoration: none;
@@ -301,7 +301,7 @@
             transition: all 0.3s;
             display: inline-block;
             text-shadow: none;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 0 15px rgba(65, 219, 145, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -323,9 +323,9 @@
 
         .read-button:hover {
             background: transparent;
-            color: #00ff41;
-            box-shadow: 0 0 25px rgba(0, 255, 65, 0.6);
-            text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);
+            color: #41DB90;
+            box-shadow: 0 0 25px rgba(65, 219, 145, 0.6);
+            text-shadow: 0 0 8px rgba(65, 219, 145, 0.8);
             transform: translateY(-2px);
         }
 
@@ -338,8 +338,8 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 1px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 1px solid rgba(65, 219, 145, 0.3);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
@@ -347,16 +347,16 @@
         }
 
         .stat-card:hover {
-            border-color: #00ff41;
-            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.2);
+            border-color: #41DB90;
+            box-shadow: 0 5px 15px rgba(65, 219, 145, 0.2);
             transform: translateY(-3px);
         }
 
         .stat-number {
             font-size: 28px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
         }
 
         .stat-label {
@@ -377,8 +377,8 @@
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
         }
 
         .related-links {
@@ -388,15 +388,15 @@
         .related-links li {
             margin-bottom: 15px;
             padding: 15px;
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
             border-radius: 8px;
-            border: 1px solid rgba(0, 255, 65, 0.2);
+            border: 1px solid rgba(65, 219, 145, 0.2);
             transition: all 0.3s;
         }
 
         .related-links li:hover {
-            border-color: #00ff41;
-            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.1);
+            border-color: #41DB90;
+            box-shadow: 0 5px 15px rgba(65, 219, 145, 0.1);
             transform: translateX(10px);
         }
 
@@ -408,19 +408,19 @@
         }
 
         .related-links a:hover {
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
         }
 
         .featured-link {
-            color: #00ff41 !important;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5) !important;
+            color: #41DB90 !important;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5) !important;
         }
 
         /* Tab Navigation */
         .tab-nav {
             display: flex;
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
             border-radius: 10px;
             padding: 10px;
             margin-top: 30px;
@@ -443,15 +443,15 @@
         }
 
         .tab-nav button:hover {
-            color: #00ff41;
-            border-color: rgba(0, 255, 65, 0.3);
+            color: #41DB90;
+            border-color: rgba(65, 219, 145, 0.3);
         }
 
         .tab-nav button.active {
-            color: #0a2f0a;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            border-color: #00ff41;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+            color: #242424;
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            border-color: #41DB90;
+            box-shadow: 0 0 15px rgba(65, 219, 145, 0.3);
         }
 
         /* News Feed */
@@ -463,17 +463,17 @@
         }
 
         .news-card {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid rgba(0, 255, 65, 0.3);
+            border: 1px solid rgba(65, 219, 145, 0.3);
             transition: all 0.3s;
             cursor: pointer;
         }
 
         .news-card:hover {
-            border-color: #00ff41;
-            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.2);
+            border-color: #41DB90;
+            box-shadow: 0 10px 25px rgba(65, 219, 145, 0.2);
             transform: translateY(-5px);
         }
 
@@ -515,16 +515,16 @@
         }
 
         .news-date {
-            color: #00ff41;
+            color: #41DB90;
         }
 
         /* Sidebar */
         .sidebar {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
             border-radius: 12px;
             padding: 30px;
-            border: 1px solid #00ff41;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            border: 1px solid #41DB90;
+            box-shadow: 0 0 20px rgba(65, 219, 145, 0.1);
             height: fit-content;
         }
 
@@ -540,15 +540,15 @@
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
         }
 
         .see-more {
-            color: #00ff41;
+            color: #41DB90;
             text-decoration: none;
             font-size: 14px;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
             transition: all 0.3s;
         }
 
@@ -573,7 +573,7 @@
         }
 
         .headlines-list li:hover {
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             padding-left: 10px;
             border-radius: 4px;
         }
@@ -598,7 +598,7 @@
         }
 
         .featured-headline::before {
-            content: "🔥";
+            content: "ðŸ”¥";
             position: absolute;
             right: 15px;
             top: 15px;
@@ -611,11 +611,11 @@
 
         /* Live Scores Widget */
         .live-scores {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 30px;
-            color: #0a2f0a;
+            color: #242424;
         }
 
         .live-scores h3 {
@@ -645,7 +645,7 @@
         .score {
             font-size: 18px;
             font-weight: bold;
-            color: #0a2f0a;
+            color: #242424;
         }
 
         .live-indicator {
@@ -665,11 +665,11 @@
 
         /* Social Media Section */
         .social-media {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
             border-radius: 12px;
             padding: 25px;
             margin-top: 30px;
-            border: 1px solid rgba(0, 255, 65, 0.3);
+            border: 1px solid rgba(65, 219, 145, 0.3);
             text-align: center;
         }
 
@@ -777,20 +777,20 @@
             box-shadow: 0 5px 15px rgba(145, 70, 255, 0.4);
         }
         .nrl-app {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             border-radius: 12px;
             padding: 30px;
             text-align: center;
             margin-top: 30px;
-            color: #0a2f0a;
-            box-shadow: 0 0 25px rgba(0, 255, 65, 0.3);
+            color: #242424;
+            box-shadow: 0 0 25px rgba(65, 219, 145, 0.3);
             transition: all 0.3s;
             cursor: pointer;
         }
 
         .nrl-app:hover {
             transform: scale(1.02);
-            box-shadow: 0 0 35px rgba(0, 255, 65, 0.5);
+            box-shadow: 0 0 35px rgba(65, 219, 145, 0.5);
         }
 
         .app-logo {
@@ -814,8 +814,8 @@
         }
 
         .download-btn {
-            background: #0a2f0a;
-            color: #00ff41;
+            background: #242424;
+            color: #41DB90;
             padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
@@ -826,7 +826,7 @@
 
         .download-btn:hover {
             background: white;
-            color: #0a2f0a;
+            color: #242424;
             transform: translateY(-2px);
         }
 
@@ -835,7 +835,7 @@
             display: none;
             background: none;
             border: none;
-            color: #0a2f0a;
+            color: #242424;
             font-size: 24px;
             cursor: pointer;
             padding: 10px;
@@ -853,10 +853,10 @@
             top: 60px;
             left: 0;
             right: 0;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             z-index: 999;
             padding: 20px;
-            box-shadow: 0 4px 20px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 4px 20px rgba(65, 219, 145, 0.3);
         }
 
         .mobile-nav.active {
@@ -880,7 +880,7 @@
         }
 
         .mobile-nav-links a {
-            color: #0a2f0a;
+            color: #242424;
             text-decoration: none;
             font-size: 16px;
             font-weight: 600;
@@ -966,7 +966,7 @@
     <div class="nav-container">
         <nav class="nav">
             <div class="logo" onclick="window.location.href='#'">
-                <span class="logo-text">NRL</span>
+                <span class="logo-text">MRL</span>
             </div>
             <ul class="nav-links">
                 <li class="dropdown">
@@ -1043,7 +1043,7 @@
                     </div>
                 </li>
             </ul>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">â˜°</button>
             <div class="nav-actions">
                 <a href="#" class="sign-up">Sign Up</a>
             </div>
@@ -1077,7 +1077,7 @@
                 <div class="hero-overlay">
                     <span class="breaking-tag">BREAKING NEWS</span>
                     <h1 class="hero-title">Dynasty Continues: Champion Dominates Rematch Finals</h1>
-                    <p class="hero-description">In a spectacular display of skill and strategy, the reigning champion swept through the championship series 4-1, marking their third consecutive NRL title and cementing their status as the greatest dynasty in league history.</p>
+                    <p class="hero-description">In a spectacular display of skill and strategy, the reigning champion swept through the championship series 4-1, marking their third consecutive MRL title and cementing their status as the greatest dynasty in league history.</p>
                     <a href="#" class="read-button">READ FULL STORY</a>
                 </div>
             </div>
@@ -1104,7 +1104,7 @@
                 <ul class="related-links">
                     <li><a href="#">Complete championship series recap and highlights</a></li>
                     <li><a href="#">Player statistics and performance analysis</a></li>
-                    <li><a href="#" class="featured-link">⭐ Road to Glory: How the champion dominated Season 2</a></li>
+                    <li><a href="#" class="featured-link">â­ Road to Glory: How the champion dominated Season 2</a></li>
                     <li><a href="#">Post-match interviews with players and coaches</a></li>
                     <li><a href="#">Expert predictions for next season</a></li>
                 </ul>
@@ -1123,28 +1123,32 @@
 
             <!-- Social Media Section -->
             <div class="social-media">
-                <h3 class="social-title">Follow the NRL</h3>
+                <h3 class="social-title">Follow the MRL</h3>
                 <div class="social-icons">
                     <a href="https://m.twitch.tv/nationalrematchleague/home" class="social-icon twitch" title="Twitch">
-                        <span>📘</span>
+                        <span>ðŸ“˜</span>
                     </a>
                     <a href="#" class="social-icon instagram" title="Instagram">
-                        <span>📷</span>
+                        <span>ðŸ“·</span>
                     </a>
                     <a href="#" class="social-icon snapchat" title="Snapchat">
-                        <span>👻</span>
+                        <span>ðŸ‘»</span>
                     </a>
                     <a href="https://www.tiktok.com/@nrleaguezone?_t=ZT-8z12Ouo5TNF&_r=1" class="social-icon tiktok" title="TikTok">
-                        <span>🎵</span>
+                        <span>ðŸŽµ</span>
                     </a>
                     <a href="https://x.com/nrl_zone?s=21" class="social-icon twitter" title="Twitter/X">
-                        <span>🐦</span>
+                        <span>ðŸ¦</span>
                     </a>
                     <a href="https://www.youtube.com/@NRLeague" class="social-icon youtube" title="YouTube">
-                        <span>📺</span>
+                        <span>ðŸ“º</span>
                     </a>
                 </div>
             </div>
 
             <!-- News Feed -->
             <div class="news-feed" id="news-content">
+
+
+
+

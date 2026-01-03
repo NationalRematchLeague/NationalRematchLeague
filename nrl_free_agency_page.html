@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Agency - National Rematch League</title>
+    <title>Free Agency - Major Rematch League</title>
     <style>
         * {
             margin: 0;
@@ -13,16 +13,16 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a2f0a 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #242424 0%, #1a1a1a 100%);
             color: white;
             min-height: 100vh;
         }
 
         /* Navigation */
         .nav-container {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             padding: 0 20px;
-            box-shadow: 0 2px 20px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 2px 20px rgba(65, 219, 145, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -53,8 +53,8 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 3px solid #00ff41;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+            border: 3px solid #41DB90;
+            box-shadow: 0 0 10px rgba(65, 219, 145, 0.8);
             animation: pulse 2s infinite;
         }
 
@@ -71,7 +71,7 @@
             border-radius: 50%;
             background: radial-gradient(ellipse at 30% 30%, 
                 rgba(255, 255, 255, 0.3) 0%,
-                rgba(0, 255, 65, 0.1) 40%,
+                rgba(65, 219, 145, 0.1) 40%,
                 rgba(0, 0, 0, 0.8) 100%);
         }
 
@@ -80,7 +80,7 @@
             font-size: 16px;
             font-weight: 900;
             color: #000000;
-            text-shadow: 0 0 2px rgba(0, 255, 65, 0.5);
+            text-shadow: 0 0 2px rgba(65, 219, 145, 0.5);
             letter-spacing: -1px;
             z-index: 10;
         }
@@ -93,7 +93,7 @@
         }
 
         .nav-links a {
-            color: #0a2f0a;
+            color: #242424;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
@@ -108,20 +108,20 @@
         }
 
         .sign-up {
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
-            color: #00ff41;
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
+            color: #41DB90;
             padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
-            border: 2px solid #00ff41;
+            border: 2px solid #41DB90;
             transition: all 0.3s;
         }
 
         .sign-up:hover {
-            background: #00ff41;
-            color: #0a2f0a;
+            background: #41DB90;
+            color: #242424;
             transform: scale(1.05);
         }
 
@@ -136,7 +136,7 @@
             font-size: 48px;
             font-weight: bold;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #ffffff 0%, #00ff41 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #41DB90 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -151,8 +151,8 @@
 
         /* Free Agency Status */
         .fa-status-bar {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             padding: 25px;
             margin-bottom: 30px;
@@ -164,16 +164,16 @@
         .fa-status-item {
             text-align: center;
             padding: 15px;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             border-radius: 10px;
-            border: 1px solid rgba(0, 255, 65, 0.2);
+            border: 1px solid rgba(65, 219, 145, 0.2);
         }
 
         .fa-status-value {
             font-size: 24px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
             margin-bottom: 5px;
         }
 
@@ -236,15 +236,15 @@
         .section-title {
             font-size: 24px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
             margin-bottom: 20px;
             text-transform: uppercase;
         }
 
         .signing-card {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             padding: 25px;
             transition: all 0.3s;
@@ -259,7 +259,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(65, 219, 145, 0.1), transparent);
             transition: left 0.5s;
         }
 
@@ -268,9 +268,9 @@
         }
 
         .signing-card:hover {
-            border-color: #00ff41;
+            border-color: #41DB90;
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.2);
+            box-shadow: 0 10px 25px rgba(65, 219, 145, 0.2);
         }
 
         .signing-header {
@@ -281,8 +281,8 @@
         }
 
         .signing-type {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            color: #0a2f0a;
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            color: #242424;
             padding: 6px 12px;
             border-radius: 15px;
             font-size: 12px;
@@ -305,15 +305,15 @@
         .player-avatar {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
             font-weight: bold;
-            color: #0a2f0a;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+            color: #242424;
+            box-shadow: 0 0 15px rgba(65, 219, 145, 0.4);
         }
 
         .player-details {
@@ -334,7 +334,7 @@
 
         .player-rating {
             font-size: 14px;
-            color: #00ff41;
+            color: #41DB90;
             font-weight: bold;
         }
 
@@ -353,13 +353,13 @@
         .team-logo {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #0a2f0a;
+            color: #242424;
             font-size: 14px;
             margin: 0 auto 8px;
         }
@@ -371,7 +371,7 @@
 
         .transfer-arrow {
             font-size: 24px;
-            color: #00ff41;
+            color: #41DB90;
         }
 
         .signing-details {
@@ -388,8 +388,8 @@
         }
 
         .player-card {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 12px;
             padding: 20px;
             transition: all 0.3s;
@@ -397,9 +397,9 @@
         }
 
         .player-card:hover {
-            border-color: #00ff41;
+            border-color: #41DB90;
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 255, 65, 0.2);
+            box-shadow: 0 8px 20px rgba(65, 219, 145, 0.2);
         }
 
         .player-card-header {
@@ -412,14 +412,14 @@
         .player-card-avatar {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 18px;
             font-weight: bold;
-            color: #0a2f0a;
+            color: #242424;
         }
 
         .player-card-info {
@@ -437,8 +437,8 @@
         }
 
         .player-status {
-            background: rgba(0, 255, 65, 0.2);
-            color: #00ff41;
+            background: rgba(65, 219, 145, 0.2);
+            color: #41DB90;
             padding: 4px 8px;
             border-radius: 10px;
             font-size: 10px;
@@ -456,13 +456,13 @@
         .player-stat {
             text-align: center;
             padding: 8px;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             border-radius: 6px;
         }
 
         .player-stat-value {
             font-weight: bold;
-            color: #00ff41;
+            color: #41DB90;
             font-size: 14px;
         }
 
@@ -480,8 +480,8 @@
         }
 
         .sidebar-section {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
+            border: 2px solid rgba(65, 219, 145, 0.3);
             border-radius: 15px;
             padding: 25px;
         }
@@ -489,8 +489,8 @@
         .sidebar-title {
             font-size: 18px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
             margin-bottom: 20px;
             text-transform: uppercase;
         }
@@ -504,14 +504,14 @@
 
         .transfer-item {
             padding: 15px;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             border-radius: 10px;
-            border: 1px solid rgba(0, 255, 65, 0.2);
+            border: 1px solid rgba(65, 219, 145, 0.2);
             transition: all 0.3s;
         }
 
         .transfer-item:hover {
-            background: rgba(0, 255, 65, 0.1);
+            background: rgba(65, 219, 145, 0.1);
             transform: translateX(5px);
         }
 
@@ -527,7 +527,7 @@
 
         .transfer-status {
             font-size: 11px;
-            color: #00ff41;
+            color: #41DB90;
             font-weight: bold;
             margin-top: 5px;
         }
@@ -544,7 +544,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 12px;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             border-radius: 8px;
         }
 
@@ -554,7 +554,7 @@
         }
 
         .market-value-price {
-            color: #00ff41;
+            color: #41DB90;
             font-weight: bold;
         }
 
@@ -584,7 +584,7 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #0a2f0a;
+            color: #242424;
             font-size: 12px;
         }
 
@@ -656,7 +656,7 @@
     <div class="nav-container">
         <nav class="nav">
             <div class="logo" onclick="window.open('https://nationalrematchleague.github.io/NationalRematchLeague/')">
-                <span class="logo-text">NRL</span>
+                <span class="logo-text">MRL</span>
             </div>
             <ul class="nav-links">
                 <li><a href="https://nationalrematchleague.github.io/NationalRematchLeague/nrl_matches_page">Matches</a></li>
@@ -680,7 +680,7 @@
     <!-- Page Header -->
     <div class="page-header">
         <h1 class="page-title">Free Agency</h1>
-        <p class="page-subtitle">Player signings, transfers, and market activity across the National Rematch League</p>
+        <p class="page-subtitle">Player signings, transfers, and market activity across the Major Rematch League</p>
         
         <!-- Free Agency Status -->
         <div class="fa-status-bar">
@@ -717,7 +717,7 @@
     <div class="main-content">
         <!-- Recent Signings -->
         <div class="signings-section">
-            <h2 class="section-title">💼 Recent Signings</h2>
+            <h2 class="section-title">ðŸ’¼ Recent Signings</h2>
             
             <!-- Major Signing -->
             <div class="signing-card">
@@ -729,8 +729,8 @@
                     <div class="player-avatar">MR</div>
                     <div class="player-details">
                         <div class="player-name">Marcus "Lightning" Rodriguez</div>
-                        <div class="player-position">Veteran Forward • 5 years experience</div>
-                        <div class="player-rating">Rating: 89 • Previous MVP candidate</div>
+                        <div class="player-position">Veteran Forward â€¢ 5 years experience</div>
+                        <div class="player-rating">Rating: 89 â€¢ Previous MVP candidate</div>
                     </div>
                 </div>
                 <div class="signing-teams">
@@ -739,11 +739,11 @@
                         <div class="team-name">DryWater FC</div>
                         <div style="font-size: 12px; color: #ccc; margin-top: 5px;">Former Team</div>
                     </div>
-                    <div class="transfer-arrow">→</div>
+                    <div class="transfer-arrow">â†’</div>
                     <div class="team-info">
                         <div class="team-logo">ST</div>
                         <div class="team-name">Storm FC</div>
-                        <div style="font-size: 12px; color: #00ff41; margin-top: 5px;">New Team</div>
+                        <div style="font-size: 12px; color: #41DB90; margin-top: 5px;">New Team</div>
                     </div>
                 </div>
                 <div class="signing-details">
@@ -761,8 +761,8 @@
                     <div class="player-avatar">TW</div>
                     <div class="player-details">
                         <div class="player-name">Tyler "Wave" Washington</div>
-                        <div class="player-position">Rookie Support • Academy Graduate</div>
-                        <div class="player-rating">Rating: 78 • Rising Talent</div>
+                        <div class="player-position">Rookie Support â€¢ Academy Graduate</div>
+                        <div class="player-rating">Rating: 78 â€¢ Rising Talent</div>
                     </div>
                 </div>
                 <div class="signing-teams">
@@ -771,11 +771,11 @@
                         <div class="team-name">Free Agent</div>
                         <div style="font-size: 12px; color: #ccc; margin-top: 5px;">Academy</div>
                     </div>
-                    <div class="transfer-arrow">→</div>
+                    <div class="transfer-arrow">â†’</div>
                     <div class="team-info">
                         <div class="team-logo">VV</div>
                         <div class="team-name">VICI0US VIPERS</div>
-                        <div style="font-size: 12px; color: #00ff41; margin-top: 5px;">New Team</div>
+                        <div style="font-size: 12px; color: #41DB90; margin-top: 5px;">New Team</div>
                     </div>
                 </div>
                 <div class="signing-details">
@@ -784,14 +784,14 @@
             </div>
 
             <!-- Available Players -->
-            <h2 class="section-title">🏷️ Available Players</h2>
+            <h2 class="section-title">ðŸ·ï¸ Available Players</h2>
             <div class="available-players">
                 <div class="player-card">
                     <div class="player-card-header">
                         <div class="player-card-avatar">JM</div>
                         <div class="player-card-info">
                             <div class="player-card-name">Jordan "Steel" Miller</div>
-                            <div class="player-card-details">Tank • 4 years exp • Former 67ers</div>
+                            <div class="player-card-details">Tank â€¢ 4 years exp â€¢ Former 67ers</div>
                         </div>
                         <div class="player-status">Available</div>
                     </div>
@@ -813,7 +813,7 @@
                         <div class="player-card-avatar">KR</div>
                         <div class="player-card-info">
                             <div class="player-card-name">Kira "Rocket" Rivera</div>
-                            <div class="player-card-details">Speed • 2 years exp • Former U20s</div>
+                            <div class="player-card-details">Speed â€¢ 2 years exp â€¢ Former U20s</div>
                         </div>
                         <div class="player-status">Available</div>
                     </div>
@@ -839,31 +839,31 @@
         <div class="sidebar">
             <!-- Transfer Tracker -->
             <div class="sidebar-section">
-                <h3 class="sidebar-title">🔄 Transfer Tracker</h3>
+                <h3 class="sidebar-title">ðŸ”„ Transfer Tracker</h3>
                 <div class="transfer-list">
                     <div class="transfer-item">
                         <div class="transfer-player">Elena "Frost" Chen</div>
-                        <div class="transfer-details">Liquid FC → Storm FC</div>
+                        <div class="transfer-details">Liquid FC â†’ Storm FC</div>
                         <div class="transfer-status">Negotiations Active</div>
                     </div>
                     <div class="transfer-item">
                         <div class="transfer-player">Diego "Blaze" Santos</div>
-                        <div class="transfer-details">St. Paul Strikers → ?</div>
+                        <div class="transfer-details">St. Paul Strikers â†’ ?</div>
                         <div class="transfer-status">Seeking Offers</div>
                     </div>
                     <div class="transfer-item">
                         <div class="transfer-player">Maya "Phoenix" Adams</div>
-                        <div class="transfer-details">Free Agent → Multiple Interest</div>
+                        <div class="transfer-details">Free Agent â†’ Multiple Interest</div>
                         <div class="transfer-status">Decision Pending</div>
                     </div>
                     <div class="transfer-item">
                         <div class="transfer-player">Zane "Thunder" Mitchell</div>
-                        <div class="transfer-details">67ers → Serpent Grove FC</div>
+                        <div class="transfer-details">67ers â†’ Serpent Grove FC</div>
                         <div class="transfer-status">Medical Complete</div>
                     </div>
                     <div class="transfer-item">
                         <div class="transfer-player">Luna "Stealth" Park</div>
-                        <div class="transfer-details">Academy → Nova Core</div>
+                        <div class="transfer-details">Academy â†’ Nova Core</div>
                         <div class="transfer-status">Contract Sent</div>
                     </div>
                 </div>
@@ -871,7 +871,7 @@
 
             <!-- Market Values -->
             <div class="sidebar-section">
-                <h3 class="sidebar-title">💰 Market Values</h3>
+                <h3 class="sidebar-title">ðŸ’° Market Values</h3>
                 <div class="market-value-list">
                     <div class="market-value-item">
                         <div class="market-value-player">Marcus Rodriguez</div>
@@ -898,49 +898,49 @@
 
             <!-- Hot Prospects -->
             <div class="sidebar-section">
-                <h3 class="sidebar-title">🔥 Hot Prospects</h3>
+                <h3 class="sidebar-title">ðŸ”¥ Hot Prospects</h3>
                 <div class="prospects-list">
                     <div class="prospect-item">
                         <div class="prospect-avatar">TC</div>
                         <div class="prospect-info">
                             <div class="prospect-name">Taylor "Comet" Chang</div>
-                            <div class="prospect-details">Academy MVP • 5 team interest</div>
+                            <div class="prospect-details">Academy MVP â€¢ 5 team interest</div>
                         </div>
-                        <div class="hot-indicator">🔥</div>
+                        <div class="hot-indicator">ðŸ”¥</div>
                     </div>
                     <div class="prospect-item">
                         <div class="prospect-avatar">RK</div>
                         <div class="prospect-info">
                             <div class="prospect-name">Rio "Spark" Kim</div>
-                            <div class="prospect-details">Rising Star • Breakout Season</div>
+                            <div class="prospect-details">Rising Star â€¢ Breakout Season</div>
                         </div>
-                        <div class="hot-indicator">🔥</div>
+                        <div class="hot-indicator">ðŸ”¥</div>
                     </div>
                     <div class="prospect-item">
                         <div class="prospect-avatar">MT</div>
                         <div class="prospect-info">
                             <div class="prospect-name">Max "Titan" Torres</div>
-                            <div class="prospect-details">Youth Champion • Elite Potential</div>
+                            <div class="prospect-details">Youth Champion â€¢ Elite Potential</div>
                         </div>
-                        <div class="hot-indicator">🔥</div>
+                        <div class="hot-indicator">ðŸ”¥</div>
                     </div>
                     <div class="prospect-item">
                         <div class="prospect-avatar">ZW</div>
                         <div class="prospect-info">
                             <div class="prospect-name">Zara "Wolf" Williams</div>
-                            <div class="prospect-details">International Talent • Bidding War</div>
+                            <div class="prospect-details">International Talent â€¢ Bidding War</div>
                         </div>
-                        <div class="hot-indicator">🔥</div>
+                        <div class="hot-indicator">ðŸ”¥</div>
                     </div>
                 </div>
             </div>
 
             <!-- Free Agency Timeline -->
             <div class="sidebar-section">
-                <h3 class="sidebar-title">📅 FA Timeline</h3>
+                <h3 class="sidebar-title">ðŸ“… FA Timeline</h3>
                 <div style="font-size: 14px; line-height: 1.8;">
-                    <div style="margin-bottom: 15px; padding: 12px; background: rgba(0,255,65,0.1); border-radius: 8px; border-left: 4px solid #00ff41;">
-                        <strong style="color: #00ff41;">Aug 1-15:</strong><br>
+                    <div style="margin-bottom: 15px; padding: 12px; background: rgba(0,255,65,0.1); border-radius: 8px; border-left: 4px solid #41DB90;">
+                        <strong style="color: #41DB90;">Aug 1-15:</strong><br>
                         <span style="color: #ccc;">Free Agency Window Open</span>
                     </div>
                     
@@ -954,8 +954,8 @@
                         <span style="color: #ccc;">Free Agency Deadline</span>
                     </div>
                     
-                    <div style="padding: 12px; background: rgba(0,255,65,0.1); border-radius: 8px; border-left: 4px solid #00ff41;">
-                        <strong style="color: #00ff41;">Aug 22+:</strong><br>
+                    <div style="padding: 12px; background: rgba(0,255,65,0.1); border-radius: 8px; border-left: 4px solid #41DB90;">
+                        <strong style="color: #41DB90;">Aug 22+:</strong><br>
                         <span style="color: #ccc;">Emergency Signings Only</span>
                     </div>
                 </div>
@@ -963,11 +963,11 @@
 
             <!-- Signing Bonuses -->
             <div class="sidebar-section">
-                <h3 class="sidebar-title">💎 Biggest Deals</h3>
+                <h3 class="sidebar-title">ðŸ’Ž Biggest Deals</h3>
                 <div style="font-size: 14px;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding: 10px; background: rgba(0,255,65,0.1); border-radius: 6px;">
                         <span><strong>Marcus Rodriguez</strong><br><small style="color: #ccc;">Storm FC</small></span>
-                        <span style="color: #00ff41; font-weight: bold;">$450K</span>
+                        <span style="color: #41DB90; font-weight: bold;">$450K</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding: 10px; background: rgba(0,255,65,0.1); border-radius: 6px;">
                         <span><strong>Elena Chen</strong><br><small style="color: #ccc;">Negotiating</small></span>
@@ -979,7 +979,7 @@
                     </div>
                     <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(0,255,65,0.1); border-radius: 6px;">
                         <span><strong>Taylor Chang</strong><br><small style="color: #ccc;">Academy</small></span>
-                        <span style="color: #00ff41; font-weight: bold;">$250K</span>
+                        <span style="color: #41DB90; font-weight: bold;">$250K</span>
                     </div>
                 </div>
             </div>
@@ -989,7 +989,7 @@
     <script>
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('NRL Free Agency page loaded');
+            console.log('MRL Free Agency page loaded');
             
             // Add animation to signing cards
             const signingCards = document.querySelectorAll('.signing-card');
@@ -1068,7 +1068,7 @@
                         <div class="player-card-avatar">AS</div>
                         <div class="player-card-info">
                             <div class="player-card-name">Alex "Shadow" Silva</div>
-                            <div class="player-card-details">Assassin • 3 years exp • Former Neon City</div>
+                            <div class="player-card-details">Assassin â€¢ 3 years exp â€¢ Former Neon City</div>
                         </div>
                         <div class="player-status">Available</div>
                     </div>
@@ -1079,3 +1079,7 @@
                         </div>
                         <div class="player-stat">
                             <div class="player-stat-value
+
+
+
+

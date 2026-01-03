@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>National Rematch League - Draft Central</title>
+    <title>Major Rematch League - Draft Central</title>
     <style>
         * {
             margin: 0;
@@ -13,16 +13,16 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a2f0a 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #242424 0%, #1a1a1a 100%);
             color: white;
             min-height: 100vh;
         }
 
         /* Navigation */
         .nav-container {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             padding: 0 20px;
-            box-shadow: 0 2px 20px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 2px 20px rgba(65, 219, 145, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -58,12 +58,12 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 3px solid #00ff41;
+            border: 3px solid #41DB90;
             box-shadow: 
-                0 0 10px rgba(0, 255, 65, 0.8),
-                0 0 20px rgba(0, 255, 65, 0.6),
-                0 0 30px rgba(0, 255, 65, 0.4),
-                inset 0 0 10px rgba(0, 255, 65, 0.3);
+                0 0 10px rgba(65, 219, 145, 0.8),
+                0 0 20px rgba(65, 219, 145, 0.6),
+                0 0 30px rgba(65, 219, 145, 0.4),
+                inset 0 0 10px rgba(65, 219, 145, 0.3);
             background: transparent;
             animation: pulse 2s infinite;
         }
@@ -81,7 +81,7 @@
             border-radius: 50%;
             background: radial-gradient(ellipse at 30% 30%, 
                 rgba(255, 255, 255, 0.3) 0%,
-                rgba(0, 255, 65, 0.1) 40%,
+                rgba(65, 219, 145, 0.1) 40%,
                 rgba(0, 0, 0, 0.8) 100%);
             box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
         }
@@ -92,7 +92,7 @@
             font-weight: 900;
             color: #000000;
             text-shadow: 
-                0 0 2px rgba(0, 255, 65, 0.5),
+                0 0 2px rgba(65, 219, 145, 0.5),
                 0 1px 2px rgba(0, 0, 0, 0.3);
             letter-spacing: -1px;
             z-index: 10;
@@ -107,7 +107,7 @@
         }
 
         .nav-links a {
-            color: #0a2f0a;
+            color: #242424;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
@@ -134,22 +134,22 @@
         }
 
         .sign-up {
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
-            color: #00ff41;
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
+            color: #41DB90;
             padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
-            border: 2px solid #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            border: 2px solid #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
             transition: all 0.3s;
         }
 
         .sign-up:hover {
-            background: #00ff41;
-            color: #0a2f0a;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.6);
+            background: #41DB90;
+            color: #242424;
+            box-shadow: 0 0 15px rgba(65, 219, 145, 0.6);
             transform: scale(1.05);
         }
 
@@ -166,11 +166,11 @@
             margin-bottom: 50px;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, #0a2f0a 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
             border-radius: 15px;
             padding: 60px 40px;
-            border: 2px solid #00ff41;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+            border: 2px solid #41DB90;
+            box-shadow: 0 0 30px rgba(65, 219, 145, 0.2);
         }
 
         .page-header::before {
@@ -180,7 +180,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(0, 255, 65, 0.05) 50%, transparent 70%);
+            background: linear-gradient(45deg, transparent 30%, rgba(65, 219, 145, 0.05) 50%, transparent 70%);
             animation: shimmer 3s infinite;
         }
 
@@ -195,7 +195,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff 0%, #00ff41 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #41DB90 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -234,13 +234,13 @@
         .info-value {
             font-size: 18px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
         }
 
         .countdown-timer {
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-            color: #0a2f0a;
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            color: #242424;
             padding: 15px 30px;
             border-radius: 50px;
             font-weight: bold;
@@ -250,8 +250,8 @@
         }
 
         @keyframes glow {
-            from { box-shadow: 0 0 15px rgba(0, 255, 65, 0.4); }
-            to { box-shadow: 0 0 25px rgba(0, 255, 65, 0.8); }
+            from { box-shadow: 0 0 15px rgba(65, 219, 145, 0.4); }
+            to { box-shadow: 0 0 25px rgba(65, 219, 145, 0.8); }
         }
 
         /* Draft Board Layout */
@@ -264,11 +264,11 @@
 
         /* Draft Board */
         .draft-board {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
             border-radius: 15px;
             padding: 30px;
-            border: 1px solid #00ff41;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            border: 1px solid #41DB90;
+            box-shadow: 0 0 20px rgba(65, 219, 145, 0.1);
         }
 
         .board-header {
@@ -277,14 +277,14 @@
             align-items: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 2px solid rgba(0, 255, 65, 0.3);
+            border-bottom: 2px solid rgba(65, 219, 145, 0.3);
         }
 
         .board-title {
             font-size: 24px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
         }
 
         .draft-filters {
@@ -305,9 +305,9 @@
 
         .filter-btn:hover,
         .filter-btn.active {
-            border-color: #00ff41;
-            color: #00ff41;
-            background: rgba(0, 255, 65, 0.1);
+            border-color: #41DB90;
+            color: #41DB90;
+            background: rgba(65, 219, 145, 0.1);
         }
 
         /* Draft Pick Cards */
@@ -317,8 +317,8 @@
         }
 
         .pick-card {
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
-            border: 1px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
+            border: 1px solid rgba(65, 219, 145, 0.3);
             border-radius: 12px;
             padding: 20px;
             transition: all 0.3s;
@@ -328,8 +328,8 @@
         }
 
         .pick-card:hover {
-            border-color: #00ff41;
-            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.2);
+            border-color: #41DB90;
+            box-shadow: 0 10px 25px rgba(65, 219, 145, 0.2);
             transform: translateY(-3px);
         }
 
@@ -353,14 +353,14 @@
         .pick-number {
             font-size: 18px;
             font-weight: bold;
-            color: #00ff41;
+            color: #41DB90;
         }
 
         .pick-round {
             font-size: 12px;
             text-transform: uppercase;
             color: #666;
-            background: rgba(0, 255, 65, 0.1);
+            background: rgba(65, 219, 145, 0.1);
             padding: 4px 8px;
             border-radius: 4px;
         }
@@ -376,12 +376,12 @@
             width: 40px;
             height: 40px;
             border-radius: 8px;
-            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #0a2f0a;
+            color: #242424;
             font-size: 14px;
         }
 
@@ -425,11 +425,11 @@
 
         /* Top Prospects */
         .top-prospects {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
             border-radius: 15px;
             padding: 25px;
-            border: 1px solid #00ff41;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            border: 1px solid #41DB90;
+            box-shadow: 0 0 20px rgba(65, 219, 145, 0.1);
         }
 
         .prospects-header {
@@ -442,12 +442,12 @@
         .prospects-title {
             font-size: 18px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
         }
 
         .see-all-btn {
-            color: #00ff41;
+            color: #41DB90;
             text-decoration: none;
             font-size: 12px;
             transition: all 0.3s;
@@ -465,8 +465,8 @@
         }
 
         .prospect-card {
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
-            border: 1px solid rgba(0, 255, 65, 0.2);
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
+            border: 1px solid rgba(65, 219, 145, 0.2);
             border-radius: 10px;
             padding: 15px;
             transition: all 0.3s;
@@ -474,8 +474,8 @@
         }
 
         .prospect-card:hover {
-            border-color: #00ff41;
-            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.1);
+            border-color: #41DB90;
+            box-shadow: 0 5px 15px rgba(65, 219, 145, 0.1);
             transform: translateY(-2px);
         }
 
@@ -487,8 +487,8 @@
         }
 
         .prospect-rank {
-            background: #00ff41;
-            color: #0a2f0a;
+            background: #41DB90;
+            color: #242424;
             width: 25px;
             height: 25px;
             border-radius: 50%;
@@ -524,7 +524,7 @@
 
         .stat-value {
             font-weight: bold;
-            color: #00ff41;
+            color: #41DB90;
         }
 
         .stat-label {
@@ -534,27 +534,27 @@
 
         /* Draft Analysis */
         .draft-analysis {
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
             border-radius: 15px;
             padding: 25px;
-            border: 1px solid #00ff41;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            border: 1px solid #41DB90;
+            box-shadow: 0 0 20px rgba(65, 219, 145, 0.1);
         }
 
         .analysis-title {
             font-size: 18px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
             margin-bottom: 20px;
         }
 
         .analysis-item {
             padding: 15px;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             border-radius: 8px;
             margin-bottom: 15px;
-            border-left: 3px solid #00ff41;
+            border-left: 3px solid #41DB90;
         }
 
         .analysis-item h4 {
@@ -572,11 +572,11 @@
         /* Mock Draft */
         .mock-draft-section {
             margin-top: 50px;
-            background: linear-gradient(135deg, #0f2f0f 0%, #1a4d1a 100%);
+            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
             border-radius: 15px;
             padding: 30px;
-            border: 1px solid #00ff41;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            border: 1px solid #41DB90;
+            box-shadow: 0 0 20px rgba(65, 219, 145, 0.1);
         }
 
         .mock-draft-header {
@@ -587,8 +587,8 @@
         .mock-draft-title {
             font-size: 32px;
             font-weight: bold;
-            color: #00ff41;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #41DB90;
+            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
             margin-bottom: 10px;
         }
 
@@ -604,16 +604,16 @@
         }
 
         .mock-pick {
-            background: linear-gradient(135deg, #0a2f0a 0%, #164f16 100%);
-            border: 1px solid rgba(0, 255, 65, 0.3);
+            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
+            border: 1px solid rgba(65, 219, 145, 0.3);
             border-radius: 12px;
             padding: 20px;
             transition: all 0.3s;
         }
 
         .mock-pick:hover {
-            border-color: #00ff41;
-            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.2);
+            border-color: #41DB90;
+            box-shadow: 0 5px 15px rgba(65, 219, 145, 0.2);
             transform: translateY(-3px);
         }
 
@@ -625,8 +625,8 @@
         }
 
         .mock-pick-number {
-            background: #00ff41;
-            color: #0a2f0a;
+            background: #41DB90;
+            color: #242424;
             width: 30px;
             height: 30px;
             border-radius: 50%;
@@ -650,7 +650,7 @@
         .mock-player-name {
             font-size: 18px;
             font-weight: bold;
-            color: #00ff41;
+            color: #41DB90;
             margin-bottom: 5px;
         }
 
@@ -663,10 +663,10 @@
             font-size: 13px;
             color: #ccc;
             line-height: 1.5;
-            background: rgba(0, 255, 65, 0.05);
+            background: rgba(65, 219, 145, 0.05);
             padding: 10px;
             border-radius: 6px;
-            border-left: 2px solid #00ff41;
+            border-left: 2px solid #41DB90;
         }
 
         /* Responsive */
@@ -714,7 +714,7 @@
     <div class="nav-container">
         <nav class="nav">
             <div class="logo" onclick="window.location.href='https://nationalrematchleague.github.io/NationalRematchLeague/'">
-                <span class="logo-text">NRL</span>
+                <span class="logo-text">MRL</span>
             </div>
             <ul class="nav-links">
                 <li><a href="https://nationalrematchleague.github.io/NationalRematchLeague/nrl_matches_page">Matches</a></li>
@@ -739,7 +739,7 @@
     <div class="main-container">
         <!-- Page Header -->
         <div class="page-header">
-            <h1 class="page-title">Season 3 NRL Draft</h1>
+            <h1 class="page-title">Season 3 MRL Draft</h1>
             <p class="page-subtitle">The Future of the League Starts Here</p>
             <div class="draft-info-bar">
                 <div class="info-item">
@@ -760,7 +760,7 @@
                 </div>
             </div>
             <div class="countdown-timer" id="countdown">
-                📋 Season 3 Draft Planning Phase
+                ðŸ“‹ Season 3 Draft Planning Phase
             </div>
         </div>
 
@@ -792,7 +792,7 @@
                                 <div class="team-need">Need: Striker, Midfielder</div>
                             </div>
                         </div>
-                        <div style="color: #ffd700; font-size: 14px; font-weight: bold;">⏰ ON THE CLOCK</div>
+                        <div style="color: #ffd700; font-size: 14px; font-weight: bold;">â° ON THE CLOCK</div>
                     </div>
 
                     <!-- Pick 2 -->
@@ -840,7 +840,7 @@
                         </div>
                         <div class="player-drafted">
                             <div class="player-name">Marcus Rodriguez</div>
-                            <div class="player-position">Striker • Universidad Nacional</div>
+                            <div class="player-position">Striker â€¢ Universidad Nacional</div>
                         </div>
                     </div>
 
@@ -859,7 +859,7 @@
                         </div>
                         <div class="player-drafted">
                             <div class="player-name">Alex Chen</div>
-                            <div class="player-position">Midfielder • FC Barcelona Academy</div>
+                            <div class="player-position">Midfielder â€¢ FC Barcelona Academy</div>
                         </div>
                     </div>
 
@@ -893,3 +893,7 @@
                     </div>
 
                     <div class="pick-card"
+
+
+
+
