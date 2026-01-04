@@ -531,7 +531,7 @@
             loadTodaysGames();
         });
 
-        // Fetch and display today's games from Airtable
+        // Fetch and display today's games from backend API
         async function loadTodaysGames() {
             try {
                 const today = new Date();
@@ -539,50 +539,48 @@
                 
                 document.getElementById('todayDateLabel').textContent = monthName + ' Games';
 
-                // Sample games data - These would normally come from your Airtable via a backend API
-                // For now, we're using sample data that matches today's date
-                const sampleGames = [
-                    {
-                        time: '8:00 PM',
-                        awayTeam: 'DryWater FC',
-                        homeTeam: 'Storm FC',
-                        round: 'Regular Season'
-                    },
-                    {
-                        time: '7:30 PM',
-                        awayTeam: 'U20s',
-                        homeTeam: 'Neon City',
-                        round: 'Regular Season'
-                    },
-                    {
-                        time: '10:00 PM',
-                        awayTeam: 'St. Paul Strikers',
-                        homeTeam: 'Liquid FC',
-                        round: 'Regular Season'
-                    }
-                ];
-
+                // Fetch from backend API (running on localhost:5000)
+                const response = await fetch('http://localhost:5000/api/today-games');
+                
+                if (!response.ok) {
+                    throw new Error('Failed to fetch games from API');
+                }
+                
+                const data = await response.json();
+                console.log('API Response:', data);
+                const games = data.games || [];
+                console.log('Games array length:', games.length);
                 const gamesList = document.getElementById('todaysGamesList');
                 gamesList.innerHTML = '';
 
-                if (sampleGames.length === 0) {
+                if (games.length === 0) {
                     gamesList.innerHTML = '<div style="color: #878787; text-align: center; padding: 20px; font-size: 13px;">No games scheduled for today</div>';
                     return;
                 }
 
-                // Render games
-                sampleGames.forEach(game => {
+                // Parse and render games
+                games.forEach((game, index) => {
+                    console.log(`Processing game ${index}:`, game);
                     const gameCard = document.createElement('div');
-                    gameCard.style.cssText = 'background: rgba(65, 219, 145, 0.1); border-left: 3px solid #41DB90; padding: 12px; border-radius: 8px;';
+                    gameCard.style.cssText = 'background: rgba(65, 219, 145, 0.1); border-left: 3px solid #41DB90; padding: 12px; border-radius: 8px; margin-bottom: 8px;';
+                    
+                    // Parse event name
+                    const eventName = game.event || 'Match';
+                    
+                    // Color code based on "Done" or "Todo"
+                    let badgeColor = 'rgba(65, 219, 145, 0.2)';
+                    let badgeTextColor = '#41DB90';
+                    if (game.primetimeSelect && game.primetimeSelect.toLowerCase().includes('todo')) {
+                        badgeColor = 'rgba(255, 107, 107, 0.2)';
+                        badgeTextColor = '#ff6b6b';
+                    }
+                    
+                    const primetimeContent = game.primetimeSelect ? `<span style="color: ${badgeTextColor}; font-size: 10px; font-weight: bold; background: ${badgeColor}; padding: 4px 8px; border-radius: 4px; margin-left: 8px;">${game.primetimeSelect}</span>` : '';
+                    
                     gameCard.innerHTML = `
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                            <span style="color: #ECECEC; font-size: 13px;">${game.time}</span>
-                            <span style="color: #878787; font-size: 11px;">${game.round}</span>
-                        </div>
-                        <div style="color: #ccc; font-size: 12px; line-height: 1.4;">
-                            <div style="font-weight: 600;">${game.awayTeam}</div>
-                            <div style="color: #878787; text-align: center; margin: 4px 0;">vs</div>
-                            <div style="font-weight: 600;">${game.homeTeam}</div>
+                        <div style="color: #ccc; font-size: 12px; line-height: 1.4; display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
+                            <div style="font-weight: 600; flex: 1;">${eventName}</div>
+                            ${primetimeContent}
                         </div>
                     `;
                     gamesList.appendChild(gameCard);
@@ -590,7 +588,7 @@
 
             } catch (error) {
                 console.error('Error loading today\'s games:', error);
-                document.getElementById('todaysGamesList').innerHTML = '<div style="color: #878787; text-align: center; padding: 20px; font-size: 13px;">Unable to load games</div>';
+                document.getElementById('todaysGamesList').innerHTML = '<div style="color: #878787; text-align: center; padding: 20px; font-size: 13px;">Unable to load games - Make sure the backend API is running on localhost:5000</div>';
             }
         }
     </script>
