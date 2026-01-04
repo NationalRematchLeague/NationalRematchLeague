@@ -226,9 +226,8 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px 40px;
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 40px;
+            display: flex;
+            gap: 20px;
         }
 
         /* Schedule Grid */
@@ -396,7 +395,7 @@
         /* Responsive */
         @media (max-width: 1024px) {
             .main-content {
-                grid-template-columns: 1fr;
+                flex-direction: column;
                 gap: 30px;
             }
 
