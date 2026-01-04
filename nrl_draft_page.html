@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -197,7 +197,7 @@
             overflow: hidden;
             background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
             border-radius: 15px;
-            padding: 60px 40px;
+            padding: 40px 20px;
             border: 2px solid #41DB90;
             box-shadow: 0 0 30px rgba(65, 219, 145, 0.2);
         }
@@ -235,482 +235,31 @@
         .page-subtitle {
             font-size: 20px;
             color: #ccc;
-            margin-bottom: 30px;
+            margin-bottom: 0;
             position: relative;
             z-index: 2;
         }
 
-        .draft-info-bar {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
-        }
-
-        .info-item {
-            text-align: center;
-        }
-
-        .info-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .info-value {
-            font-size: 18px;
-            font-weight: bold;
-            color: #41DB90;
-            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
-        }
-
-        .countdown-timer {
-            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
-            color: #242424;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 20px;
-            animation: glow 2s infinite alternate;
-        }
-
-        @keyframes glow {
-            from { box-shadow: 0 0 15px rgba(65, 219, 145, 0.4); }
-            to { box-shadow: 0 0 25px rgba(65, 219, 145, 0.8); }
-        }
-
-        /* Draft Board Layout */
-        .draft-layout {
-            display: grid;
-            grid-template-columns: 1fr 350px;
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        /* Draft Board */
-        .draft-board {
+        /* Airtable Container */
+        .airtable-container {
+            width: 100%;
             background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
             border-radius: 15px;
-            padding: 30px;
             border: 1px solid #41DB90;
             box-shadow: 0 0 20px rgba(65, 219, 145, 0.1);
-        }
-
-        .board-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid rgba(65, 219, 145, 0.3);
-        }
-
-        .board-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #41DB90;
-            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
-        }
-
-        .draft-filters {
-            display: flex;
-            gap: 10px;
-        }
-
-        .filter-btn {
-            background: transparent;
-            border: 1px solid #666;
-            color: #666;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            border-color: #41DB90;
-            color: #41DB90;
-            background: rgba(65, 219, 145, 0.1);
-        }
-
-        /* Draft Pick Cards */
-        .draft-picks {
-            display: grid;
-            gap: 15px;
-        }
-
-        .pick-card {
-            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
-            border: 1px solid rgba(65, 219, 145, 0.3);
-            border-radius: 12px;
-            padding: 20px;
-            transition: all 0.3s;
-            cursor: pointer;
-            position: relative;
             overflow: hidden;
         }
 
-        .pick-card:hover {
-            border-color: #41DB90;
-            box-shadow: 0 10px 25px rgba(65, 219, 145, 0.2);
-            transform: translateY(-3px);
-        }
-
-        .pick-card.drafted {
-            background: linear-gradient(135deg, #2f0a0a 0%, #4f1616 100%);
-            border-color: rgba(255, 65, 65, 0.3);
-        }
-
-        .pick-card.upcoming {
-            border-color: #ffd700;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-        }
-
-        .pick-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .pick-number {
-            font-size: 18px;
-            font-weight: bold;
-            color: #41DB90;
-        }
-
-        .pick-round {
-            font-size: 12px;
-            text-transform: uppercase;
-            color: #666;
-            background: rgba(65, 219, 145, 0.1);
-            padding: 4px 8px;
-            border-radius: 4px;
-        }
-
-        .team-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .team-logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #242424;
-            font-size: 14px;
-        }
-
-        .team-details h4 {
-            color: white;
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-
-        .team-need {
-            font-size: 12px;
-            color: #666;
-        }
-
-        .player-drafted {
-            background: rgba(255, 65, 65, 0.1);
-            border: 1px solid rgba(255, 65, 65, 0.3);
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 10px;
-        }
-
-        .player-name {
-            font-size: 16px;
-            font-weight: bold;
-            color: #ff4141;
-            margin-bottom: 5px;
-        }
-
-        .player-position {
-            font-size: 12px;
-            color: #999;
-        }
-
-        /* Sidebar */
-        .draft-sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        /* Top Prospects */
-        .top-prospects {
-            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid #41DB90;
-            box-shadow: 0 0 20px rgba(65, 219, 145, 0.1);
-        }
-
-        .prospects-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .prospects-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #41DB90;
-            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
-        }
-
-        .see-all-btn {
-            color: #41DB90;
-            text-decoration: none;
-            font-size: 12px;
-            transition: all 0.3s;
-        }
-
-        .see-all-btn:hover {
-            color: white;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-        }
-
-        .prospect-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .prospect-card {
-            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
-            border: 1px solid rgba(65, 219, 145, 0.2);
-            border-radius: 10px;
-            padding: 15px;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .prospect-card:hover {
-            border-color: #41DB90;
-            box-shadow: 0 5px 15px rgba(65, 219, 145, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .prospect-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .prospect-rank {
-            background: #41DB90;
-            color: #242424;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .prospect-name {
-            font-size: 14px;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 5px;
-        }
-
-        .prospect-details {
-            font-size: 11px;
-            color: #999;
-            margin-bottom: 10px;
-        }
-
-        .prospect-stats {
-            display: flex;
-            gap: 15px;
-            font-size: 11px;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-weight: bold;
-            color: #41DB90;
-        }
-
-        .stat-label {
-            color: #666;
-            text-transform: uppercase;
-        }
-
-        /* Draft Analysis */
-        .draft-analysis {
-            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid #41DB90;
-            box-shadow: 0 0 20px rgba(65, 219, 145, 0.1);
-        }
-
-        .analysis-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #41DB90;
-            text-shadow: 0 0 5px rgba(65, 219, 145, 0.5);
-            margin-bottom: 20px;
-        }
-
-        .analysis-item {
-            padding: 15px;
-            background: rgba(65, 219, 145, 0.05);
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border-left: 3px solid #41DB90;
-        }
-
-        .analysis-item h4 {
-            color: white;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-        .analysis-item p {
-            color: #ccc;
-            font-size: 12px;
-            line-height: 1.5;
-        }
-
-        /* Mock Draft */
-        .mock-draft-section {
-            margin-top: 50px;
-            background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%);
-            border-radius: 15px;
-            padding: 30px;
-            border: 1px solid #41DB90;
-            box-shadow: 0 0 20px rgba(65, 219, 145, 0.1);
-        }
-
-        .mock-draft-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .mock-draft-title {
-            font-size: 32px;
-            font-weight: bold;
-            color: #41DB90;
-            text-shadow: 0 0 10px rgba(65, 219, 145, 0.5);
-            margin-bottom: 10px;
-        }
-
-        .mock-draft-subtitle {
-            color: #ccc;
-            font-size: 16px;
-        }
-
-        .mock-draft-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .mock-pick {
-            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
-            border: 1px solid rgba(65, 219, 145, 0.3);
-            border-radius: 12px;
-            padding: 20px;
-            transition: all 0.3s;
-        }
-
-        .mock-pick:hover {
-            border-color: #41DB90;
-            box-shadow: 0 5px 15px rgba(65, 219, 145, 0.2);
-            transform: translateY(-3px);
-        }
-
-        .mock-pick-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .mock-pick-number {
-            background: #41DB90;
-            color: #242424;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        .mock-team-name {
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-        }
-
-        .mock-player-info {
-            margin-bottom: 15px;
-        }
-
-        .mock-player-name {
-            font-size: 18px;
-            font-weight: bold;
-            color: #41DB90;
-            margin-bottom: 5px;
-        }
-
-        .mock-player-details {
-            font-size: 14px;
-            color: #999;
-        }
-
-        .mock-analysis {
-            font-size: 13px;
-            color: #ccc;
-            line-height: 1.5;
-            background: rgba(65, 219, 145, 0.05);
-            padding: 10px;
-            border-radius: 6px;
-            border-left: 2px solid #41DB90;
+        .airtable-embed {
+            display: block;
+            width: 100%;
+            border: none;
         }
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .draft-layout {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
             .page-title {
                 font-size: 36px;
-            }
-
-            .draft-info-bar {
-                gap: 20px;
             }
         }
 
@@ -720,20 +269,11 @@
             }
 
             .page-header {
-                padding: 40px 20px;
+                padding: 30px 20px;
             }
 
             .page-title {
                 font-size: 28px;
-            }
-
-            .mock-draft-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .draft-info-bar {
-                flex-direction: column;
-                gap: 15px;
             }
         }
     </style>
@@ -795,174 +335,14 @@
     <div class="main-container">
         <!-- Page Header -->
         <div class="page-header">
-            <h1 class="page-title">Season 3 MRL Draft</h1>
+            <h1 class="page-title">MRL Draft</h1>
             <p class="page-subtitle">The Future of the League Starts Here</p>
-            <div class="draft-info-bar">
-                <div class="info-item">
-                    <div class="info-label">Draft Date</div>
-                    <div class="info-value">TBD - Season 3</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Total Rounds</div>
-                    <div class="info-value">5</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Eligible Players</div>
-                    <div class="info-value">247</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Teams Picking</div>
-                    <div class="info-value">10</div>
-                </div>
-            </div>
-            <div class="countdown-timer" id="countdown">
-                ðŸ“‹ Season 3 Draft Planning Phase
-            </div>
         </div>
 
-        <!-- Draft Board Layout -->
-        <div class="draft-layout">
-            <!-- Main Draft Board -->
-            <div class="draft-board">
-                <div class="board-header">
-                    <h2 class="board-title">Live Draft Board</h2>
-                    <div class="draft-filters">
-                        <button class="filter-btn active" onclick="filterPicks('all')">All</button>
-                        <button class="filter-btn" onclick="filterPicks('round1')">Round 1</button>
-                        <button class="filter-btn" onclick="filterPicks('upcoming')">Upcoming</button>
-                        <button class="filter-btn" onclick="filterPicks('drafted')">Completed</button>
-                    </div>
-                </div>
-
-                <div class="draft-picks" id="draft-picks">
-                    <!-- Pick 1 -->
-                    <div class="pick-card upcoming" data-filter="round1 upcoming">
-                        <div class="pick-header">
-                            <span class="pick-number">Pick #1</span>
-                            <span class="pick-round">Round 1</span>
-                        </div>
-                        <div class="team-info">
-                            <div class="team-logo">DW</div>
-                            <div class="team-details">
-                                <h4>DryWater FC</h4>
-                                <div class="team-need">Need: Striker, Midfielder</div>
-                            </div>
-                        </div>
-                        <div style="color: #ffd700; font-size: 14px; font-weight: bold;">â° ON THE CLOCK</div>
-                    </div>
-
-                    <!-- Pick 2 -->
-                    <div class="pick-card" data-filter="round1">
-                        <div class="pick-header">
-                            <span class="pick-number">Pick #2</span>
-                            <span class="pick-round">Round 1</span>
-                        </div>
-                        <div class="team-info">
-                            <div class="team-logo">67</div>
-                            <div class="team-details">
-                                <h4>67ers</h4>
-                                <div class="team-need">Need: Defender, Goalkeeper</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pick 3 -->
-                    <div class="pick-card" data-filter="round1">
-                        <div class="pick-header">
-                            <span class="pick-number">Pick #3</span>
-                            <span class="pick-round">Round 1</span>
-                        </div>
-                        <div class="team-info">
-                            <div class="team-logo">VV</div>
-                            <div class="team-details">
-                                <h4>VICI0US VIPERS</h4>
-                                <div class="team-need">Need: Winger, Midfielder</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pick 4 - Drafted -->
-                    <div class="pick-card drafted" data-filter="round1 drafted">
-                        <div class="pick-header">
-                            <span class="pick-number">Pick #4</span>
-                            <span class="pick-round">Round 1</span>
-                        </div>
-                        <div class="team-info">
-                            <div class="team-logo">U20</div>
-                            <div class="team-details">
-                                <h4>U20s</h4>
-                                <div class="team-need">Needed: Striker</div>
-                            </div>
-                        </div>
-                        <div class="player-drafted">
-                            <div class="player-name">Marcus Rodriguez</div>
-                            <div class="player-position">Striker â€¢ Universidad Nacional</div>
-                        </div>
-                    </div>
-
-                    <!-- Pick 5 - Drafted -->
-                    <div class="pick-card drafted" data-filter="round1 drafted">
-                        <div class="pick-header">
-                            <span class="pick-number">Pick #5</span>
-                            <span class="pick-round">Round 1</span>
-                        </div>
-                        <div class="team-info">
-                            <div class="team-logo">NC</div>
-                            <div class="team-details">
-                                <h4>Nova Core</h4>
-                                <div class="team-need">Needed: Midfielder</div>
-                            </div>
-                        </div>
-                        <div class="player-drafted">
-                            <div class="player-name">Alex Chen</div>
-                            <div class="player-position">Midfielder â€¢ FC Barcelona Academy</div>
-                        </div>
-                    </div>
-
-                    <!-- Additional picks continue... -->
-                    <div class="pick-card" data-filter="round1">
-                        <div class="pick-header">
-                            <span class="pick-number">Pick #6</span>
-                            <span class="pick-round">Round 1</span>
-                        </div>
-                        <div class="team-info">
-                            <div class="team-logo">SG</div>
-                            <div class="team-details">
-                                <h4>Serpent Grove FC</h4>
-                                <div class="team-need">Need: Defender, Winger</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pick-card" data-filter="round1">
-                        <div class="pick-header">
-                            <span class="pick-number">Pick #7</span>
-                            <span class="pick-round">Round 1</span>
-                        </div>
-                        <div class="team-info">
-                            <div class="team-logo">SP</div>
-                            <div class="team-details">
-                                <h4>St. Paul Strikers</h4>
-                                <div class="team-need">Need: Goalkeeper, Defender</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pick-card"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <!-- Airtable Embed -->
+        <div class="airtable-container">
+            <iframe class="airtable-embed" src="https://airtable.com/embed/appwknGToAyZyO50F/shrtC7xNN9Q7SjyXk" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+        </div>
+    </div>
+</body>
+</html>
