@@ -663,6 +663,29 @@
                 document.getElementById('todaysGamesList').innerHTML = '<div style="color: #878787; text-align: center; padding: 20px; font-size: 13px;">Unable to load games - Make sure the backend API is running on localhost:5000</div>';
             }
         }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(event.target)) {
+                    const content = dropdown.querySelector('.dropdown-content');
+                    if (content) {
+                        content.style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Keep dropdown open on hover
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.addEventListener('mouseenter', function() {
+                this.querySelector('.dropdown-content').style.display = 'block';
+            });
+            dropdown.addEventListener('mouseleave', function() {
+                this.querySelector('.dropdown-content').style.display = 'none';
+            });
+        });
     </script>
 </body>
 </html>
