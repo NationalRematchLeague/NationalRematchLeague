@@ -79,11 +79,11 @@
             display: flex;
             list-style: none;
             gap: 30px;
-            flex-grow: 1;
+            flex-grow: 1; flex-wrap: nowrap; flex-shrink: 0;
         }
 
         .nav-links li {
-            position: relative;
+            position: relative; flex-shrink: 0; white-space: nowrap;
         }
 
         .nav-links a {
@@ -1123,6 +1123,8 @@
 
             <!-- News Feed -->
             <div class="news-feed" id="news-content">
+
+
 
 
 
