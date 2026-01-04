@@ -90,11 +90,19 @@
             display: flex;
             list-style: none;
             gap: 30px;
-            flex-grow: 1;
+            flex-grow: 1; flex-wrap: nowrap; flex-shrink: 0;
         }
 
         .nav-links li {
-            position: relative;
+            position: relative; flex-shrink: 0; white-space: nowrap;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-shrink: 0;
+            white-space: nowrap;
         }
 
         .nav-links a {
@@ -1128,6 +1136,8 @@
     </script>
 </body>
 </html>
+
+
 
 
 
