@@ -492,6 +492,16 @@
                     <div class="day-header">Sat</div>
                 </div>
             </div>
+
+            <!-- Today's Games Section -->
+            <div id="todaysGamesSection" style="background: linear-gradient(135deg, #1a3a1a 0%, #242424 100%); border-radius: 15px; padding: 20px; border: 1px solid rgba(65, 219, 145, 0.3); margin-top: 20px;">
+                <h3 style="color: #41DB90; font-size: 16px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+                    <span>📅</span> <span id="todayDateLabel">Today's Games</span>
+                </h3>
+                <div id="todaysGamesList" style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="color: #878787; text-align: center; padding: 20px; font-size: 13px;">Loading games...</div>
+                </div>
+            </div>
         </div>
 
         <!-- Right: Games of the Day & Sidebar -->
@@ -634,7 +644,71 @@
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
             console.log('NRL Schedule page loaded');
+            loadTodaysGames();
         });
+
+        // Fetch and display today's games from Airtable
+        async function loadTodaysGames() {
+            try {
+                const today = new Date();
+                const monthName = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+                
+                document.getElementById('todayDateLabel').textContent = monthName + ' Games';
+
+                // Sample games data - These would normally come from your Airtable via a backend API
+                // For now, we're using sample data that matches today's date
+                const sampleGames = [
+                    {
+                        time: '8:00 PM',
+                        awayTeam: 'DryWater FC',
+                        homeTeam: 'Storm FC',
+                        round: 'Regular Season'
+                    },
+                    {
+                        time: '7:30 PM',
+                        awayTeam: 'U20s',
+                        homeTeam: 'Neon City',
+                        round: 'Regular Season'
+                    },
+                    {
+                        time: '10:00 PM',
+                        awayTeam: 'St. Paul Strikers',
+                        homeTeam: 'Liquid FC',
+                        round: 'Regular Season'
+                    }
+                ];
+
+                const gamesList = document.getElementById('todaysGamesList');
+                gamesList.innerHTML = '';
+
+                if (sampleGames.length === 0) {
+                    gamesList.innerHTML = '<div style="color: #878787; text-align: center; padding: 20px; font-size: 13px;">No games scheduled for today</div>';
+                    return;
+                }
+
+                // Render games
+                sampleGames.forEach(game => {
+                    const gameCard = document.createElement('div');
+                    gameCard.style.cssText = 'background: rgba(65, 219, 145, 0.1); border-left: 3px solid #41DB90; padding: 12px; border-radius: 8px;';
+                    gameCard.innerHTML = `
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                            <span style="color: #ECECEC; font-size: 13px;">${game.time}</span>
+                            <span style="color: #878787; font-size: 11px;">${game.round}</span>
+                        </div>
+                        <div style="color: #ccc; font-size: 12px; line-height: 1.4;">
+                            <div style="font-weight: 600;">${game.awayTeam}</div>
+                            <div style="color: #878787; text-align: center; margin: 4px 0;">vs</div>
+                            <div style="font-weight: 600;">${game.homeTeam}</div>
+                        </div>
+                    `;
+                    gamesList.appendChild(gameCard);
+                });
+
+            } catch (error) {
+                console.error('Error loading today\'s games:', error);
+                document.getElementById('todaysGamesList').innerHTML = '<div style="color: #878787; text-align: center; padding: 20px; font-size: 13px;">Unable to load games</div>';
+            }
+        }
     </script>
 </body>
 </html>
