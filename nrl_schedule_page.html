@@ -113,6 +113,46 @@
         .nav-links a.active {
             color: white;
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: linear-gradient(135deg, #41DB90 0%, #41DB90 100%);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(65, 219, 145, 0.3);
+            border-radius: 8px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #242424;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(10, 47, 10, 0.1);
+            transform: translateX(5px);
+        }
+
+        .dropdown > a::after {
+            content: ' ▼';
+            font-size: 10px;
+            margin-left: 5px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
         .sign-up {
