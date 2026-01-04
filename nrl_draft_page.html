@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -140,7 +140,7 @@
         }
 
         .dropdown > a::after {
-            content: ' ▼';
+            content: ' â–¼';
             font-size: 10px;
             margin-left: 5px;
         }
@@ -191,53 +191,27 @@
 
         /* Page Header */
         .page-header {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 20px 10px;
             text-align: center;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
-            border-radius: 15px;
-            padding: 20px 20px;
-            border: 2px solid #41DB90;
-            box-shadow: 0 0 30px rgba(65, 219, 145, 0.2);
-        }
-
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(65, 219, 145, 0.05) 50%, transparent 70%);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
         }
 
         .page-title {
             font-size: 32px;
-            font-weight: 900;
+            font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
             background: linear-gradient(135deg, #ffffff 0%, #41DB90 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            position: relative;
-            z-index: 2;
+            margin-bottom: 5px;
         }
 
         .page-subtitle {
             font-size: 14px;
             color: #ccc;
-            margin-bottom: 0;
-            position: relative;
-            z-index: 2;
+            margin-bottom: 15px;
         }
 
         /* Airtable Container */
@@ -346,3 +320,8 @@
     </div>
 </body>
 </html>
+
+
+
+
+
