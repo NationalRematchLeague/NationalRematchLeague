@@ -467,20 +467,7 @@
     <div class="page-header">
         <h1 class="page-title">Schedule</h1>
         <p class="page-subtitle">Complete fixture list for Season 2 - Regular season, playoffs, and key events</p>
-        
-        <!-- Calendar Navigation -->
-        <div class="calendar-nav">
-            <div class="month-selector">
-                <button class="nav-btn" onclick="changeMonth(-1)">â€¹</button>
-                <span class="current-month">August 2025</span>
-                <button class="nav-btn" onclick="changeMonth(1)">â€º</button>
-            </div>
-            <div class="view-options">
-                <button class="view-btn active" onclick="changeView('month')">Month</button>
-                <button class="view-btn" onclick="changeView('week')">Week</button>
-                <button class="view-btn" onclick="changeView('list')">List</button>
-            </div>
-        </div>
+
     </div>
 
     <!-- Main Content -->
@@ -488,14 +475,14 @@
         <!-- Left: Schedule Calendar -->
         <div style="flex: 2; min-width: 0;">
             <div class="schedule-container">
-                <iframe class="airtable-embed" src="https://airtable.com/embed/appwknGToAyZyO50F/shruYyKL44qLQXxcW" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+                <iframe class="airtable-embed" src="https://airtable.com/embed/appwknGToAyZyO50F/shruYyKL44qLQXxcW" frameborder="0" onmousewheel="" width="100%" height="750" style="background: transparent; border: 1px solid #ccc;"></iframe>
             </div>
         </div>
 
         <!-- Center: Today's Games -->
         <div style="flex: 1.2; min-width: 0; display: flex; flex-direction: column; gap: 20px;">
             <!-- Today's Games Section -->
-            <div id="todaysGamesSection" style="background: linear-gradient(135deg, #1a3a1a 0%, #242424 100%); border-radius: 15px; padding: 20px; border: 1px solid rgba(65, 219, 145, 0.3); height: fit-content;">
+            <div id="todaysGamesSection" style="background: linear-gradient(135deg, #1a3a1a 0%, #242424 100%); border-radius: 15px; padding: 20px; border: 1px solid rgba(65, 219, 145, 0.3); height: 750px; overflow-y: auto;">
                 <h3 style="color: #41DB90; font-size: 16px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
                     <span>🎮</span> <span id="todayDateLabel">Today's Games</span>
                 </h3>
