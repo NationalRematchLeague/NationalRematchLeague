@@ -476,8 +476,8 @@
 
     <!-- Main Content -->
     <div class="main-content" style="display: flex; gap: 20px;">
-        <!-- Left: Schedule Calendar and Today's Games -->
-        <div style="flex: 2; display: flex; flex-direction: column; gap: 20px;">
+        <!-- Left: Schedule Calendar -->
+        <div style="flex: 1;">
             <div class="schedule-container">
                 <iframe class="airtable-embed" src="https://airtable.com/embed/appwknGToAyZyO50F/shruYyKL44qLQXxcW" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
             </div>
@@ -491,9 +491,12 @@
                     <div class="day-header">Sat</div>
                 </div>
             </div>
+        </div>
 
+        <!-- Center: Today's Games -->
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
             <!-- Today's Games Section -->
-            <div id="todaysGamesSection" style="background: linear-gradient(135deg, #1a3a1a 0%, #242424 100%); border-radius: 15px; padding: 20px; border: 1px solid rgba(65, 219, 145, 0.3);">
+            <div id="todaysGamesSection" style="background: linear-gradient(135deg, #1a3a1a 0%, #242424 100%); border-radius: 15px; padding: 20px; border: 1px solid rgba(65, 219, 145, 0.3); height: fit-content;">
                 <h3 style="color: #41DB90; font-size: 16px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
                     <span>🎮</span> <span id="todayDateLabel">Today's Games</span>
                 </h3>
