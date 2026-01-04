@@ -146,6 +146,11 @@
             display: block;
         }
 
+        .dropdown > a.active ~ .dropdown-content,
+        .dropdown:has(> a.active) .dropdown-content {
+            display: block;
+        }
+
         .sign-up {
             background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
             color: #41DB90;
