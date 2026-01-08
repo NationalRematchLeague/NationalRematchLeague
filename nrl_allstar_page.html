@@ -217,27 +217,43 @@
         /* Hero Section */
         .hero-section {
             position: relative;
-            background: linear-gradient(135deg, #242424 0%, #1a3a1a 100%);
-            border-radius: 20px;
+            background: #1a1a1a;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             overflow: hidden;
-            margin-bottom: 50px;
-            border: 3px solid #41DB90;
-            box-shadow: 0 0 40px rgba(65, 219, 145, 0.3);
+        }
+
+        .hero-title-top {
+            position: relative;
+            z-index: 3;
+            font-size: 56px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            padding: 40px 20px 20px;
+            margin: 0;
+            background: linear-gradient(135deg, #ffffff 0%, #41DB90 50%, #ffd700 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(65, 219, 145, 0.5);
+            text-align: center;
         }
 
         .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            position: relative;
+            width: 100%;
+            height: 400px;
             background: url('Youtube_Banner.png') center/cover;
+            flex-shrink: 0;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            padding: 200px 60px 40px 60px;
+            padding: 20px 60px 40px 60px;
             text-align: center;
         }
 
@@ -698,8 +714,13 @@
                 gap: 30px;
             }
 
-            .hero-title {
+            .hero-title-top {
                 font-size: 42px;
+                padding: 30px 20px 15px;
+            }
+
+            .hero-background {
+                height: 300px;
             }
 
             .hero-details {
@@ -716,8 +737,13 @@
                 padding: 40px 30px;
             }
 
-            .hero-title {
+            .hero-title-top {
                 font-size: 32px;
+                padding: 20px 15px 10px;
+            }
+
+            .hero-background {
+                height: 250px;
             }
 
             .hero-details {
@@ -956,6 +982,12 @@
                                 <div class="vote-percentage">43% of votes</div>
                             </div>
                             <div class="player
+
+
+
+
+
+
 
 
 
