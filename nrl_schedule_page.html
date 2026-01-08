@@ -611,65 +611,11 @@
             updateTodayLabel();
         });
 
-        // Fetch and display today's games from backend API
-        async function loadTodaysGames() {
-            try {
-                const today = new Date();
-                const monthName = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-                
-                document.getElementById('todayDateLabel').textContent = monthName + ' Games';
-
-                // Fetch from backend API (running on localhost:5000)
-                const response = await fetch('http://localhost:5000/api/today-games');
-                
-                if (!response.ok) {
-                    throw new Error('Failed to fetch games from API');
-                }
-                
-                const data = await response.json();
-                console.log('API Response:', data);
-                const games = data.games || [];
-                console.log('Games array length:', games.length);
-                const gamesList = document.getElementById('todaysGamesList');
-                gamesList.innerHTML = '';
-
-                if (games.length === 0) {
-                    gamesList.innerHTML = '<div style="color: #878787; text-align: center; padding: 20px; font-size: 13px;">No games scheduled for today</div>';
-                    return;
-                }
-
-                // Parse and render games
-                games.forEach((game, index) => {
-                    console.log(`Processing game ${index}:`, game);
-                    const gameCard = document.createElement('div');
-                    gameCard.style.cssText = 'background: rgba(65, 219, 145, 0.1); border-left: 3px solid #41DB90; padding: 12px; border-radius: 8px; margin-bottom: 8px;';
-                    
-                    // Parse event name
-                    const eventName = game.event || 'Match';
-                    
-                    // Color code based on "Done" or "Todo"
-                    let badgeColor = 'rgba(65, 219, 145, 0.2)';
-                    let badgeTextColor = '#41DB90';
-                    if (game.primetimeSelect && game.primetimeSelect.toLowerCase().includes('todo')) {
-                        badgeColor = 'rgba(255, 107, 107, 0.2)';
-                        badgeTextColor = '#ff6b6b';
-                    }
-                    
-                    const primetimeContent = game.primetimeSelect ? `<span style="color: ${badgeTextColor}; font-size: 12px; font-weight: bold; background: ${badgeColor}; padding: 4px 8px; border-radius: 4px; margin-left: 8px;">${game.primetimeSelect}</span>` : '';
-                    
-                    gameCard.innerHTML = `
-                        <div style="color: #ccc; font-size: 15px; line-height: 1.4; display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
-                            <div style="font-weight: 600; flex: 1;">${eventName}</div>
-                            ${primetimeContent}
-                        </div>
-                    `;
-                    gamesList.appendChild(gameCard);
-                });
-
-            } catch (error) {
-                console.error('Error loading today\'s games:', error);
-                document.getElementById('todaysGamesList').innerHTML = '<div style="color: #878787; text-align: center; padding: 20px; font-size: 13px;">Unable to load games - Make sure the backend API is running on localhost:5000</div>';
-            }
+                // Update today's date label
+        function updateTodayLabel() {
+            const today = new Date();
+            const monthName = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+            document.getElementById('todayDateLabel').textContent = monthName + ' Games';
         }
 
         // Close dropdowns when clicking outside
