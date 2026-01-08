@@ -662,11 +662,9 @@
         }
 
         .social-icons {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            max-width: 300px;
-            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
         }
 
         .social-icon {
@@ -685,66 +683,10 @@
         .social-icon:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            background: #3d3d3d;
         }
 
-        .facebook {
-            background: #1877f2;
-            color: white;
-        }
 
-        .facebook:hover {
-            border-color: #1877f2;
-            box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
-        }
-
-        .instagram {
-            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-            color: white;
-        }
-
-        .instagram:hover {
-            box-shadow: 0 5px 15px rgba(225, 48, 108, 0.4);
-        }
-
-        .snapchat {
-            background: #fffc00;
-            color: white;
-        }
-
-        .snapchat:hover {
-            border-color: #fffc00;
-            box-shadow: 0 5px 15px rgba(255, 252, 0, 0.4);
-        }
-
-        .tiktok {
-            background: #000000;
-            color: #ff0050;
-        }
-
-        .tiktok:hover {
-            border-color: #ff0050;
-            box-shadow: 0 5px 15px rgba(255, 0, 80, 0.4);
-        }
-
-        .twitter {
-            background: #000000;
-            color: white;
-        }
-
-        .twitter:hover {
-            border-color: #1da1f2;
-            box-shadow: 0 5px 15px rgba(29, 161, 242, 0.4);
-        }
-
-        .youtube {
-            background: #ff0000;
-            color: white;
-        }
-
-        .youtube:hover {
-            border-color: #ff0000;
-            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
-        }
 
         .twitch {
             background: #9146ff;
@@ -928,14 +870,17 @@
             }
 
             .social-icons {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
+                gap: 8px;
             }
 
             .social-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
+                width: 36px;
+                height: 36px;
+            }
+
+            .social-icon svg {
+                width: 18px;
+                height: 18px;
             }
         }
     </style>
@@ -1084,6 +1029,14 @@
 
             <!-- News Feed -->
             <div class="news-feed" id="news-content">
+
+
+
+
+
+
+
+
 
 
 
