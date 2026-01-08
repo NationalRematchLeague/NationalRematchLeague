@@ -562,10 +562,10 @@
             <!-- Today's Games Section -->
             <div id="todaysGamesSection" style="background: linear-gradient(135deg, #1a3a1a 0%, #1a3a1a 100%); border-radius: 15px; padding: 20px; border: 1px solid rgba(65, 219, 145, 0.3); height: 750px; overflow-y: auto;">
                 <h3 style="color: #41DB90; font-size: 16px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-                    <span>??</span> <span id="todayDateLabel">Today's Games</span>
+                    <span>&#128197;</span> <span id="todayDateLabel">Today's Games</span>
                 </h3>
                 <div id="todaysGamesList" style="display: flex; flex-direction: column; gap: 12px;">
-                    <div style="color: #878787; text-align: center; padding: 20px; font-size: 13px;">Loading games...</div>
+                    <div style="color: #878787; text-align: center; padding: 20px; font-size: 13px;">No games scheduled for today - Check the schedule above for upcoming matches</div>
                 </div>
             </div>
         </div>
@@ -608,7 +608,7 @@
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
             console.log('NRL Schedule page loaded');
-            loadTodaysGames();
+            updateTodayLabel();
         });
 
         // Fetch and display today's games from backend API
